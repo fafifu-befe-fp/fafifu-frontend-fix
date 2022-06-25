@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/Home';
 import Notification from './Pages/Notification/Notification';
 import DaftarJual from './Components/DaftarJual/DaftarJual'
-// import Info from './Pages/Profile/Info';
 import Login from './Pages/LogReg/Login';
 import Register from './Pages/LogReg/Register';
+import InfoProfile from './Pages/Profile/InfoProfile'
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
         <Route path="/notification" element={<Notification />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/info" element={<InfoProfile />} />
       </Routes>
     </BrowserRouter>
   );
