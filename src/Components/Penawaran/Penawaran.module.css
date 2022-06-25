@@ -1,0 +1,82 @@
+.buttonPenawaranTerima {
+    background-color: #7126B5;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+    color: white;
+}
+
+.buttonPenawaranTerima:hover {
+    background-color: white;
+    color: #7126B5;
+    font-weight: 600;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+.buttonMatchTerima{
+    background-color: #7126B5;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+    color: white;
+}
+
+.buttonPenawaranTolak {
+    background-color: white;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+.buttonPenawaranTolak:hover {
+    background-color: rgb(240, 240, 240);
+    height: 40px;
+    font-weight: 600;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+.backlogo{
+    position: relative;
+    top: 0%;
+    left: 20%;
+    transform: translateY(200%);
+}
+
+.textSecondary{
+    font-size: 12px;
+    color: #818181;
+}
+
+.produkText{
+    font-weight: 600;
+}
+
+.textNama{
+    font-weight: 500;
+}
+
+.textKota{
+    font-size: 14px;
+    color: #818181;
+    display: flex;
+    align-items: center;
+}
+
+.modalTitle{
+    font-weight: 600;
+}
+
+.modalDescription{
+    color: #818181;
+}
+
+.text{
+    font-size: 14px;
+}
+
+.dataContainer{
+    background-color: #EEEEEE;
+}
