@@ -1,0 +1,14 @@
+h5, p {
+    font-size: 14px;
+}
+
+img {
+    width: 165.33px;
+    height: 100px;
+    object-fit: none;
+}
+
+.card {
+    margin: -7px;
+    margin-bottom: 15px;
+}
