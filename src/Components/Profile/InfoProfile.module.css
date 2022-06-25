@@ -1,0 +1,31 @@
+:root{
+    --basecolor: #7126B5;
+    --hovercolor: #54197e;
+}
+
+.buttonsimpan{
+    border-radius: 16px;
+    background-color: var(--basecolor);
+    color: white;
+    padding: 12px 0 12px 0;
+    border-style: none;
+}
+
+.buttonsimpan:hover{
+    background-color: var(--hovercolor);
+}
+
+.listFile{
+    font-size: 12px;
+    list-style: none;
+    margin-left: -5%;
+}
+
+.formInfo label{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.formInfo ::placeholder, .formInfo select{
+    font-size: 12px;
+}
