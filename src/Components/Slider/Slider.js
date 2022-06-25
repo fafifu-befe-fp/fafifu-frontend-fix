@@ -41,8 +41,8 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide><img src="../../img/slider1.png" alt="imgbanner1" border="0" className=""/></SwiperSlide>
-        <SwiperSlide><img src="../../img/slider1.png" alt="imgbanner1" border="0" className="img-fluid"/></SwiperSlide>
-        <SwiperSlide><img src="../../img/slider1.png" alt="imgbanner1" border="0" className="img-fluid"/></SwiperSlide>
+        <SwiperSlide><img src="../../img/slider2.png" alt="imgbanner1" border="0" className="img-fluid"/></SwiperSlide>
+        <SwiperSlide><img src="../../img/slider3.png" alt="imgbanner1" border="0" className="img-fluid"/></SwiperSlide>
       </Swiper>
     </>
   )
