@@ -4,3 +4,74 @@
     font-family: 'Poppins', sans-serif;
     /* overflow: hidden; */
 }
+
+:root{
+    --basecolor: #7126B5;
+    --hovercolor: #54197e;
+}
+
+.login-page{
+    overflow: hidden;
+}
+
+.logo{
+    height: 50px;
+}
+
+.login-page{
+    height: 100vh;
+}
+
+.login-right h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-right label{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.login-right ::placeholder{
+    font-size: 12px;
+}
+
+.login-right span {
+    font-size: 14px;
+    line-height: 20px;  
+}
+
+.login-right span a{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--basecolor);
+}
+
+.imglogo{
+    transform: scale(0.25);
+}
+
+textarea:hover, input:hover, textarea:active, input:active, textarea:focus, 
+input:focus, button:focus, button:active, button:hover, label:focus,
+.btn:active, .btn.active, select:active,  select:focus
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+/* RESPONSIVE AREA */
+@media (max-width:576px){
+    .login-right{
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    .logregRes{
+        margin-top: -20%;
+    }
+}
