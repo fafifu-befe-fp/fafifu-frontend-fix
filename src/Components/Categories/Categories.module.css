@@ -1,0 +1,29 @@
+.btn {
+    background: #E2D4F0;
+    border-radius: 12px;
+    font-size: 13px;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+}
+
+.btn:hover {
+    background: #7126B5;
+    color: white;
+}
+
+.btnActive {
+    background: #7126B5;
+    color: white;
+}
+
+.btnActive:hover {
+    background: #562c7e;
+    color: white;
+}
+
+@media (max-width: 770px) {
+    .fi {
+        display: none;
+    }
+}
