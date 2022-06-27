@@ -1,0 +1,27 @@
+.float {
+    background-color: #7126B5;
+    color: white;
+    width: 100px;
+    height: 52px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    border-style: none;
+
+    position: fixed;
+    bottom: 1%;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+.float:hover {
+    background: #431e66;
+}
+
+.float:active {
+    background-color: #7126B5;
+    color: white;
+}

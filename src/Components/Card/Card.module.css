@@ -12,3 +12,9 @@ img {
     margin: -7px;
     margin-bottom: 15px;
 }
+@media only screen and (max-width: 330px){
+    .card {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
