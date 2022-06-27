@@ -10,6 +10,7 @@ import DaftarJual from './Components/DaftarJual/DaftarJual'
 import Login from './Pages/LogReg/Login';
 import Register from './Pages/LogReg/Register';
 import InfoProfile from './Pages/Profile/InfoProfile'
+import InfoProduk from './Pages/Product/InfoProduk';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/info" element={<InfoProfile />} />
+        <Route path="/infop" element={<InfoProduk />} />
       </Routes>
     </BrowserRouter>
   );
