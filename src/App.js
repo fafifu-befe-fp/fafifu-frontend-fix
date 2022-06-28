@@ -11,10 +11,10 @@ import Login from './Pages/LogReg/Login';
 import Register from './Pages/LogReg/Register';
 import InfoProfile from './Pages/Profile/InfoProfile'
 
-
 function App() {
   return (
     <BrowserRouter>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<DaftarJual/>} />
