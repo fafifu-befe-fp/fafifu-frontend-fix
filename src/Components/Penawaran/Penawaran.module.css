@@ -65,6 +65,8 @@
     align-items: center;
 }
 
+/* Modals Terima */
+
 .modalTitle{
     font-weight: 600;
 }
@@ -79,4 +81,42 @@
 
 .dataContainer{
     background-color: #EEEEEE;
+}
+
+/* Modals Status */
+
+.modalStatusTitle{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.buttonKirim {
+    background-color: #7126B5;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+    color: white;
+}
+
+.buttonKirim:hover {
+    background-color: white;
+    color: #7126B5;
+    font-weight: 600;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+/* Modals Tawar */
+
+.photoDetailContainer{
+    background-color: #EEEEEE;
+}
+
+.photoDetailText{
+    font-size: 14px;
+}
+
+.hargaTawarText{
+    font-size: 12px;
 }
