@@ -1,0 +1,123 @@
+:root{
+    --basecolor: #7126B5;
+    --hovercolor: #54197e;
+}
+
+.cardDesc{
+    width: 600px;
+    height: auto;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    margin: auto;
+}
+
+.cardProduct{
+    width: 336px;
+    height: 266px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 0;
+}
+
+.cardSeller{
+    width: 336px;
+    height: 88px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
+.profPic{
+    width: 48px;
+    height: auto;
+}
+
+.buttonsimpan{
+    border-radius: 16px;
+    background-color: var(--basecolor);
+    color: white;
+    padding: 12px 0 12px 0;
+    border-style: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.buttonsimpan:hover{
+    background-color: var(--hovercolor);
+}
+
+.buttonedit{
+    border-radius: 16px;
+    background-color: white;
+    color: var(--basecolor);
+    padding: 12px 0 12px 0;
+    font-weight: 500;
+    border: 2px solid var(--basecolor);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.buttonedit:hover{
+    background-color: var(--basecolor);
+    color: white;
+}
+
+.sellerName{
+    margin-left: -0.75rem;
+}
+
+.namaBarang{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.jenisBarang{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #8A8A8A;
+}
+
+.hargaBarang{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.namaSeller{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.asalSeller{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #8A8A8A;
+}
+
+.cardBodyDesc{
+    padding: 0 16px 16px 16px;
+}
+
+.headDesc{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 16px 0 16px 0;
+}
+
+.parDesc{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #8A8A8A;
+}
+
+/* RESPONSIVE AREA */
