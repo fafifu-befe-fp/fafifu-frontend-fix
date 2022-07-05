@@ -28,7 +28,7 @@ const Login = () => {
     axios.post('https://fafifu-backend-api.herokuapp.com/v1/auth/login', postData )
     .then( res => {
       if ( typeof res.data.data.token != 'undefined' ) {
-        localStorage.setItem('finalprojectToken', res.data.data.token)
+        localStorage.setItem('jwtToken', res.data.data.token)
         console.log(res)
         dispatch( userSlice.actions.addUser({ userData: res.data.data.user}) )
         navigate('/')
