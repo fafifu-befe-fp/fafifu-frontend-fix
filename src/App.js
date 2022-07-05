@@ -11,10 +11,12 @@ import Login from './Pages/LogReg/Login';
 import Register from './Pages/LogReg/Register';
 import InfoProfile from './Pages/Profile/InfoProfile'
 import InfoProduk from './Pages/Product/InfoProduk';
+import Logout from './Components/LoginRegister/Logout'
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<DaftarJual/>} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/info" element={<InfoProfile />} />
         <Route path="/infop" element={<InfoProduk />} />
+        <Route path="/logout" element={<Logout/>}/>
       </Routes>
     </BrowserRouter>
   );
