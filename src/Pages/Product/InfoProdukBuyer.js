@@ -27,7 +27,7 @@ const InfoProdukBuyer = (props) => {
             <div className='row'>
                 <div className='col-12 col-md-8'>
                     <CarouselProduct products={products} />
-                    <Desc />
+                    <Desc products={products} />
                 </div>
                 <div className='col-12 col-md-4'>
                     <Buyer products={products} />
