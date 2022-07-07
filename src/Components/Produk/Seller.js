@@ -1,17 +1,17 @@
 import React from 'react'
 import style from './product.module.css'
 
-const Seller = () => {
+const Seller = (props) => {
   return (
     <div className={`card w-100 ${style.cardSeller}`}>
         <div className='card-body'>
             <div className='row mt-1'>
-                <div className={`col-3`}>
-                    <img src='img/profilephoto.png' alt='' className={`${style.profPic} mx-auto`} />
+                <div className={`col-3 border rounded`}>
+                    <img src={props.products[0].seller.imageUrl} alt='' className={`${style.profPic} mx-auto`} />
                 </div>
-                <div className={`col-9 ${style.sellerName}`}>
-                    <h5 className={`${style.namaSeller}`}>Nama Penjual</h5>
-                    <p className={`${style.asalSeller}`}>Kota</p>
+                <div className={`col-9 bg-white ${style.sellerName}`}>
+                    <h5 className={`${style.namaSeller}`}>{props.products[0].seller.name}</h5>
+                    <p className={`${style.asalSeller}`}>{props.products[0].seller.city}</p>
                 </div>
             </div>
         </div>
