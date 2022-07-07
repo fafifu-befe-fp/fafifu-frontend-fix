@@ -9,9 +9,19 @@ nav {
   height: 84px;
 }
 
-.logoKotakz{
-  transform: translateY(-12px);
-  -webkit-transform: translateY(-12px);
+.navMobile{
+  height: 84px;
+  position: relative;
+  top: -30%;
+}
+
+.iconNav{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(113, 38, 181, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.iconNavBorder{
+  border-color: var(--basecolor);
+  border-width: 2px;
 }
 
 .searchBar {
@@ -55,7 +65,6 @@ nav {
   padding: 14px 16px;
   border-style: none;
   width: 105px;
-
 }
 
 .masuk, .masuk:hover{
@@ -67,4 +76,33 @@ nav {
 .buttonLogin:hover{
   background-color: var(--hovercolor);
 }
+
+.ulText li {
+  font-size: 14px;
+}
+
+.ulText .linkText {
+  color: var(--basecolor);
+  font-weight: 500;
+}
+
+.navBackground{
+  position: relative;
+  top: -16px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* RESPONSIVE AREA */
+@media only screen and (max-width: 470px) {
+  .searchBar {
+    width: 320px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  
+}
+
 
