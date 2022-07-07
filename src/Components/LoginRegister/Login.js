@@ -30,7 +30,10 @@ const Login = () => {
       if ( typeof res.data.data.token != 'undefined' ) {
         localStorage.setItem('jwtToken', res.data.data.token)
         localStorage.setItem('sessionId', res.data.data.user.publicId)
-        console.log(res)
+        localStorage.setItem('sessionName', res.data.data.user.name)
+        localStorage.setItem('sessionCity', res.data.data.user.city)
+        localStorage.setItem('sessionImage', res.data.data.user.imageUrl)
+        console.log('ini res login', res)
         dispatch( userSlice.actions.addUser({ userData: res.data.data.user}) )
         navigate('/')
       }

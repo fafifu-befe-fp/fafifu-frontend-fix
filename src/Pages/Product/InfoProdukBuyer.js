@@ -6,6 +6,7 @@ import Seller from '../../Components/Produk/Seller'
 import style from './fixingcss.module.css'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Navbar from '../../Components/Navbar/Navbar';
 
 const InfoProdukBuyer = (props) => {
 
@@ -22,6 +23,7 @@ const InfoProdukBuyer = (props) => {
 
   return (
     <>
+      <Navbar/>
       { products !== null &&
         <div className={`container d-sm-flex justify-content-center mt-4 ${style.containerProduct}`}>
             <div className='row'>

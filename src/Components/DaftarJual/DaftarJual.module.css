@@ -15,6 +15,12 @@
     
 }
 
+.profilePhoto{
+    max-width: 50px;
+    min-height: 50px;
+    border-radius: 10px;
+}
+
 .categoryContainer:hover .svg{
     filter: invert(13%) sepia(85%) saturate(4371%) hue-rotate(270deg) brightness(94%) contrast(40%);
 }

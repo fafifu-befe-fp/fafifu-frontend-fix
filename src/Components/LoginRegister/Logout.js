@@ -8,6 +8,10 @@ const Logout = () => {
 
   // Menghapus token dri LS
   localStorage.removeItem('jwtToken')
+  localStorage.removeItem('sessionId')
+  localStorage.removeItem('sessionName')
+  localStorage.removeItem('sessionCity')
+  localStorage.removeItem('sessionImage')
   // Mengupdate user store jadi NULL
   dispatch( userSlice.actions.removeUser() )
 
