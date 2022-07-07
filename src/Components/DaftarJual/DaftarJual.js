@@ -34,6 +34,18 @@ const DaftarJual = () => {
                                 </button>
                             </div>
                         </div>
+                        <hr/>
+                        <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
+                            <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
+                                <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
+                            </div>
+                            <div className={`col ${style.textCategory} py-2`}>
+                                Wishlist
+                            </div>
+                            <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
+                                <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                            </div>
+                        </div>
                     </div>
                     {/* <Hubungi/> */}
                     <div className={"row d-flex flex-row py-3 mb-3"}>
