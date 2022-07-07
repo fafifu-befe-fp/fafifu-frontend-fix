@@ -25,7 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/info" element={<InfoProfile />} />
-        <Route path="/infop" element={<InfoProduk />} />
+        <Route path="/infop/:id" element={<InfoProduk />} />
         <Route path="/infopb/:id" element={<InfoProdukBuyer />} />
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/navbartest" element={<Navbar />}/>

@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMdArrowBack } from 'react-icons/io'
 import { BsWhatsapp } from 'react-icons/bs'
 import { useDropzone } from 'react-dropzone';
+import axios from "axios";
 import Card from './DaftarJualCard';
 import style from './DaftarJual.module.css'
 import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom'
 
 const DaftarJual = () => {
+    
+  const [productsProfile, setProductsProfile] = useState([])
+    
+    useEffect(() => {
+        axios
+            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/shop/${localStorage.getItem('sessionId')}`, {
+                headers: {
+                    Authorization: localStorage.getItem('jwtToken'),
+                },
+            })
+            .then((res) => {
+                console.log('ini res', res.data.data);
+                setProductsProfile(res.data.data);
+            });
+  }, []);
   return (
     <>
         <Navbar />
@@ -18,32 +35,24 @@ const DaftarJual = () => {
                     </h4>
                     {/* <IoMdArrowBack className={'backlogo mt-2'} size={20} /> */}
                     <div className={"row d-flex flex-row shadow rounded p-3"}>
-                        <img className={"col-auto p-0 m-0 d-flex justify-content-center align-items-center h-auto me-3"} src='img/Penjual.svg' alt='Penjual'/>
+                        <img 
+                            className={`col-auto p-0 m-0 d-flex justify-content-center align-items-center h-auto me-3 shadow ${style.profilePhoto}`} 
+                            src={localStorage.getItem('sessionImage')}
+                            alt='Penjual'
+                        />
                         <div className={"col d-flex flex-row justify-content-between align-items-center p-0 m-0"}>
                             <div className={"col-auto"}>
                                 <div>
-                                    Nama Penjual
+                                    {localStorage.getItem('sessionName')}
                                 </div>
                                 <div className={`${style.kota}`}>
-                                    Kota
+                                    {localStorage.getItem('sessionCity')}
                                 </div>
                             </div>
                             <div className={"col-auto"}>
                                 <button type="button" className={`btn ${style.editButton} d-flex justify-content-center align-items-center`}>
                                     Edit
                                 </button>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
-                            <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
-                            </div>
-                            <div className={`col ${style.textCategory} py-2`}>
-                                Wishlist
-                            </div>
-                            <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
                             </div>
                         </div>
                     </div>
@@ -88,14 +97,29 @@ const DaftarJual = () => {
                                     <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
                                 </div>
                             </div>
+                            <hr/>
+                            <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
+                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
+                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
+                                </div>
+                                <div className={`col ${style.textCategory} py-2`}>
+                                    Wishlist
+                                </div>
+                                <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
+                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                                </div>
+                            </div>
                         </div>
                         <div className={`col-lg-9 py-0 d-flex flex-wrap ${style.productContainer}`}>
-                            <Card/>
-                            <Card/>
-                            <Card/>
-                            <Card/>
-                            <Card/>
-                            <Card/>
+                            {productsProfile.map((productProfile) => {
+                                return(
+                                    <>
+                                        <Link to={`/infop/${productProfile.publicId}`}>
+                                            <Card productProfile={productProfile}/>
+                                        </Link>
+                                    </>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

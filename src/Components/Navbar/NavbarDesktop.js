@@ -20,8 +20,12 @@ const NavbarDesktop = () => {
           </form>
           <div className={`icon_wrapper ms-auto`}>
             <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>
-            <MdNotificationsNone className={`${style.mdNotif} me-3`}/>
-            <FiUser className={`${style.fiUser} me-3`}/>           
+            <Link to='/notification'>
+              <MdNotificationsNone className={`${style.mdNotif} me-3`}/>
+            </Link>
+            <Link to='/profile'>
+              <FiUser className={`${style.fiUser} me-3`}/>      
+            </Link>     
             <button type="submit" className={`${style.buttonLogin}`}>
               <FiLogIn className='me-1'/>
               <Link to='/Login' className={`${style.masuk}`}>Masuk</Link>
