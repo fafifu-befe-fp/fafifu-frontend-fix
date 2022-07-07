@@ -29,6 +29,7 @@ const Login = () => {
     .then( res => {
       if ( typeof res.data.data.token != 'undefined' ) {
         localStorage.setItem('jwtToken', res.data.data.token)
+        localStorage.setItem('sessionId', res.data.data.user.publicId)
         console.log(res)
         dispatch( userSlice.actions.addUser({ userData: res.data.data.user}) )
         navigate('/')

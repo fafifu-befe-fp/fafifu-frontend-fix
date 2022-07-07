@@ -3,8 +3,6 @@ import style from './InfoProfile.module.css'
 import FormInfoProfile from './Form'
 import { IoMdArrowBack } from 'react-icons/io'
 
-
-
 const Info = () => {
   return (
     <div className='container d-block'>

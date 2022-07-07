@@ -35,18 +35,6 @@ const NavbarMobile = () => {
             <form className="d-flex float-end pb-3 me-2" role="search">
                 <input className={`${style.searchBar} form-control`} type="search" placeholder="Cari di sini ..." aria-label="Search" />
             </form>
-
-
-
-          {/* <div className={`icon_wrapper ms-auto`}>
-            <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>
-            <MdNotificationsNone className={`${style.mdNotif} me-3`}/>
-            <FiUser className={`${style.fiUser} me-3`}/>           
-            <button type="submit" className={`${style.buttonLogin}`}>
-              <FiLogIn className='me-1'/>
-              <Link to='/Login' className={`${style.masuk}`}>Masuk</Link>
-            </button>
-          </div> */}
         </div>
     </div>
   )
