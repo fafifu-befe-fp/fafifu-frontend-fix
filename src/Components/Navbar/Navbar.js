@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className={`navbar sticky-top d-flex justify-content-between align-items-center`}>
       <div className='container d-flex'>
         <div className='row d-flex justify-content-between align-items-center'>
-          <Link to="/" className='col-auto'>
+          <Link to="/" className={`col-auto`}>
             <img src='img/logokotak.svg' alt='logoimg' className={`${style.logoKotak}`} />
           </Link>
           <div className='col d-flex flex-row'>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from '../../Components/Slider/Slider'
 import Category from '../../Components/Categories/Categories';
 import FloatButton from '../../Components/FloatButton/FloatButton';

@@ -5,6 +5,7 @@ import Card from '../Card/Card';
 import {FiSearch} from 'react-icons/fi';
 import axios from "axios";
 import {useRef} from 'react';
+import { Link } from 'react-router-dom'
 
 const Category = () => {
   
@@ -26,6 +27,7 @@ const Category = () => {
       axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/`)
         .then((res) => {
           setProducts(res.data.data)
+          console.log(res.data.data);
         })
     }
   }, []);
@@ -58,6 +60,7 @@ const Category = () => {
               return(
                 <div className={'col-lg-2 col-sm-6 p-1'}>
                   <div className={'container'}>
+                    <Link to={`/infopb/${product.publicId}`}>
                     <div className={`${styleCard.card} p-2 shadow rounded border`}>
                       <img className={`card-img-top`} src={product.imageUrl[0].imageUrl} alt="Card image" />
                       <div className={"card-body py-3"}>
@@ -74,6 +77,7 @@ const Category = () => {
                         <p className={'mt-2'}>Rp. {product.price}</p>
                       </div>
                     </div>
+                    </Link>
                   </div>
                 </div>
               )
