@@ -2,7 +2,6 @@ import React from 'react'
 import { useDropzone } from 'react-dropzone';
 import style from './InfoProfile.module.css'
 
-
 const Form = () => {
 
     const {acceptedFiles, getRootProps, getInputProps} = useDropzone();
