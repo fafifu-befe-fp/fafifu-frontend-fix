@@ -17,7 +17,6 @@ import Logout from './Components/LoginRegister/Logout'
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<DaftarJual/>} />
@@ -29,6 +28,7 @@ function App() {
         <Route path="/infop" element={<InfoProduk />} />
         <Route path="/infopb/:id" element={<InfoProdukBuyer />} />
         <Route path="/logout" element={<Logout/>}/>
+        <Route path="/navbartest" element={<Navbar />}/>
       </Routes>
     </BrowserRouter>
   );
