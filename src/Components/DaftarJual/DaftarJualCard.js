@@ -15,7 +15,7 @@ const DaftarJualCard = (props) => {
             {props.productProfile.category.map((productCategory) => {
                 return(
                     <div className={`${style.commaText}`}>
-                    {productCategory.name}
+                        {productCategory.name}
                     </div>
                 )
             })}

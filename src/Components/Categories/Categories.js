@@ -41,9 +41,9 @@ const Category = () => {
   }
 
   return (
-    <div className={'container'}>
+    <div className={`container ${style.categoryContainer}`}>
         <h6 className={'mt-1 mx-4'}><b>Telusuri Kategori</b></h6>
-        <div className={'d-flex flex-row m-3 overflow-auto'}>
+        <div className={`d-flex flex-row m-3 overflow-auto`}>
           <button type='button' ref={ref} onClick={filterCategory} className={`${style.btn} ${style.btnActive} m-2`}><FiSearch className={'fi m-1'}/>Semua</button>
           <button type='button' ref={ref} onClick={filterCategory} id="1" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Hobi</button>
           <button type='button' ref={ref} onClick={filterCategory} id="2" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Kendaraan</button>
@@ -53,12 +53,12 @@ const Category = () => {
         </div>
 
         {/* CARDS */}
-        <div className={'row'}>
+        <div className={`row ${style.productContainer}`}>
           {products.map((product) => {
               return(
-                <div className={'col-lg-3 col-md-4 col-sm-6 col-12'}>
-                  <div className={` container ${style.containerCard} mb-3`}>
-                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
+                <div className={`col-lg-3 col-md-4 col-sm-6 col-10`}>
+                  <div className={` container ${style.containerCard} p-0 mb-4`}>
+                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none w-100'>
                         <div className={`${style.cardProduct}`}>
                           <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl[0].imageUrl} alt="Card image" />
                           <div className={"card-body py-2"}>

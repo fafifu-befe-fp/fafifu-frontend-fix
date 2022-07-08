@@ -54,7 +54,7 @@ const Register = () => {
                 </div>
                 <button type="submit" class={`${style.buttonsimpan} w-100 text-white mb-5`}>Submit</button>
                 <div className='wrapper-signup text-center'>
-                  <span>Sudah punya akun? <a href='#' className='text-decoration-none'>Masuk di sini</a></span>
+                  <span>Sudah punya akun? <Link to='/login' className='text-decoration-none'>Masuk di sini</Link></span>
                 </div>
             </form>
         </div>

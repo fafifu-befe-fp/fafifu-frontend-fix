@@ -5,6 +5,7 @@ import { useDropzone } from 'react-dropzone';
 import { IoMdClose } from 'react-icons/io'
 import style from './Penawaran.module.css'
 import { Modal, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Penawaran = () => {
     const [modalMatch, modalMatchShow] = React.useState(false);
@@ -13,7 +14,7 @@ const Penawaran = () => {
     const [notification, notificationShow] = React.useState(false);
     return (
         <div className={'container-fluid'}>
-            <IoMdArrowBack className={`${style.backlogo} mt-2`} size={20} />
+            <Link to="/"><IoMdArrowBack className={`${style.backlogo} mt-2`} size={20} /></Link>
             <div className={'row mt-3 d-flex justify-content-center'}>
                 <div className={'col-sm-6 col-md-12 col-lg-6 forminfo'}>
                     <div className={"row d-flex flex-row shadow py-3 px-1 mb-3 rounded"}>

@@ -56,23 +56,6 @@ html, body {
   object-fit: cover;
 }
 
-
-
-@media only screen and (min-width: 320px){
-  .swiper {
-    width: 100%;
-    height: 60vh;
-  }
-  .swiper-slide img {
-    display: block;
-    width: 95%;
-    height: 85%;
-    object-fit: cover;
-    object-position: -80px 0;
-    border-radius: 20px;
-  }
-}
-
 @media only screen and (min-width: 768px){
   .swiper {
     width: 100%;
@@ -94,5 +77,23 @@ html, body {
 
   .swiper-slide-next, .swiper-slide-prev {
     transform: scale(0.8) !important;
+  }
+}
+
+@media only screen and (min-width: 426px){
+  .swiper-slide img {
+    width: 95%;
+    border-radius: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px){
+  .swiper {
+    width: 100%;
+    height: 50%;
+  }
+  .swiper-slide img {
+    width: 95%;
+    border-radius: 20px;
   }
 }

@@ -23,8 +23,6 @@
 }
 
 .cardProduct{
-    width: 200px;
-    height: 250px;
     border-radius: 4px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     overflow-y: hidden;
@@ -39,8 +37,7 @@
 .imgProduct{
     object-fit: cover;
     border-radius: 4px;
-    height: 100px;
-    width: auto;
+    height: auto;
 }
 
 .cardTitle{
@@ -88,5 +85,17 @@
     .containerCard{
         justify-content: center;
     }
+
+    .productContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
         
+}
+
+@media only screen and (max-width: 425px) {
+    .categoryContainer{
+        transform: translateY(-1%);
+    }       
 }
