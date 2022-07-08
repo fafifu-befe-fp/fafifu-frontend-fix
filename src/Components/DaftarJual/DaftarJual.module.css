@@ -125,5 +125,17 @@
         margin-top: 1rem;
         padding-right: 0rem;
         padding-left: 0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+}
+
+@media only screen and (max-width: 576px) {
+    .productContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+        
 }

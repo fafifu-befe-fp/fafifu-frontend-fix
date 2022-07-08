@@ -27,9 +27,9 @@ const DaftarJual = () => {
   return (
     <>
         <Navbar />
-        <div className={'container-fluid'}>
+        <div className={'container'}>
             <div className={'row mt-2 d-flex justify-content-center'}>
-                <div className={'col-sm-9 col-md-9 col-lg-9 forminfo'}>
+                <div className={'col-10 col-sm-12 col-md-12 col-lg-9 forminfo'}>
                     <h4 className={`${style.daftarJualSaya} my-3 font-weight-bold`}>
                         Daftar Jual Saya
                     </h4>
@@ -60,7 +60,7 @@ const DaftarJual = () => {
                     </div>
                     {/* <Hubungi/> */}
                     <div className={`row py-3 mb-3 d-flex justify-content-center ${style.containerProfile}` }>
-                        <div className={`col-lg-3 px-4 shadow rounded h-50 ${style.cardContainer}`}>
+                        <div className={`col-lg-3 col-11 col-sm-8 px-4 shadow rounded h-50 ${style.cardContainer}`}>
                             <div className={`row my-3 ${style.titleCategory}`}>
                                 Kategori
                             </div>
