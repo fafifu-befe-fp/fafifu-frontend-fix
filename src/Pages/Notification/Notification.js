@@ -1,11 +1,15 @@
 import React from 'react'
 import Penawaran from '../../Components/Penawaran/Penawaran'
+import Navbar from '../../Components/Navbar/Navbar';
 
 const Notification = () => {
   return (
-    <div className='container'>
-      <Penawaran/>
-    </div>
+    <>
+      <Navbar />
+      <div className='container'>
+        <Penawaran/>
+      </div>
+    </>
   )
 }
 

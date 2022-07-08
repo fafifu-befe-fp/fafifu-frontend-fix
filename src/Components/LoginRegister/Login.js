@@ -62,7 +62,7 @@ const Login = () => {
                 </div>
                 <button type="submit" class={`${style.buttonsimpan} w-100 text-white mb-5`}>Submit</button>
                 <div className='wrapper-signup text-center'>
-                  <span>Belum punya akun? <a href='#' className='text-decoration-none'>Daftar di sini</a></span>
+                  <span>Belum punya akun? <Link to='/register' className='text-decoration-none'>Daftar di sini</Link></span>
                 </div>
             </form>
         </div>
