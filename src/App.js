@@ -25,9 +25,7 @@ function App() {
         <Route path="/" element={<Unprotected />}>
           <Route path="/register" element={<Register />} />
         </Route>
-        <Route path="/" element={<Unprotected />}>
-          <Route path="/logout" element={<Logout/>}/>
-        </Route>
+        <Route path="/logout" element={<Logout/>}/>
         
        
         {/* Protected */}

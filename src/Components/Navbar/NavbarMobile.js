@@ -39,10 +39,11 @@ const NavbarMobile = () => {
                     <Link to='/' className={` ${style.linkText} text-decoration-none`}><FiUser className={`${style.fiUser} me-3`}/>Profil</Link>
                 </li> }
 
-                { user !== null && <button type="submit" className={`${style.buttonLogout}`}>
+                { user !== null && <li className='nav-item'>
+                    <button type="submit" className={`${style.buttonLogout}`}>
                     <FiLogIn className='me-1'/>
                     <Link to='/logout' className={`${style.masuk}`}>Logout</Link>
-                </button> }
+                </button></li> }
                 
             </ul>
             <form className="d-flex float-end pb-3 me-2" role="search">

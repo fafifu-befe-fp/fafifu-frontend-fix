@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import style from './Categories.module.css';
-import styleCard from '../Card/Card.module.css';
 import Card from '../Card/Card';
 import {FiSearch} from 'react-icons/fi';
 import axios from "axios";
@@ -44,7 +43,7 @@ const Category = () => {
   return (
     <div className={'container'}>
         <h6 className={'mt-1 mx-4'}><b>Telusuri Kategori</b></h6>
-        <div className={'d-flex flex-row m-3'}>
+        <div className={'d-flex flex-row m-3 overflow-auto'}>
           <button type='button' ref={ref} onClick={filterCategory} className={`${style.btn} ${style.btnActive} m-2`}><FiSearch className={'fi m-1'}/>Semua</button>
           <button type='button' ref={ref} onClick={filterCategory} id="1" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Hobi</button>
           <button type='button' ref={ref} onClick={filterCategory} id="2" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Kendaraan</button>
@@ -54,44 +53,34 @@ const Category = () => {
         </div>
 
         {/* CARDS */}
-        <div className={'container'}>
-        <div className={'row p-3'}>
+        <div className={'row'}>
           {products.map((product) => {
               return(
-                <div className={'col-lg-2 col-sm-6 p-1'}>
-                  <div className={'container'}>
-                    <Link to={`/infopb/${product.publicId}`}>
-                    <div className={`${styleCard.card} p-2 shadow rounded border`}>
-                      <img className={`card-img-top`} src={product.imageUrl[0].imageUrl} alt="Card image" />
-                      <div className={"card-body py-3"}>
-                        <h5 className={"card-title"}>{product.name}</h5>
-                        <small className={"card-text text-muted"}>
-                          {product.category.map((productCategory) => {
-                            return(
-                              <div>
-                                {productCategory.name}
-                              </div>
-                            )
-                          })}
-                        </small>
-                        <p className={'mt-2'}>Rp. {product.price}</p>
-                      </div>
-                    </div>
-                    </Link>
+                <div className={'col-lg-3 col-md-4 col-sm-6 col-12'}>
+                  <div className={` container ${style.containerCard} mb-3`}>
+                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
+                        <div className={`${style.cardProduct}`}>
+                          <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl[0].imageUrl} alt="Card image" />
+                          <div className={"card-body py-2"}>
+                            <h5 className={`card-title ${style.cardTitle}`}>{product.name}</h5>
+                            <small className={`card-text ${style.cardCategory} d-flex flex-row flex-wrap`}>
+                              {product.category.map((productCategory) => {
+                                return(
+                                  <div className={`${style.commaText}`}>
+                                    {productCategory.name}
+                                  </div>
+                                )
+                              })}
+                            </small>
+                            <div className={`mt-4 ${style.cardPrice}`}>Rp. {product.price}</div>
+                          </div>
+                        </div>
+                      </Link>
                   </div>
                 </div>
               )
-          })}
-
-          {/* Card lama */}
-          {/* <div className={'col-lg-2 col-sm-6 p-1'}><Card /></div> */}
-          
+          })} 
         </div>
-        </div>
-
-        {/* FLOATING ACTION BUTTON */}
-        {/* <FloatButton /> */}
-
     </div>
   )
 }

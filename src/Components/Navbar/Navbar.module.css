@@ -12,7 +12,7 @@ nav {
 .navMobile{
   height: 84px;
   position: relative;
-  top: -30%;
+  top: -10%;
 }
 
 .logoKotak{
@@ -110,7 +110,7 @@ nav {
 
 .navBackground{
   position: relative;
-  top: -16px;
+  top:10px;
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }

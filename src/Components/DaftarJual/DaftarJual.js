@@ -27,10 +27,10 @@ const DaftarJual = () => {
   return (
     <>
         <Navbar />
-        <div className={'container-fluid'}>
+        <div className={'container'}>
             <div className={'row mt-2 d-flex justify-content-center'}>
                 <div className={'col-sm-9 col-md-9 col-lg-9 forminfo'}>
-                    <h4 className={'my-3 font-weight-bold'}>
+                    <h4 className={`${style.daftarJualSaya} my-3 font-weight-bold`}>
                         Daftar Jual Saya
                     </h4>
                     {/* <IoMdArrowBack className={'backlogo mt-2'} size={20} /> */}
@@ -41,7 +41,7 @@ const DaftarJual = () => {
                             alt='Penjual'
                         />
                         <div className={"col d-flex flex-row justify-content-between align-items-center p-0 m-0"}>
-                            <div className={"col-auto"}>
+                            <div className={`col-auto ${style.sellerName}`}>
                                 <div>
                                     {localStorage.getItem('sessionName')}
                                 </div>
@@ -57,71 +57,71 @@ const DaftarJual = () => {
                         </div>
                     </div>
                     {/* <Hubungi/> */}
-                    <div className={"row d-flex flex-row py-3 mb-3"}>
-                        <div className={"col-lg-3 px-4 shadow rounded h-50"}>
-                            <div className={`row my-3 ${style.titleCategory}`}>
-                                Kategori
-                            </div>
-                            <div className={`row py-0 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/box.svg' alt=""/>
-                                </div>
-                                <div className={`col ${style.textCategory} py-2`}>
-                                    Semua Produk
-                                </div>
-                                <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div className={`row py-0 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/heart.svg' alt=""/>
-                                </div>
-                                <div className={`col ${style.textCategory} py-2`}>
-                                    Diminati
-                                </div>
-                                <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/dollar.svg' alt=""/>
-                                </div>
-                                <div className={`col ${style.textCategory} py-2`}>
-                                    Terjual
-                                </div>
-                                <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
-                                </div>
-                                <div className={`col ${style.textCategory} py-2`}>
-                                    Wishlist
-                                </div>
-                                <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div className={`row py-3 mb-3 d-flex justify-content-center ${style.containerProfile}` }>
+                <div className={`${style.cardContainer} col-lg-3 px-4`}>
+                    <div className={`row mb-3 ms-0 ${style.titleCategory}`}>
+                        Kategori
+                    </div>
+                    <div className={`row ${style.categoryContainer}`}>
+                        <div className={"col-auto d-flex align-items-center"}>
+                            <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/box.svg' alt=""/>
                         </div>
-                        <div className={`col-lg-9 py-0 d-flex flex-wrap ${style.productContainer}`}>
-                            {productsProfile.map((productProfile) => {
-                                return(
-                                    <>
-                                        <Link to={`/infop/${productProfile.publicId}`}>
-                                            <Card productProfile={productProfile}/>
-                                        </Link>
-                                    </>
-                                )
-                            })}
+                        <div className={`col ${style.textCategory} py-2`}>
+                            Semua Produk
+                        </div>
+                        <div className={`col-auto ${style.svg} d-flex align-items-center`}>
+                            <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
                         </div>
                     </div>
+                    <hr/>
+                    <div className={`row ${style.categoryContainer}`}>
+                        <div className={"col-auto d-flex align-items-center"}>
+                            <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/heart.svg' alt=""/>
+                        </div>
+                        <div className={`col ${style.textCategory} py-2`}>
+                            Diminati
+                        </div>
+                        <div className={`col-auto ${style.svg} d-flex align-items-center`}>
+                            <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div className={`row ${style.categoryContainer}`}>
+                        <div className={"col-auto d-flex align-items-center"}>
+                            <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/dollar.svg' alt=""/>
+                        </div>
+                        <div className={`col ${style.textCategory} py-2`}>
+                            Terjual
+                        </div>
+                        <div className={`col-auto ${style.svg} d-flex align-items-center`}>
+                            <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div className={`row ${style.categoryContainer}`}>
+                        <div className={"col-auto d-flex align-items-center"}>
+                            <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
+                        </div>
+                        <div className={`col ${style.textCategory} py-2`}>
+                            Wishlist
+                        </div>
+                        <div className={`col-auto ${style.svg} d-flex align-items-center`}>
+                            <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                        </div>
+                    </div>
+                </div>
+                <div className={`col-lg-9 d-flex mt-3 flex-wrap ${style.productContainer}`}>
+                    {productsProfile.map((productProfile) => {
+                        return(
+                            <div className='col-lg-3'>
+                                <Link to={`/infop/${productProfile.publicId}`} className='text-decoration-none'>
+                                    <Card productProfile={productProfile}/>
+                                </Link>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
