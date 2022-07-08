@@ -1,12 +1,44 @@
 import React, { useState, useEffect } from 'react'
 import style from './product.module.css'
+import axios from 'axios'
+import { AiFillStar } from 'react-icons/ai';
+import { useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Buyer = (props) => {
+
+  const param = useParams()
+  const navigate = useNavigate()
+  const [ wishlistStatus, setWishlistStatus ] = useState({
+      success: false,
+      message: "",
+  });
+
+  const formSubmitHandler = () => {
+    console.log('ini header ', localStorage.getItem('jwtToken'))
+    axios.post(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
+      headers: {
+        Authorization: localStorage.getItem('jwtToken')
+      },
+    })
+    .then ( res => 
+      console.log(res)
+    )
+    .catch ( err =>
+      setWishlistStatus({
+        success: false,
+        message: 'Sorry something is wrong, please try again.'
+      })
+    )
+  }
 
   return (
     <div className={`card w-100 ${style.cardProductBuyer} mb-4`}>
       <div className='card-body mx-2'>
-        <h5 className={`${style.namaBarang}`}>{props.products[0].name}</h5>
+        <div className={`d-flex flex-row justify-content-between align-items-center`}>
+          <h5 className={`${style.namaBarang}`}>{props.products[0].name}</h5>
+          <AiFillStar onClick={formSubmitHandler} className={`${style.wishlist}`}/>
+        </div>
         <p className={`${style.jenisBarang}`}>
           {props.products[0].category.map((productCategory) => {
             return(

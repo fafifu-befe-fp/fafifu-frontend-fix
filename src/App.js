@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/Home';
 import Notification from './Pages/Notification/Notification';
 import DaftarJual from './Components/DaftarJual/DaftarJual'
+import Semua from './Components/DaftarJual/Semua'
+import Diminati from './Components/DaftarJual/Diminati'
+import Terjual from './Components/DaftarJual/Terjual'
+import Wishlist from './Components/DaftarJual/Wishlist'
 import Login from './Pages/LogReg/Login';
 import Register from './Pages/LogReg/Register';
 import InfoProfile from './Pages/Profile/InfoProfile'
@@ -30,7 +34,12 @@ function App() {
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
-          <Route path="/profile" element={<DaftarJual/>} />
+          <Route path="/profile" element={<DaftarJual/>}>
+            <Route path="semua" element={<Semua/>}/>
+            <Route path="diminati" element={<Diminati/>}/>
+            <Route path="terjual" element={<Terjual/>}/>
+            <Route path="wishlist" element={<Wishlist/>}/>
+          </Route>
         </Route>
         <Route path="/" element={<Protected />}>
           <Route path="/notification" element={<Notification />} />

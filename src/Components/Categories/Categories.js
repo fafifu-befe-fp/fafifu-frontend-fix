@@ -33,12 +33,40 @@ const Category = () => {
   
   const ref = useRef(null);
   
-  const filterCategory = event => {
-    axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`)
-    .then((res) => {
-      setProducts(res.data.data)
-    })
-  }
+  // const filterCategory = event => {
+  //   axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`)
+  //   .then((res) => {
+  //     setProducts(res.data.data)
+  //   })
+  // }
+
+  // Filter baru
+
+  const filterCategory = (event) => {
+    if (localStorage.getItem("jwtToken")) {
+      axios
+        .get(
+          `https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("jwtToken"),
+            },
+          }
+        )
+        .then((res) => {
+          setProducts(res.data.data);
+        });
+    } else {
+      axios
+        .get(
+          `https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`
+        )
+        .then((res) => {
+          setProducts(res.data.data);
+        });
+    }
+  };
+
 
   return (
     <div className={`container ${style.categoryContainer}`}>

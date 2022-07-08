@@ -129,4 +129,14 @@
     color: #8A8A8A;
 }
 
+.wishlist{
+    width: 30px;
+    height: 30px;
+    color: orange;
+}
+
+.wishlist:hover{
+    color: yellow;
+}
+
 /* RESPONSIVE AREA */
