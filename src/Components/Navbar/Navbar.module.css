@@ -82,7 +82,17 @@ nav {
 .masuk, .masuk:hover{
   text-decoration: none;
   color: white;
-
+}
+.buttonLogout{
+  border-radius: 16px;
+  background-color: var(--basecolor);
+  color: white;
+  padding: 14px 16px;
+  border-style: none;
+  width: 110px;
+}
+.buttonLogout:hover{
+  background-color: var(--hovercolor);
 }
 
 .buttonLogin:hover{

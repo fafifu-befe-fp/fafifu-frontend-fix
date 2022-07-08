@@ -26,7 +26,7 @@ const NavbarDesktop = () => {
             {/* Public */}
             { user === null && <button type="submit" className={`${style.buttonLogin}`}>
               <FiLogIn className='me-1'/>
-              <Link to='/Login' className={`${style.masuk}`}>Masuk</Link>
+              <Link to='/login' className={`${style.masuk}`}>Masuk</Link>
             </button> }
 
             {/* Protected */}
@@ -40,6 +40,10 @@ const NavbarDesktop = () => {
               <FiUser className={`${style.fiUser} me-3`}/>      
             </Link> }    
             
+            { user !== null && <button type="submit" className={`${style.buttonLogout}`}>
+              <FiLogIn className='me-1'/>
+              <Link to='/logout' className={`${style.masuk}`}>Logout</Link>
+            </button> }
           </div>
         </div>
     </div>

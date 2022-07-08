@@ -24,7 +24,7 @@ const NavbarMobile = () => {
                 { user === null && <li className='nav-item'>
                     <button type="submit" className={`${style.buttonLogin}`}>
                         <FiLogIn className='me-1'/>
-                        <Link to='/Login' className={`${style.masuk}`}>Masuk</Link>
+                        <Link to='/login' className={`${style.masuk}`}>Masuk</Link>
                     </button>
                 </li> }
                 {/* Protected */}
@@ -38,6 +38,11 @@ const NavbarMobile = () => {
                 { user !== null && <li className='nav-item mb-3'>
                     <Link to='/' className={` ${style.linkText} text-decoration-none`}><FiUser className={`${style.fiUser} me-3`}/>Profil</Link>
                 </li> }
+
+                { user !== null && <button type="submit" className={`${style.buttonLogout}`}>
+                    <FiLogIn className='me-1'/>
+                    <Link to='/logout' className={`${style.masuk}`}>Logout</Link>
+                </button> }
                 
             </ul>
             <form className="d-flex float-end pb-3 me-2" role="search">

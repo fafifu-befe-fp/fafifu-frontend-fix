@@ -18,6 +18,7 @@ function App() {
       <Routes>
         {/* Public */}
         <Route path="/" element={<Home />} />
+        <Route path="/infopb/:id" element={<InfoProdukBuyer />} />
         <Route path="/" element={<Unprotected />}>
           <Route path="/login" element={<Login />} />
         </Route>
@@ -27,9 +28,7 @@ function App() {
         <Route path="/" element={<Unprotected />}>
           <Route path="/logout" element={<Logout/>}/>
         </Route>
-        <Route path="/" element={<Unprotected />}>
-          <Route path="/infopb/:id" element={<InfoProdukBuyer />} />
-        </Route>
+        
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
