@@ -1,18 +1,29 @@
+:root{
+    --basecolor: #7126B5;
+    --hovercolor: #54197e;
+}
+
+.daftarJualSaya{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
 .editButton{
-    width: 80px;
+    width: 50px;
     height: 30px;
     border: 1px solid #7126B5;
     background-color: white;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 4px 12px;
+    border-radius: 8px;
 }
 
 .editButton:hover{
     border: 1px solid #7126B5;
-    background-color: #cab0e2;
-    color: black;
-}
-
-.svg{
-    
+    background-color: var(--hovercolor);
+    color: white;
 }
 
 .profilePhoto{
@@ -21,13 +32,23 @@
     border-radius: 10px;
 }
 
+
+.cardContainer{
+    padding: 24px;
+    width: 268px;
+    height: 350px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
 .categoryContainer:hover .svg{
     filter: invert(13%) sepia(85%) saturate(4371%) hue-rotate(270deg) brightness(94%) contrast(40%);
 }
 
-.categoryContainer:hover .textCategory{
-    color: #7126B5;
+.categoryContainer:hover{
+    color: var(--hovercolor);
     font-weight: 600;
+    cursor: pointer;
 }
 
 .productContainer {
@@ -36,18 +57,69 @@
 }
 
 .titleCategory{
-    font-weight: 600;
     padding-left: 0.25rem;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
 }
 
+.sellerName{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
 .kota{
-    font-size: 12px;
-    color: #8A8A8A;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
 }
 
-.keteranganCategory{
-    font-size: 12px;
+.cardProduct{
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    overflow-y: hidden;
+    padding: 8px 8px 16px 8px;
+}
+
+.cardProduct:hover{
+    transform: scale(1.1);
+    transition: all ease 0.4s;
+}
+
+.imgProduct{
+    object-fit: cover;
+    border-radius: 4px;
+    height: 100px;
+    width: auto;
+}
+
+.cardTitle{
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+    
+}
+
+.cardCategory{
+    font-size: 10px;
+    line-height: 14px;
     color: #8A8A8A;
+    position: relative;
+    top: 5px;
+}
+
+.cardPrice{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+}
+
+.commaText ~ .commaText:not(:empty):before {
+    content: ", ";
 }
 
 @media screen and (max-width: 992px) {

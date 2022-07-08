@@ -12,7 +12,18 @@ nav {
 .navMobile{
   height: 84px;
   position: relative;
-  top: -30%;
+  top: -10%;
+}
+
+.logoKotak{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--basecolor);
+}
+.logoKotak:hover{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--hovercolor);
 }
 
 .iconNav{
@@ -51,6 +62,7 @@ nav {
 .fiUser, .mdNotif, .aiOutline{
   width: 24px;
   height: 24px;
+  color: var(--hovercolor);
 }
 
 .fiUser:hover, .mdNotif:hover, .aiOutline:hover{
@@ -70,7 +82,17 @@ nav {
 .masuk, .masuk:hover{
   text-decoration: none;
   color: white;
-
+}
+.buttonLogout{
+  border-radius: 16px;
+  background-color: var(--basecolor);
+  color: white;
+  padding: 14px 16px;
+  border-style: none;
+  width: 110px;
+}
+.buttonLogout:hover{
+  background-color: var(--hovercolor);
 }
 
 .buttonLogin:hover{
@@ -88,7 +110,7 @@ nav {
 
 .navBackground{
   position: relative;
-  top: -16px;
+  top:10px;
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
