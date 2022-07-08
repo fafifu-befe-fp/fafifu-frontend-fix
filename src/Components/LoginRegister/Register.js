@@ -4,8 +4,6 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 
-// require("dotenv").config();
-
 const Register = () => {
 
   const { register, handleSubmit, formState } = useForm()
