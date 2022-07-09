@@ -52,6 +52,7 @@
 .productContainer {
     padding-right: 1rem;
     padding-left: 1rem;
+    justify-content: space-evenly;
 }
 
 .titleCategory{
