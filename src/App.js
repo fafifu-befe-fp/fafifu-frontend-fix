@@ -11,6 +11,7 @@ import InfoProdukBuyer from './Pages/Product/InfoProdukBuyer';
 import Logout from './Components/LoginRegister/Logout'
 import Protected from './Components/HOC/Protected'
 import Unprotected from './Components/HOC/Unprotected';
+import AddProduct from './Components/AddProduct/AddProduct';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="/logout" element={<Logout/>}/>
+        <Route path="/add" element={<AddProduct />}/>
         
        
         {/* Protected */}
