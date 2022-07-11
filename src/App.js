@@ -30,7 +30,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="/logout" element={<Logout/>}/>
-        
+       
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
