@@ -88,7 +88,7 @@ const Category = () => {
                   <div className={` container ${style.containerCard} p-0 mb-4`}>
                       <Link to={`/infopb/${product.publicId}`} className='text-decoration-none w-100'>
                         <div className={`${style.cardProduct}`}>
-                          <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl[0].imageUrl} alt="Card image" />
+                          <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl} alt="Card image" />
                           <div className={"card-body py-2"}>
                             <h5 className={`card-title ${style.cardTitle}`}>{product.name}</h5>
                             <small className={`card-text ${style.cardCategory} d-flex flex-row flex-wrap`}>

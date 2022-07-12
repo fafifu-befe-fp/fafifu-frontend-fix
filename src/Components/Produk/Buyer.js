@@ -74,7 +74,7 @@ const Buyer = (props) => {
     <div className={`card w-100 ${style.cardProductBuyer} mb-4`}>
       <div className='card-body mx-2'>
         <div className={`d-flex flex-row justify-content-between align-items-center`}>
-          <h5 className={`${style.namaBarang}`}>{props.products[0].name}</h5>
+          <h5 className={`${style.namaBarang}`}>{props.products.name}</h5>
           {
             // if(myObj.hasOwnProperty('key')){
             //     // <AiFillStar onClick={formSubmitHandler} className={`${style.wishlist}`}/>
@@ -82,7 +82,7 @@ const Buyer = (props) => {
           }
         </div>
         <p className={`${style.jenisBarang}`}>
-          {props.products[0].category.map((productCategory) => {
+          {props.products.category.map((productCategory) => {
             return(
               <div>
                 {productCategory.name}
@@ -90,7 +90,7 @@ const Buyer = (props) => {
             )
           })}
         </p>
-        <h5 className={`${style.hargaBarang}`}>Rp. {props.products[0].price}</h5>
+        <h5 className={`${style.hargaBarang}`}>Rp. {props.products.price}</h5>
         <button type="submit" class={`${style.buttonsimpan} w-100 text-white mb-3 mt-3`}>Saya tertarik dan ingin nego</button>
       </div>
     </div>

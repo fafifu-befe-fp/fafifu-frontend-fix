@@ -5,7 +5,7 @@ const DaftarJualCard = (props) => {
   return (
     <div className={`col-3 p-2 mx-2 mb-3 ${style.cardProduct}`}>
         <div className="">
-            <img className={`${style.imgProduct}`} src={props.productProfile.imageUrl[0].imageUrl} alt="Card image" />
+            <img className={`${style.imgProduct}`} src={props.productProfile.imageUrl} alt="Card image" />
         </div>
         <div className={`mx-1 mt-3 ${style.cardTitle}`}>
             {props.productProfile.name}
