@@ -7,7 +7,7 @@ const Desc = (props) => {
         <div className={`card w-100 ${style.cardDesc} mb-3`}>
             <div className={`card-body ${style.cardBodyDesc}`}>
                 <h5 className={`${style.headDesc}`}>Deskripsi</h5>
-                <p className={`${style.parDesc}`}>{props.products[0].description}</p>
+                <p className={`${style.parDesc}`}>{props.products.description}</p>
             </div>
         </div>
     </>

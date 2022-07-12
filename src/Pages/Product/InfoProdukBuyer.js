@@ -16,6 +16,7 @@ const InfoProdukBuyer = (props) => {
   useEffect(() => {
     axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`)
     .then((res) => {
+      console.log('res:', res)
       console.log('ini res:', res.data.data)
       setProducts(res.data.data)
     })

@@ -116,6 +116,16 @@
     color: black;
 }
 
+.smile{
+    width: 100px;
+    height: 100px;
+}
+
+.smileText{
+    font-size: 20px;
+    font-style: italic;
+}
+
 .commaText ~ .commaText:not(:empty):before {
     content: ", ";
 }

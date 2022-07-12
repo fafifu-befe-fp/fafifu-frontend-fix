@@ -15,8 +15,17 @@ import InfoProdukBuyer from './Pages/Product/InfoProdukBuyer';
 import Logout from './Components/LoginRegister/Logout'
 import Protected from './Components/HOC/Protected'
 import Unprotected from './Components/HOC/Unprotected';
+import { useDispatch } from 'react-redux'
+import userSlice from './store/user'
 
 function App() {
+  // Cek localstorage, klo ada dispatch adduser.
+  
+  const dispatch = useDispatch();
+  if (localStorage.getItem('jwtToken')) {
+    // dispatchnya disini
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -30,7 +39,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="/logout" element={<Logout/>}/>
-        
+       
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
