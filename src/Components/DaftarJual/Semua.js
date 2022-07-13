@@ -11,7 +11,7 @@ const Semua = () => {
       
     useEffect(() => {
         axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/shop/${localStorage.getItem('sessionId')}`, {
+            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/user/${localStorage.getItem('sessionId')}`, {
                 headers: {
                     Authorization: localStorage.getItem('jwtToken'),
                 },
@@ -20,14 +20,16 @@ const Semua = () => {
                 setStatusCode(res.status)
                 if (statusCode == 200) {
                     setProductsProfile([...res.data.data]);
-                } else if (statusCode == 204) {
-                    console.log('statusmu error 204');
                 }
             })
+            .catch((err) => {
+                setStatusCode(err.response.status)
+            });            
     }, []);
 
     return (
         <div>
+            <div>Status Code: {statusCode}</div>
             { statusCode == 200 &&
                 <div className={`col-lg-12 py-0 d-flex flex-wrap`}>   
                     {productsProfile.map((productProfile) => {
@@ -40,8 +42,9 @@ const Semua = () => {
                         )
                     })}
                 </div>
+                // Ada bug harus di TRIGGER refresh
             }
-            { statusCode == 204 &&
+            { statusCode == 404 &&
                 <div className={`col-lg-12 m-0 p-0 d-flex justify-content-center align-items-center`}>
                     <div className={`d-flex flex-column justify-content-center align-items-center `}>
                         <div>
@@ -52,6 +55,7 @@ const Semua = () => {
                         </div>
                     </div>
                 </div>
+                // Ini ga perlu TRIGGER, kenapa?
             }
         </div>
     )
