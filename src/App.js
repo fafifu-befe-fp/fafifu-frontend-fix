@@ -1,5 +1,5 @@
 import './App.css'; 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate, Navigate, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home';
 import Notification from './Pages/Notification/Notification';
 import DaftarJual from './Components/DaftarJual/DaftarJual'
@@ -21,10 +21,21 @@ import userSlice from './store/user'
 function App() {
   // Cek localstorage, klo ada dispatch adduser.
   
-  const dispatch = useDispatch();
-  if (localStorage.getItem('jwtToken')) {
-    // dispatchnya disini
-  }
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  
+  // if ( (localStorage.getItem('jwtToken')) 
+  //   && (localStorage.getItem('sessionImage')) 
+  //   && (localStorage.getItem('sessionCity')) 
+  //   ) {
+  //     // lancar
+  // } else {
+  //   <Navigate to='/info' />
+  // }
+
+  // console.log('token: ', localStorage.getItem('jwtToken'))
+  // console.log('Image: ', localStorage.getItem('sessionImage'))
+  // console.log('City: ', localStorage.getItem('sessionCity'))
 
   return (
     <BrowserRouter>
