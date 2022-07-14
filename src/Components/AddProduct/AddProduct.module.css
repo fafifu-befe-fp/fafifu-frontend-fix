@@ -1,0 +1,65 @@
+:root{
+    --basecolor: #7126B5;
+    --hovercolor: #54197e;
+}
+
+.backlogo{
+    position: relative;
+    left: -10%;
+    color: black;
+}
+
+.buttonPreview{
+    border-radius: 16px;
+    background-color: white;
+    color: #54197e;
+    padding: 12px 0 12px 0;
+    border: 1px solid #54197e;
+}
+
+.buttonPreview:hover{
+    background-color: var(--hovercolor);
+    color: white;
+}
+
+.buttonTerbitkan{
+    border-radius: 16px;
+    background-color: var(--basecolor);
+    color: white;
+    padding: 12px 0 12px 0;
+    border: 1px solid #7126B5;
+}
+
+.buttonTerbitkan:hover{
+    background-color: var(--hovercolor);
+    color: white;
+}
+
+
+.formInfo label{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.formInfo ::placeholder, .formInfo select, .formInfo textarea{
+    font-size: 12px;
+}
+
+.imgAdd{
+    position: relative;
+    left: -6%;
+}
+
+@media only screen and (max-width: 576px) {
+    .backlogo{
+        top: -5%;
+        left: 0px;
+        color: black;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .imgAdd{
+        left: -10%;
+    }
+}
