@@ -7,11 +7,11 @@ const Seller = (props) => {
         <div className='card-body'>
             <div className='row mt-1'>
                 <div className={`col-3 border rounded`}>
-                    <img src={props.productsProfile[0].seller.imageUrl} alt='' className={`${style.profPic} mx-auto`} />
+                    <img src={props.productsProfile.seller.imageUrl} alt='' className={`${style.profPic} mx-auto`} />
                 </div>
                 <div className={`col-9 bg-white ${style.sellerName}`}>
-                    <h5 className={`${style.namaSeller}`}>{props.productsProfile[0].seller.name}</h5>
-                    <p className={`${style.asalSeller}`}>{props.productsProfile[0].seller.city}</p>
+                    <h5 className={`${style.namaSeller}`}>{props.productsProfile.seller.name}</h5>
+                    <p className={`${style.asalSeller}`}>{props.productsProfile.seller.city}</p>
                 </div>
             </div>
         </div>

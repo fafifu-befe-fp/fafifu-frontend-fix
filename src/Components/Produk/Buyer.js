@@ -9,20 +9,25 @@ const Buyer = (props) => {
 
   const param = useParams()
   const navigate = useNavigate()
+
+  const [ isWishlist, setIsWishlist ] = useState(props.products.status.wishlist)
+
   const [ wishlistStatus, setWishlistStatus ] = useState({
       success: false,
       message: "",
   });
 
   const formDeleteHandler = () => {
+    setIsWishlist(!isWishlist);
     console.log('ini header ', localStorage.getItem('jwtToken'))
-    axios.delete(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
+    axios.delete(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {
       headers: {
         Authorization: localStorage.getItem('jwtToken')
       },
     })
     .then ( res => 
-      console.log(res)
+      console.log(res),
+      console.log('BERHASIL MENGHAPUS')
     )
     .catch ( err =>
       setWishlistStatus({
@@ -33,6 +38,7 @@ const Buyer = (props) => {
   }
 
   const formSubmitHandler = () => {
+    setIsWishlist(!isWishlist);
     console.log('ini header ', localStorage.getItem('jwtToken'))
     axios.post(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
       headers: {
@@ -40,7 +46,8 @@ const Buyer = (props) => {
       },
     })
     .then ( res => 
-      console.log(res)
+      console.log(res),
+      console.log('BERHASIL MENAMBAH')
     )
     .catch ( err =>
       setWishlistStatus({
@@ -49,37 +56,21 @@ const Buyer = (props) => {
       })
     )
   }
-  
-
-  // if (localStorage.getItem('jwtToken')) {
-  //   axios
-  //     .get(`https://fafifu-backend-api.herokuapp.com/v1/product/`, {
-  //       headers: {
-  //         Authorization: localStorage.getItem('jwtToken'),
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res.data.data);
-  //       setProducts(res.data.data);
-  //     });
-  // }else{
-  //   axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/`)
-  //     .then((res) => {
-  //       setProducts(res.data.data)
-  //       console.log(res.data.data);
-  //     })
-  // }
 
   return (
     <div className={`card w-100 ${style.cardProductBuyer} mb-4`}>
       <div className='card-body mx-2'>
-        <div className={`d-flex flex-row justify-content-between align-items-center`}>
+        <div className={`d-flex flex-row justify-content-between`}>
           <h5 className={`${style.namaBarang}`}>{props.products.name}</h5>
-          {
-            // if(myObj.hasOwnProperty('key')){
-            //     // <AiFillStar onClick={formSubmitHandler} className={`${style.wishlist}`}/>
-            // }
-          }
+          <div>
+            {
+              localStorage.getItem('jwtToken') &&
+                <AiFillStar 
+                  onClick={isWishlist ? formDeleteHandler : formSubmitHandler}
+                  className={isWishlist ? `${style.wishlistOn}`: `${style.wishlistOff}`}
+                />
+            }
+          </div>
         </div>
         <p className={`${style.jenisBarang}`}>
           {props.products.category.map((productCategory) => {
