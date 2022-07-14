@@ -36,7 +36,7 @@ const NavbarDesktop = () => {
               <MdNotificationsNone className={`${style.mdNotif} me-3`}/>
             </Link> }
 
-            { user !== null &&  <Link to='/profile'>
+            { user !== null &&  <Link to='/profile/semua'>
               <FiUser className={`${style.fiUser} me-3`}/>      
             </Link> }    
             

@@ -9,8 +9,8 @@ const Info = () => {
     <div className='container d-block'>
         <div className='row mt-5 d-flex justify-content-center'>
             <div className={`col-12 col-sm-10 col-md-8 col-lg-6 ${style.formInfo}`}>
-                <Link to='/profile'>
-                  <IoMdArrowBack className={`${style.backlogo} mt-2 text-decoration-none`} size={20} />
+                <Link to='/profile/semua'>
+                  <IoMdArrowBack className={`${style.backlogo} mt-2`} size={20} />
                 </Link>
                 <FormInfoProfile />
             </div>

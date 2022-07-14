@@ -1,8 +1,12 @@
 import './App.css'; 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate, Navigate, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home';
 import Notification from './Pages/Notification/Notification';
 import DaftarJual from './Components/DaftarJual/DaftarJual'
+import Semua from './Components/DaftarJual/Semua'
+import Diminati from './Components/DaftarJual/Diminati'
+import Terjual from './Components/DaftarJual/Terjual'
+import Wishlist from './Components/DaftarJual/Wishlist'
 import Login from './Pages/LogReg/Login';
 import Register from './Pages/LogReg/Register';
 import InfoProfile from './Pages/Profile/InfoProfile'
@@ -12,8 +16,28 @@ import Logout from './Components/LoginRegister/Logout'
 import Protected from './Components/HOC/Protected'
 import Unprotected from './Components/HOC/Unprotected';
 import AddProduct from './Components/AddProduct/AddProduct';
+import { useDispatch } from 'react-redux'
+import userSlice from './store/user'
 
 function App() {
+  // Cek localstorage, klo ada dispatch adduser.
+  
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  
+  // if ( (localStorage.getItem('jwtToken')) 
+  //   && (localStorage.getItem('sessionImage')) 
+  //   && (localStorage.getItem('sessionCity')) 
+  //   ) {
+  //     // lancar
+  // } else {
+  //   <Navigate to='/info' />
+  // }
+
+  // console.log('token: ', localStorage.getItem('jwtToken'))
+  // console.log('Image: ', localStorage.getItem('sessionImage'))
+  // console.log('City: ', localStorage.getItem('sessionCity'))
+
   return (
     <BrowserRouter>
       <Routes>
@@ -28,11 +52,15 @@ function App() {
         </Route>
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/add" element={<AddProduct />}/>
-        
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
-          <Route path="/profile" element={<DaftarJual/>} />
+          <Route path="/profile" element={<DaftarJual/>}>
+            <Route path="semua" element={<Semua/>}/>
+            <Route path="diminati" element={<Diminati/>}/>
+            <Route path="terjual" element={<Terjual/>}/>
+            <Route path="wishlist" element={<Wishlist/>}/>
+          </Route>
         </Route>
         <Route path="/" element={<Protected />}>
           <Route path="/notification" element={<Notification />} />

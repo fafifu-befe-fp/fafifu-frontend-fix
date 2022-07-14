@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { IoMdArrowBack } from 'react-icons/io'
 import { BsWhatsapp } from 'react-icons/bs'
 import { useDropzone } from 'react-dropzone';
@@ -6,24 +7,11 @@ import axios from "axios";
 import Card from './DaftarJualCard';
 import style from './DaftarJual.module.css'
 import Navbar from '../Navbar/Navbar';
-import { Link } from 'react-router-dom'
+import Semua from './Semua'
+import { Link, Outlet } from 'react-router-dom'
 
 const DaftarJual = () => {
     
-  const [productsProfile, setProductsProfile] = useState([])
-    
-    useEffect(() => {
-        axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/shop/${localStorage.getItem('sessionId')}`, {
-                headers: {
-                    Authorization: localStorage.getItem('jwtToken'),
-                },
-            })
-            .then((res) => {
-                console.log('ini res', res.data.data);
-                setProductsProfile(res.data.data);
-            });
-  }, []);
   return (
     <>
         <Navbar />
@@ -64,18 +52,21 @@ const DaftarJual = () => {
                             <div className={`row my-3 ${style.titleCategory}`}>
                                 Kategori
                             </div>
-                            <div className={`row py-0 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/box.svg' alt=""/>
+                            <Link to="/profile/semua">
+                                <div className={`row py-0 ${style.categoryContainer}`}>
+                                    <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
+                                        <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/box.svg' alt=""/>
+                                    </div>
+                                    <div className={`col ${style.textCategory} py-2`}>
+                                        Semua Produk
+                                    </div>
+                                    <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
+                                        <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                                    </div>
                                 </div>
-                                <div className={`col ${style.textCategory} py-2`}>
-                                    Semua Produk
-                                </div>
-                                <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
-                                </div>
-                            </div>
+                            </Link>
                             <hr/>
+                            <Link to="/profile/diminati">
                             <div className={`row py-0 ${style.categoryContainer}`}>
                                 <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                     <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/heart.svg' alt=""/>
@@ -87,7 +78,9 @@ const DaftarJual = () => {
                                     <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
                                 </div>
                             </div>
+                            </Link>
                             <hr/>
+                            <Link to="/profile/terjual">
                             <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
                                 <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                     <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/dollar.svg' alt=""/>
@@ -99,7 +92,9 @@ const DaftarJual = () => {
                                     <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
                                 </div>
                             </div>
+                            </Link>
                             <hr/>
+                            <Link to="/profile/wishlist">
                             <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
                                 <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                     <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
@@ -111,17 +106,10 @@ const DaftarJual = () => {
                                     <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className={`col-lg-9 py-0 d-flex flex-wrap ${style.productContainer}`}>
-                            {productsProfile.map((productProfile) => {
-                                return(
-                                    <>
-                                        <Link to={`/infop/${productProfile.publicId}`}>
-                                            <Card productProfile={productProfile}/>
-                                        </Link>
-                                    </>
-                                )
-                            })}
+                            <Outlet />
                         </div>
                     </div>
                 </div>

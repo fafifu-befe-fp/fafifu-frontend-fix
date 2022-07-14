@@ -33,9 +33,10 @@ const Login = () => {
         localStorage.setItem('sessionName', res.data.data.user.name)
         localStorage.setItem('sessionCity', res.data.data.user.city)
         localStorage.setItem('sessionImage', res.data.data.user.imageUrl)
+        localStorage.setItem('sessionAddress', res.data.data.user.address)
+        localStorage.setItem('sessionPhone', res.data.data.user.handphone)
         console.log('ini res login', res)
         dispatch( userSlice.actions.addUser({ userData: res.data.data.user}) )
-        navigate('/')
       }
     })
     .catch ( err =>
