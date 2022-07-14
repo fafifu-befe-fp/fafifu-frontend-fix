@@ -15,11 +15,11 @@ const Form = () => {
                     Authorization: localStorage.getItem('jwtToken'),
                 },
             })
-            .then(async(res) => {
+            .then((res) => {
                 // setStatusCode(res.status)
                 // if (statusCode == 200) {
                     console.log('ini res: ', res.data.data)
-                    await setSettingProfile(res.data.data);
+                    setSettingProfile(res.data.data);
                     console.log('ini profile user: ', settingProfile)
                 // }
             })

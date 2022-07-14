@@ -25,8 +25,6 @@ function App() {
 
   const dispatch = useDispatch();
 
-  
-
   try{
     const user = {
       "publicId": localStorage.getItem('sessionId'),
@@ -36,18 +34,10 @@ function App() {
       "handphone": localStorage.getItem('sessionAddress'),
       "imageUrl": localStorage.getItem('sessionPhone')
     }
-    dispatch( userSlice.actions.addUser({ userData: user}) )
-    // localStorage.getItem('jwtToken')
-    // axios
-    // .get(`https://fafifu-backend-api.herokuapp.com/v1/user`, {
-    //             headers: {
-    //                 Authorization: localStorage.getItem('jwtToken'),
-    //             },
-    //         })
-    // .then((res) => {
-    //   console.log(res)
-    //   dispatch( userSlice.actions.addUser({ userData: res.data.data}) )
-    // });
+
+    if (localStorage.getItem('jwtToken')) {
+      dispatch( userSlice.actions.addUser({ userData: user }) )
+    }
   } catch {
     
   }

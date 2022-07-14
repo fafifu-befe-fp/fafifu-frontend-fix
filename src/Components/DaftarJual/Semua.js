@@ -29,7 +29,7 @@ const Semua = () => {
 
     return (
         <div>
-            <div>Status Code: {statusCode}</div>
+            <div>Status Codee: {statusCode}</div>
             { statusCode == 200 &&
                 <div className={`col-lg-12 py-0 d-flex flex-wrap`}>   
                     {productsProfile.map((productProfile) => {

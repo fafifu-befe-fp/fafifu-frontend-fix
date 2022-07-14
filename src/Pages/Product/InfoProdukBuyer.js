@@ -14,13 +14,28 @@ const InfoProdukBuyer = (props) => {
   const [products, setProducts] = useState(null)
 
   useEffect(() => {
-    axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`)
-    .then((res) => {
-      console.log('res:', res)
-      console.log('ini res:', res.data.data)
-      setProducts(res.data.data)
-    })
-  },[])
+    if (localStorage.getItem("jwtToken")) {
+      axios
+        .get(
+          `https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("jwtToken"),
+            },
+          }
+        )
+        .then((res) => {
+          setProducts(res.data.data);
+        });
+    } else {
+      axios
+        .get(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`)
+        .then((res) => {
+          setProducts(res.data.data);
+        });
+    }
+  }, []);
+  console.log('ini product buyers: ', products)
 
   return (
     <>

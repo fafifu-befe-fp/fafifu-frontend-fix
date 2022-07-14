@@ -129,14 +129,16 @@
     color: #8A8A8A;
 }
 
-.wishlist{
+.wishlistOn{
     width: 30px;
     height: 30px;
     color: orange;
 }
 
-.wishlist:hover{
-    color: yellow;
+.wishlistOff{
+    width: 30px;
+    height: 30px;
+    color: grey;
 }
 
 /* RESPONSIVE AREA */

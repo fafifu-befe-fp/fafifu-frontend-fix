@@ -6,12 +6,12 @@ const CarouselCard = (props) => {
     return (
         <>
             <Carousel className='mb-4'>
-                {props.productsProfile[0].imageUrl.map((productImages) => {
+                {props.productsProfile.imageUrl.map((productImages) => {
                     return(
                         <Carousel.Item>
                             <img
                                 className="d-block w-100 h-100"
-                                src={productImages.imageUrl}
+                                src={productImages}
                                 alt="First slide"
                             />
                         </Carousel.Item>
