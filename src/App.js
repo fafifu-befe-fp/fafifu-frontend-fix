@@ -1,4 +1,5 @@
-import './App.css'; 
+import './App.css';
+import React, { useEffect } from "react"
 import { BrowserRouter, Routes, Route, useNavigate, Navigate, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home';
 import Notification from './Pages/Notification/Notification';
@@ -18,9 +19,20 @@ import Unprotected from './Components/HOC/Unprotected';
 import AddProduct from './Components/AddProduct/AddProduct';
 import { useDispatch } from 'react-redux'
 import userSlice from './store/user'
+import axios from 'axios';
 
 function App() {
-  // Cek localstorage, klo ada dispatch adduser.
+
+  const dispatch = useDispatch();
+
+  try{
+    localStorage.getItem('jwtToken')
+    axios.get('https://fafifu-backend-api.herokuapp.com/v1/auth/login').then((res) => {
+      dispatch( userSlice.actions.addUser({ userData: res.data.data.user}) )
+    });
+  } catch {
+    
+  }
   
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
