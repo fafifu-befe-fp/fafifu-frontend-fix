@@ -10,6 +10,8 @@ const NavbarDesktop = () => {
 
   const user = useSelector( store => store.user.data )
 
+  console.log('USER', user)
+
   return (
     <div className='container d-lg-flex align-items-center justify-content-center d-none'>
         <Link className={`${style.logoKotak} navbar-brand`} to='/'>

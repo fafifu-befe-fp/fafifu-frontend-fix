@@ -25,11 +25,29 @@ function App() {
 
   const dispatch = useDispatch();
 
+  
+
   try{
-    localStorage.getItem('jwtToken')
-    axios.get('https://fafifu-backend-api.herokuapp.com/v1/auth/login').then((res) => {
-      dispatch( userSlice.actions.addUser({ userData: res.data.data.user}) )
-    });
+    const user = {
+      "publicId": localStorage.getItem('sessionId'),
+      "name": localStorage.getItem('sessionName'),
+      "city": localStorage.getItem('sessionCity'),
+      "address": localStorage.getItem('sessionImage'),
+      "handphone": localStorage.getItem('sessionAddress'),
+      "imageUrl": localStorage.getItem('sessionPhone')
+    }
+    dispatch( userSlice.actions.addUser({ userData: user}) )
+    // localStorage.getItem('jwtToken')
+    // axios
+    // .get(`https://fafifu-backend-api.herokuapp.com/v1/user`, {
+    //             headers: {
+    //                 Authorization: localStorage.getItem('jwtToken'),
+    //             },
+    //         })
+    // .then((res) => {
+    //   console.log(res)
+    //   dispatch( userSlice.actions.addUser({ userData: res.data.data}) )
+    // });
   } catch {
     
   }
