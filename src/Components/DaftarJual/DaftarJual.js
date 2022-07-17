@@ -38,7 +38,7 @@ const DaftarJual = () => {
                                 </div>
                             </div>
                             <div className={"col-auto"}>
-                                <Link to="/info">
+                                <Link to="/info" className='text-decoration-none'>
                                     <button type="button" className={`btn ${style.editButton} d-flex justify-content-center align-items-center`}>
                                         Edit
                                     </button>
@@ -47,17 +47,17 @@ const DaftarJual = () => {
                         </div>
                     </div>
                     {/* <Hubungi/> */}
-                    <div className={`row py-3 mb-3 d-flex justify-content-center ${style.containerProfile}` }>
+                    <div className={`row py-3 mb-3 d-flex justify-content-center ${style.containerProfile}`}>
                         <div className={`col-lg-3 col-11 col-sm-8 px-4 shadow rounded h-50 ${style.cardContainer}`}>
-                            <div className={`row my-3 ${style.titleCategory}`}>
+                            <div className={`row my-3 ${style.titleCategory} text-decoration-none`}>
                                 Kategori
                             </div>
-                            <Link to="/profile/semua">
-                                <div className={`row py-0 ${style.categoryContainer}`}>
+                            <Link to="/profile/semua" className='text-decoration-none'>
+                                <div className={`row py-0 ${style.categoryContainer} `}>
                                     <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                         <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/box.svg' alt=""/>
                                     </div>
-                                    <div className={`col ${style.textCategory} py-2`}>
+                                    <div className={`col ${style.textCategory} py-2 `}>
                                         Semua Produk
                                     </div>
                                     <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
@@ -66,7 +66,7 @@ const DaftarJual = () => {
                                 </div>
                             </Link>
                             <hr/>
-                            <Link to="/profile/diminati">
+                            <Link to="/profile/diminati" className='text-decoration-none'>
                             <div className={`row py-0 ${style.categoryContainer}`}>
                                 <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                     <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/heart.svg' alt=""/>
@@ -80,7 +80,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                             <hr/>
-                            <Link to="/profile/terjual">
+                            <Link to="/profile/terjual" className='text-decoration-none'>
                             <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
                                 <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                     <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/dollar.svg' alt=""/>
@@ -94,7 +94,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                             <hr/>
-                            <Link to="/profile/wishlist">
+                            <Link to="/profile/wishlist" className='text-decoration-none'>
                             <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
                                 <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
                                     <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>

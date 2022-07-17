@@ -85,8 +85,8 @@ const Category = () => {
           {products.map((product) => {
               return(
                 <div className={`col-lg-3 col-md-4 col-sm-6 col-10`}>
-                  <div className={` container ${style.containerCard} p-0 mb-4`}>
-                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none w-100'>
+                  <div className={` container ${style.containerCard} mb-4`}>
+                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
                         <div className={`${style.cardProduct}`}>
                           <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl} alt="Card image" />
                           <div className={"card-body py-2"}>

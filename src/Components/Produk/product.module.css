@@ -37,6 +37,12 @@
     border-radius: 16px;
 }
 
+.imgCarousel{
+    width: 600px;
+    height: 436px;
+    border-radius: 16px;
+}
+
 .profPic{
     width: 48px;
     height: auto;
@@ -127,6 +133,10 @@
     font-size: 14px;
     line-height: 20px;
     color: #8A8A8A;
+    text-align: justify;
+    text-justify: inter-word;
+    word-wrap: break-word;
+    white-space:pre-wrap;
 }
 
 .wishlistOn{

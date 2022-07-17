@@ -71,7 +71,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="/logout" element={<Logout/>}/>
-        <Route path="/add" element={<AddProduct />}/>
+        
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
@@ -90,6 +90,9 @@ function App() {
         </Route>
         <Route path="/" element={<Protected />}>
           <Route path="/infop/:id" element={<InfoProduk />} />
+        </Route>
+        <Route path="/" element={<Protected />}>
+          <Route path="/add" element={<AddProduct />} />
         </Route>
       </Routes>
       {/* <Route path="/floatbutton" element={<FloatButton />} /> */}

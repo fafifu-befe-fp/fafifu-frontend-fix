@@ -10,7 +10,7 @@ const CarouselCard = (props) => {
                     return(
                         <Carousel.Item>
                             <img
-                                className="d-block w-100 h-100"
+                                className={`d-block w-100 ${style.imgCarousel}`}
                                 src={productImages}
                                 alt="First slide"
                             />

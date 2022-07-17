@@ -44,7 +44,6 @@
 }
 
 .categoryContainer:hover{
-    color: var(--hovercolor);
     font-weight: 600;
     cursor: pointer;
 }
@@ -75,7 +74,7 @@
 
 .cardProduct{
     width: 200px;
-    height: auto;
+    height: 180px;
     border-radius: 4px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     overflow-y: hidden;
@@ -94,6 +93,8 @@
 .imgProduct{
     object-fit: cover;
     border-radius: 4px;
+    width: 165px;
+    height: 100px;
 }
 
 .cardTitle{
@@ -131,6 +132,18 @@
 
 .commaText ~ .commaText:not(:empty):before {
     content: ", ";
+}
+
+.textCategory{
+    font-size: 16px;
+    line-height: 24px;
+    color: black;
+}
+
+.textCategory:hover{
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--basecolor)
 }
 
 @media screen and (max-width: 992px) {
