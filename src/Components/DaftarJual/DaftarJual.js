@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { IoMdArrowBack } from 'react-icons/io'
-import { BsWhatsapp } from 'react-icons/bs'
+import { AiOutlineHeart, AiOutlineStar } from 'react-icons/ai'
+import { RiArrowRightSLine } from 'react-icons/ri'
+import { BsBox } from 'react-icons/bs'
+import { FiDollarSign } from 'react-icons/fi'
 import { useDropzone } from 'react-dropzone';
 import axios from "axios";
 import Card from './DaftarJualCard';
@@ -49,61 +51,61 @@ const DaftarJual = () => {
                     {/* <Hubungi/> */}
                     <div className={`row py-3 mb-3 d-flex justify-content-center ${style.containerProfile}`}>
                         <div className={`col-lg-3 col-11 col-sm-8 px-4 shadow rounded h-50 ${style.cardContainer}`}>
-                            <div className={`row my-3 ${style.titleCategory} text-decoration-none`}>
+                            <div className={`row my-3 ${style.titleCategory}`}>
                                 Kategori
                             </div>
                             <Link to="/profile/semua" className='text-decoration-none'>
-                                <div className={`row py-0 ${style.categoryContainer} `}>
-                                    <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                        <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/box.svg' alt=""/>
+                                <div className={`row py-0 ${style.categoryContainer} d-flex align-items-center`}>
+                                    <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
+                                        <BsBox className={`w-100 h-auto`}/> 
                                     </div>
                                     <div className={`col ${style.textCategory} py-2 `}>
                                         Semua Produk
                                     </div>
                                     <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                        <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                                        <RiArrowRightSLine className={`w-100 h-auto ${style.arrow} me-2`}/> 
                                     </div>
                                 </div>
                             </Link>
                             <hr/>
                             <Link to="/profile/diminati" className='text-decoration-none'>
-                            <div className={`row py-0 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/heart.svg' alt=""/>
+                            <div className={`row py-0 ${style.categoryContainer} d-flex align-items-center`}>
+                                <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
+                                    <AiOutlineHeart className={`w-100 h-auto`}/> 
                                 </div>
                                 <div className={`col ${style.textCategory} py-2`}>
                                     Diminati
                                 </div>
                                 <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                                    <RiArrowRightSLine className={`w-100 h-auto ${style.arrow} me-2`}/> 
                                 </div>
                             </div>
                             </Link>
                             <hr/>
                             <Link to="/profile/terjual" className='text-decoration-none'>
-                            <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/dollar.svg' alt=""/>
+                            <div className={`row py-0 mb-4 ${style.categoryContainer} d-flex align-items-center`}>
+                                <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
+                                    <FiDollarSign className={`w-100 h-auto ${style.arrow}`}/> 
                                 </div>
                                 <div className={`col ${style.textCategory} py-2`}>
                                     Terjual
                                 </div>
                                 <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                                    <RiArrowRightSLine className={`w-100 h-auto ${style.arrow} me-2`}/> 
                                 </div>
                             </div>
                             </Link>
                             <hr/>
                             <Link to="/profile/wishlist" className='text-decoration-none'>
-                            <div className={`row py-0 mb-4 ${style.categoryContainer}`}>
-                                <div className={"col-auto p-0 m-0 d-flex align-items-center"}>
-                                    <img className={`img-fluid w-100 h-auto ${style.svg}`} src='img/star.svg' alt=""/>
+                            <div className={`row py-0 mb-4 ${style.categoryContainer} d-flex align-items-center`}>
+                                <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
+                                    <AiOutlineStar className={`w-100 h-auto ${style.arrow}`}/> 
                                 </div>
                                 <div className={`col ${style.textCategory} py-2`}>
                                     Wishlist
                                 </div>
                                 <div className={`col-auto p-0 m-0 ${style.svg} d-flex align-items-center`}>
-                                    <img className={"img-fluid w-100 h-auto"} src='img/arrow-right.svg' alt=""/>
+                                    <RiArrowRightSLine className={`w-100 h-auto ${style.arrow} me-2`}/> 
                                 </div>
                             </div>
                             </Link>
