@@ -110,7 +110,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                         </div>
-                        <div className={`col-lg-9 py-0 d-flex flex-wrap ${style.productContainer}`}>
+                        <div className={`col-lg-9 py-0 d-flex flex-wrap justify-content-center justify-content-lg-start ${style.productContainer}`}>
                             <Outlet />
                         </div>
                     </div>

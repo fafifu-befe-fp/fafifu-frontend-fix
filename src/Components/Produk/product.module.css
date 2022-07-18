@@ -143,12 +143,14 @@
     width: 30px;
     height: 30px;
     color: orange;
+    cursor: pointer;
 }
 
 .wishlistOff{
     width: 30px;
     height: 30px;
     color: grey;
+    cursor: pointer;
 }
 
 /* RESPONSIVE AREA */
