@@ -82,17 +82,17 @@ const Category = () => {
 
 
         {/* CARD FIX */}
-        <section className='d-flex justify-content-center align-items-start h-100 min-vh-100'>
+        <section className={`d-flex h-100 ${style.gede}`}>
           <div className='container'>
-            <div className={`row gy-2 ${style.productContainer}`}>
+            <div className={`row gy-4  ${style.productContainer}`}>
               {products.map((product) => {
                   return(
-                    <div className='col-lg-3 col-md-4 col-sm-6 col-10'>
-                      <div className={`box h-100 d-flex p-3 flex-column ${style.cardProduct}`}>
+                    <div className='col-xl-2 col-lg-3 col-md-4 col-sm-6 col-10'>
+                      <div className={`box h-100 d-flex flex-row flex-wrap ${style.cardProduct}`}>
                       <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
                         <img className={`${style.imgProduct} justify-content-center`} src={product.imageUrl} alt="Card image" />
-                        <h5 className={`card-title ${style.cardTitle}`}>{product.name}</h5>
-                        <small className={`card-text ${style.cardCategory} d-flex flex-row flex-wrap`}>
+                        <h5 className={`card-title mt-2 ${style.cardTitle}`}>{product.name}</h5>
+                        <small className={`card-text mt-2 ${style.cardCategory} d-flex flex-row flex-wrap`}>
                           {product.category.map((productCategory) => {
                             return(
                               <div className={`${style.commaText}`}>
@@ -101,7 +101,7 @@ const Category = () => {
                             )
                           })}
                         </small>
-                        <div className={` ${style.cardPrice}`}>Rp. {product.price}</div>
+                        <div className={`mt-2 ${style.cardPrice}`}>Rp. {product.price}</div>
                       </Link>
                       </div>
                     </div>
