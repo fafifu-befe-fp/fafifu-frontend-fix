@@ -80,14 +80,49 @@ const Category = () => {
           <button type='button' ref={ref} onClick={filterCategory} id="5" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Kesehatan</button>
         </div>
 
+
+        {/* CARD FIX */}
+        <section className='d-flex justify-content-center align-items-start h-100 min-vh-100'>
+          <div className='container'>
+            <div className={`row gy-2 ${style.productContainer}`}>
+              {products.map((product) => {
+                  return(
+                    <div className='col-lg-3 col-md-4 col-sm-6 col-10'>
+                      <div className={`box h-100 d-flex p-3 flex-column ${style.cardProduct}`}>
+                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
+                        <img className={`${style.imgProduct} justify-content-center`} src={product.imageUrl} alt="Card image" />
+                        <h5 className={`card-title ${style.cardTitle}`}>{product.name}</h5>
+                        <small className={`card-text ${style.cardCategory} d-flex flex-row flex-wrap`}>
+                          {product.category.map((productCategory) => {
+                            return(
+                              <div className={`${style.commaText}`}>
+                                {productCategory.name}
+                              </div>
+                            )
+                          })}
+                        </small>
+                        <div className={` ${style.cardPrice}`}>Rp. {product.price}</div>
+                      </Link>
+                      </div>
+                    </div>
+                  )
+              })} 
+            </div>
+          </div>
+          
+        </section>
+        
+
+
         {/* CARDS */}
-        <div className={`row ${style.productContainer}`}>
+        
+        {/* <div className={`row ${style.productContainer}`}>
           {products.map((product) => {
               return(
                 <div className={`col-lg-3 col-md-4 col-sm-6 col-10`}>
-                  <div className={` container ${style.containerCard} p-0 mb-4`}>
-                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none w-100'>
-                        <div className={`${style.cardProduct}`}>
+                  <div className={`container ${style.containerCard}`}>
+                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
+                        <div className={`${style.cardProduct} box h-100 d-flex p-4 flex-column `}>
                           <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl} alt="Card image" />
                           <div className={"card-body py-2"}>
                             <h5 className={`card-title ${style.cardTitle}`}>{product.name}</h5>
@@ -100,7 +135,7 @@ const Category = () => {
                                 )
                               })}
                             </small>
-                            <div className={`mt-4 ${style.cardPrice}`}>Rp. {product.price}</div>
+                            <div className={`mt-auto ${style.cardPrice}`}>Rp. {product.price}</div>
                           </div>
                         </div>
                       </Link>
@@ -108,7 +143,7 @@ const Category = () => {
                 </div>
               )
           })} 
-        </div>
+        </div> */}
     </div>
   )
 }

@@ -73,9 +73,9 @@ const Form = () => {
     // <form onSubmit={ handleSubmit(formSubmitHandler) }>
     <form>
         <section className="container d-block">
-            <div {...getRootProps({className: 'dropzone disabled'})} className='d-flex justify-content-center'>
+            <div {...getRootProps({className: 'dropzone disabled'})} className={`d-flex justify-content-center rounded ${style.xGatau}`}>
                 <input {...getInputProps()} />
-                <img src={localStorage.getItem('sessionImage')} alt=''/>
+                <img src={localStorage.getItem('sessionImage')} alt=''className={`${style.imgPhoto}`}/>
                 {/* <p>Drag 'n' drop some files here, or click to select files</p> */}
             </div>
             <aside className='d-flex justify-content-center mt-3'>

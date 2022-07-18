@@ -26,10 +26,20 @@
     margin-bottom: 5px;
 }
 
-.formInfo ::placeholder, .formInfo select{
+.formInfo ::placeholder, .formInfo select, .formInfo textarea{
     font-size: 12px;
 }
 
 .backlogo{
     color: black;
+}
+
+.imgPhoto{
+    max-width: 96px;
+    max-height: 96px;
+    border-radius: 16px;
+}
+
+.xGatau{
+    cursor: pointer;
 }
