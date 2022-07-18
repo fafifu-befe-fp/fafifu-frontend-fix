@@ -1,6 +1,7 @@
 :root{
     --basecolor: #7126B5;
     --hovercolor: #54197e;
+    --tunggucolor: #D0D0D0;
 }
 
 .cardDesc{
@@ -51,6 +52,17 @@
 .buttonsimpan{
     border-radius: 16px;
     background-color: var(--basecolor);
+    color: white;
+    padding: 12px 0 12px 0;
+    border-style: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.buttontunggu{
+    border-radius: 16px;
+    background-color: var(--tunggucolor);
     color: white;
     padding: 12px 0 12px 0;
     border-style: none;

@@ -6,13 +6,16 @@ import axios from "axios";
 import {useRef} from 'react';
 import { Link } from 'react-router-dom'
 
+// const API_URL = process.env.REACT_APP_API_URL
+
 const Category = () => {
-  
+
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     if (localStorage.getItem('jwtToken')) {
       axios
+        // .get(API_URL + '/v1/product/', {
         .get(`https://fafifu-backend-api.herokuapp.com/v1/product/`, {
           headers: {
             Authorization: localStorage.getItem('jwtToken'),
@@ -87,7 +90,7 @@ const Category = () => {
             <div className={`row gy-4  ${style.productContainer}`}>
               {products.map((product) => {
                   return(
-                    <div className='col-xl-2 col-lg-3 col-md-4 col-sm-6 col-10'>
+                    <div className='d-flex justify-content-center justify-content-lg-start col-xl-2 col-lg-3 col-md-4 col-sm-6 col-10'>
                       <div className={`box h-100 d-flex flex-row flex-wrap ${style.cardProduct}`}>
                       <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
                         <img className={`${style.imgProduct} justify-content-center`} src={product.imageUrl} alt="Card image" />

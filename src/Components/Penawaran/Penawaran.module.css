@@ -106,17 +106,3 @@
     border: 1px solid #7126B5;
     border-radius: 15px;
 }
-
-/* Modals Tawar */
-
-.photoDetailContainer{
-    background-color: #EEEEEE;
-}
-
-.photoDetailText{
-    font-size: 14px;
-}
-
-.hargaTawarText{
-    font-size: 12px;
-}
