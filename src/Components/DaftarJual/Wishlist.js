@@ -47,7 +47,7 @@ const Wishlist = () => {
                         <>
                             <div className='d-flex'>
                                 <div className={`box h-100 d-flex flex-row flex-wrap`}>
-                                    <Link to={`/infop/${productWishlist.publicId}`} className={`text-decoration-none`}>
+                                    <Link to={`/infopb/${productWishlist.publicId}`} className={`text-decoration-none`}>
                                         <Card productWishlist={productWishlist}/>
                                     </Link>
                                 </div>
