@@ -106,7 +106,7 @@
     overflow: hidden;
     padding: 8px 8px 16px;
     width: 206.67px;
-    height: 280px;
+    height: auto;
 }
 
 .cardProductDiminati:hover{
