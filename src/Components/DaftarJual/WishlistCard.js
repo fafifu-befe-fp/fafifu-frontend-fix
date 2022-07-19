@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './DaftarJual.module.css'
+import NumberFormat from 'react-number-format';
 
 const WishlistCard = (props) => {
   return (
@@ -15,7 +16,9 @@ const WishlistCard = (props) => {
                 )
             })}
         </div>
-        <div className={`mt-2 ${style.cardPrice}`}>Rp. {props.productWishlist.price}</div>
+        <div className={`mt-2 ${style.cardPrice}`}>
+            <NumberFormat value={props.productWishlist.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+        </div>
     </div>
   )
 }

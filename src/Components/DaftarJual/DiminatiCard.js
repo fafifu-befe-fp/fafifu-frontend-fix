@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './DaftarJual.module.css'
+import NumberFormat from 'react-number-format';
 
 const DiminatiCard = (props) => {
   return (
@@ -20,7 +21,7 @@ const DiminatiCard = (props) => {
                 Harga Asli
             </div>
             <div className={`${style.cardPriceOriginal}`}>
-                Rp. {props.productDiminati.productPrice}
+                <NumberFormat value={props.productDiminati.productPrice} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
             </div>
         </div>
         <div className={`mt-2 ${style.cardPrice}`}>
@@ -28,7 +29,7 @@ const DiminatiCard = (props) => {
                 Harga Penawar
             </div>
             <div className={`${style.cardPriceOffer}`}>
-                Rp. {props.productDiminati.offerPrice}
+                <NumberFormat value={props.productDiminati.offerPrice} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
             </div>
         </div>
     </div>
