@@ -7,6 +7,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { useParams } from 'react-router-dom'
 import { Link, useNavigate } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
+import NumberFormat from 'react-number-format';
 
 const Buyer = (props) => {
 
@@ -113,7 +114,9 @@ const Buyer = (props) => {
             )
           })}
         </p>
-        <h5 className={`${style.hargaBarang}`}>Rp. {props.products.price}</h5>
+        <h5 className={`${style.hargaBarang}`}>
+          <NumberFormat value={props.products.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+        </h5>
 
         {/* CONDITIONAL */}
         {

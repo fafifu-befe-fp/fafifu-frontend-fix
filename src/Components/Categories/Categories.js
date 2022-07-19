@@ -5,6 +5,7 @@ import {FiSearch} from 'react-icons/fi';
 import axios from "axios";
 import {useRef} from 'react';
 import { Link } from 'react-router-dom'
+import NumberFormat from 'react-number-format';
 
 // const API_URL = process.env.REACT_APP_API_URL
 
@@ -70,6 +71,10 @@ const Category = () => {
     }
   };
 
+  const formatter = {
+    style: "currency",
+    currency: "idr"
+  }
 
   return (
     <div className={`container ${style.categoryContainer}`}>
@@ -87,7 +92,7 @@ const Category = () => {
         {/* CARD FIX */}
         <section className={`d-flex h-100 ${style.gede}`}>
           <div className='container'>
-            <div className={`row gy-4  ${style.productContainer}`}>
+            <div className={`row gy-4 ${style.productContainer}`}>
               {products.map((product) => {
                   return(
                     <div className='d-flex justify-content-center justify-content-lg-start col-xl-2 col-lg-3 col-md-4 col-sm-6 col-10'>
@@ -104,7 +109,10 @@ const Category = () => {
                             )
                           })}
                         </small>
-                        <div className={`mt-2 ${style.cardPrice}`}>Rp. {product.price}</div>
+                        {/* <div className={`mt-2 ${style.cardPrice}`}>Rp. {product.price} </div> */}
+                        <div className={`mt-2 ${style.cardPrice}`}>
+                          <NumberFormat value={product.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+                        </div>
                       </Link>
                       </div>
                     </div>

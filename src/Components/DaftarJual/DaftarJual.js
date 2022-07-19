@@ -13,6 +13,12 @@ import Semua from './Semua'
 import { Link, Outlet } from 'react-router-dom'
 
 const DaftarJual = () => {
+
+    const [ isActive, setIsActive ] = useState(false)
+
+    const handleStyle = () => {
+        setIsActive( current => !current )
+    }
     
   return (
     <>
@@ -54,8 +60,8 @@ const DaftarJual = () => {
                             <div className={`row my-3 ${style.titleCategory}`}>
                                 Kategori
                             </div>
-                            <Link to="/profile/semua" className='text-decoration-none'>
-                                <div className={`row py-0 ${style.categoryContainer} d-flex align-items-center`}>
+                            <Link to="/profile/semua" className={`${style.categoryContainer}`}>
+                                <div className={`row py-0  d-flex align-items-center`}>
                                     <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
                                         <BsBox className={`w-100 h-auto`}/> 
                                     </div>
@@ -68,8 +74,8 @@ const DaftarJual = () => {
                                 </div>
                             </Link>
                             <hr/>
-                            <Link to="/profile/diminati" className='text-decoration-none'>
-                            <div className={`row py-0 ${style.categoryContainer} d-flex align-items-center`}>
+                            <Link to="/profile/diminati" className={`${style.categoryContainer}`}>
+                            <div className={`row py-0 d-flex align-items-center`}>
                                 <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
                                     <AiOutlineHeart className={`w-100 h-auto`}/> 
                                 </div>
@@ -82,7 +88,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                             <hr/>
-                            <Link to="/profile/terjual" className='text-decoration-none'>
+                            <Link to="/profile/terjual" className={`${style.categoryContainer}`}>
                             <div className={`row py-0 mb-4 ${style.categoryContainer} d-flex align-items-center`}>
                                 <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
                                     <FiDollarSign className={`w-100 h-auto ${style.arrow}`}/> 
@@ -96,7 +102,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                             <hr/>
-                            <Link to="/profile/wishlist" className='text-decoration-none'>
+                            <Link to="/profile/wishlist" className={`${style.categoryContainer} `}>
                             <div className={`row py-0 mb-4 ${style.categoryContainer} d-flex align-items-center`}>
                                 <div className={`col-auto p-0 m-0 d-flex align-items-center ms-3 ${style.iconCategory}`}>
                                     <AiOutlineStar className={`w-100 h-auto ${style.arrow}`}/> 
@@ -110,7 +116,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                         </div>
-                        <div className={`col-lg-9 py-0 d-flex flex-wrap ${style.productContainer}`}>
+                        <div className={`col-lg-9 py-0 d-flex flex-wrap justify-content-center justify-content-lg-start ${style.productContainer}`}>
                             <Outlet />
                         </div>
                     </div>

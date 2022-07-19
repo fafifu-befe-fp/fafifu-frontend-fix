@@ -11,6 +11,13 @@
     margin: auto;
 }
 
+.imgCarousel{
+    width: 600px;
+    height: 436px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
 .cardProduct{
     width: 336px;
     height: 266px;

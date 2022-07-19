@@ -17,46 +17,45 @@ const Semua = () => {
                 },
             })
             .then((res) => {
-                setStatusCode(res.status)
-                if (statusCode == 200) {
-                    setProductsProfile([...res.data.data]);
-                }
+                setStatusCode(res.status);
+                setProductsProfile(res.data.data);
             })
             .catch((err) => {
-                setStatusCode(err.response.status)
-            });            
+                setStatusCode(err.response.status);
+                setProductsProfile(err.response.data.message);
+            });           
     }, []);
+
+    if (statusCode === 404) {
+        return (
+          <>
+            <div className='container d-flex justify-content-center'>
+                <div className='row d-flex flex-column '>
+                    <img src='/img/product.png' className={`${style.wishlistImage}`}/>
+                    <div className={`${style.wishlistText} text-center`}>Barang mu masih kosong nih D:</div>
+                </div>
+            </div>
+          </>
+        );
+      }
 
     return (
         <div>
-            <div>Status Codee: {statusCode}</div>
-            { statusCode == 200 &&
                 <div className={`col-lg-12 py-0 d-flex flex-wrap`}>   
                     {productsProfile.map((productProfile) => {
                         return(
                             <>
-                                <Link to={`/infop/${productProfile.publicId}`} className={`text-decoration-none`}>
-                                    <Card productProfile={productProfile}/>
-                                </Link>
+                                <div className='d-flex'>
+                                    <div className={`box h-100 d-flex flex-row flex-wrap`}>
+                                        <Link to={`/infop/${productProfile.publicId}`} className={`text-decoration-none`}>
+                                            <Card productProfile={productProfile}/>
+                                        </Link>
+                                    </div>
+                                </div>      
                             </>
                         )
                     })}
                 </div>
-                // Ada bug harus di TRIGGER refresh
-            }
-            { statusCode == 404 &&
-                <div className={`col-lg-12 m-0 p-0 d-flex justify-content-center align-items-center`}>
-                    <div className={`d-flex flex-column justify-content-center align-items-center `}>
-                        <div>
-                            <GiNothingToSay className={`${style.smile}`}/>
-                        </div>
-                        <div className={`${style.smileText}`}>
-                            Tidak ada barang
-                        </div>
-                    </div>
-                </div>
-                // Ini ga perlu TRIGGER, kenapa?
-            }
         </div>
     )
 }
