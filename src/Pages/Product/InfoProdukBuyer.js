@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 
+
 const InfoProdukBuyer = (props) => {
 
   const param = useParams()

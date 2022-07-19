@@ -4,6 +4,7 @@ import axios from 'axios'
 import { AiFillStar } from 'react-icons/ai';
 import { useParams } from 'react-router-dom'
 import { Link, useNavigate } from 'react-router-dom'
+import NumberFormat from 'react-number-format';
 
 const Buyer = (props) => {
 
@@ -81,7 +82,9 @@ const Buyer = (props) => {
             )
           })}
         </p>
-        <h5 className={`${style.hargaBarang}`}>Rp. {props.products.price}</h5>
+        <h5 className={`${style.hargaBarang}`}>
+          <NumberFormat value={props.products.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+        </h5>
         <button type="submit" class={`${style.buttonsimpan} w-100 text-white mb-3 mt-3`}>Saya tertarik dan ingin nego</button>
       </div>
     </div>
