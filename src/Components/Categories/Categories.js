@@ -12,6 +12,7 @@ import NumberFormat from 'react-number-format';
 const Category = () => {
 
   const [products, setProducts] = useState([])
+  const [statusCode, setStatusCode] = useState()
 
   useEffect(() => {
     if (localStorage.getItem('jwtToken')) {
@@ -25,11 +26,13 @@ const Category = () => {
         .then((res) => {
           console.log(res.data.data);
           setProducts(res.data.data);
+          setStatusCode(res.status);
         });
     }else{
       axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/`)
         .then((res) => {
           setProducts(res.data.data)
+          setStatusCode(res.status);
           console.log(res.data.data);
         })
     }
@@ -37,15 +40,6 @@ const Category = () => {
   
   const ref = useRef(null);
   
-  // const filterCategory = event => {
-  //   axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`)
-  //   .then((res) => {
-  //     setProducts(res.data.data)
-  //   })
-  // }
-
-  // Filter baru
-
   const filterCategory = (event) => {
     if (localStorage.getItem("jwtToken")) {
       axios
@@ -70,11 +64,6 @@ const Category = () => {
         });
     }
   };
-
-  const formatter = {
-    style: "currency",
-    currency: "idr"
-  }
 
   return (
     <div className={`container ${style.categoryContainer}`}>
@@ -109,7 +98,6 @@ const Category = () => {
                             )
                           })}
                         </small>
-                        {/* <div className={`mt-2 ${style.cardPrice}`}>Rp. {product.price} </div> */}
                         <div className={`mt-2 ${style.cardPrice}`}>
                           <NumberFormat value={product.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
                         </div>
@@ -120,42 +108,8 @@ const Category = () => {
               })} 
             </div>
           </div>
-          
         </section>
-        
-
-
-        {/* CARDS */}
-        
-        {/* <div className={`row ${style.productContainer}`}>
-          {products.map((product) => {
-              return(
-                <div className={`col-lg-3 col-md-4 col-sm-6 col-10`}>
-                  <div className={`container ${style.containerCard}`}>
-                      <Link to={`/infopb/${product.publicId}`} className='text-decoration-none'>
-                        <div className={`${style.cardProduct} box h-100 d-flex p-4 flex-column `}>
-                          <img className={`card-img-top ${style.imgProduct}`} src={product.imageUrl} alt="Card image" />
-                          <div className={"card-body py-2"}>
-                            <h5 className={`card-title ${style.cardTitle}`}>{product.name}</h5>
-                            <small className={`card-text ${style.cardCategory} d-flex flex-row flex-wrap`}>
-                              {product.category.map((productCategory) => {
-                                return(
-                                  <div className={`${style.commaText}`}>
-                                    {productCategory.name}
-                                  </div>
-                                )
-                              })}
-                            </small>
-                            <div className={`mt-auto ${style.cardPrice}`}>Rp. {product.price}</div>
-                          </div>
-                        </div>
-                      </Link>
-                  </div>
-                </div>
-              )
-          })} 
-        </div> */}
-    </div>
+      </div>
   )
 }
 
