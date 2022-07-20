@@ -1,16 +1,16 @@
 import React from 'react'
-import Penawaran from '../../Components/Penawaran/Penawaran'
+import Notification from '../../Components/Notification/Notification'
 import Navbar from '../../Components/Navbar/Navbar';
 
-const Notification = () => {
+const Notifikasi = () => {
   return (
     <>
       <Navbar />
       <div className='container'>
-        <Penawaran/>
+        <Notification/>
       </div>
     </>
   )
 }
 
-export default Notification
+export default Notifikasi
