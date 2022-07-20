@@ -2,7 +2,8 @@ import './App.css';
 import React, { useEffect } from "react"
 import { BrowserRouter, Routes, Route, useNavigate, Navigate, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home';
-import Notification from './Pages/Notification/Notification';
+import Notifikasi from './Pages/Notifikasi/Notifikasi';
+import ListPenawar from './Pages/ListPenawar/ListPenawar';
 import DaftarJual from './Components/DaftarJual/DaftarJual'
 import Semua from './Components/DaftarJual/Semua'
 import Diminati from './Components/DaftarJual/Diminati'
@@ -83,7 +84,10 @@ function App() {
           </Route>
         </Route>
         <Route path="/" element={<Protected />}>
-          <Route path="/notification" element={<Notification />} />
+          <Route path="/notification" element={<Notifikasi />} />
+        </Route>
+        <Route path="/" element={<Protected />}>
+          <Route path="/listpenawar" element={<ListPenawar />} />
         </Route>
         <Route path="/" element={<Protected />}>
           <Route path="/info" element={<InfoProfile />} />  

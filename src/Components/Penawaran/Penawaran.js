@@ -14,7 +14,7 @@ const Penawaran = () => {
     const [notification, notificationShow] = React.useState(false);
     return (
         <div className={'container-fluid'}>
-            <Link to="/"><IoMdArrowBack className={`${style.backlogo} mt-2`} size={20} /></Link>
+            <Link to="/notification"><IoMdArrowBack className={`${style.backlogo} mt-2`} size={20} /></Link>
             <div className={'row mt-3 d-flex justify-content-center'}>
                 <div className={'col-sm-6 col-md-12 col-lg-6 forminfo'}>
                     <div className={"row d-flex flex-row shadow py-3 px-1 mb-3 rounded"}>

@@ -32,7 +32,9 @@ const NavbarDesktop = () => {
             </button> }
 
             {/* Protected */}
-            { user !== null && <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>}
+            { user !== null && <Link to='/listpenawar'>
+              <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>
+            </Link> }
 
             { user !== null && <Link to='/notification'>
               <MdNotificationsNone className={`${style.mdNotif} me-3`}/>
