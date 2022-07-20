@@ -119,6 +119,7 @@ const Buyer = (props) => {
         </h5>
 
         {/* CONDITIONAL */}
+        
         {
           (localStorage.getItem('jwtToken') && (isTawar === true)) &&
             <button type="submit" 
@@ -147,7 +148,7 @@ const Buyer = (props) => {
               Silakan Login terlebih dahulu
             </button>
         }
-        
+
         <Modal
           show={modalTawar}
           onHide={() => modalTawarShow(false)}

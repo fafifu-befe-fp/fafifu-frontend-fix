@@ -14,6 +14,7 @@ import Register from './Pages/LogReg/Register';
 import InfoProfile from './Pages/Profile/InfoProfile'
 import InfoProduk from './Pages/Product/InfoProduk';
 import InfoProdukBuyer from './Pages/Product/InfoProdukBuyer';
+import InfoProdukBuyerTerjual from './Pages/Product/InfoProdukBuyerTerjual';
 import Logout from './Components/LoginRegister/Logout'
 import Protected from './Components/HOC/Protected'
 import Unprotected from './Components/HOC/Unprotected';
@@ -65,6 +66,7 @@ function App() {
         {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/infopb/:id" element={<InfoProdukBuyer />} />
+        <Route path="/infopbterjual/:id" element={<InfoProdukBuyerTerjual />} />
         <Route path="/" element={<Unprotected />}>
           <Route path="/login" element={<Login />} />
         </Route>
