@@ -2,6 +2,7 @@
     --basecolor: #7126B5;
     --hovercolor: #54197e;
     --tunggucolor: #D0D0D0;
+    --terbelicolor: #00a54a;
 }
 
 .cardDesc{
@@ -64,6 +65,17 @@
 .buttontunggu{
     border-radius: 16px;
     background-color: var(--tunggucolor);
+    color: white;
+    padding: 12px 0 12px 0;
+    border-style: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.buttonterbeli{
+    border-radius: 16px;
+    background-color: var(--terbelicolor);
     color: white;
     padding: 12px 0 12px 0;
     border-style: none;
