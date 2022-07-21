@@ -10,7 +10,7 @@ const Diminati = () => {
         
         useEffect(() => {
             axios
-                .get(`https://fafifu-backend-api.herokuapp.com/v1/offer`, {
+                .get(`https://fafifu-backend-api.herokuapp.com/v1/product/offer`, {
                     headers: {
                         Authorization: localStorage.getItem('jwtToken'),
                     },
@@ -41,7 +41,7 @@ const Diminati = () => {
 
     return (
         <>
-            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center justify-content-lg-between`}></div>
+            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center justify-content-lg-between`}>
                 {productsDiminati.map((productDiminati) => {
                     return(
                         <>
@@ -55,6 +55,7 @@ const Diminati = () => {
                         </>
                     )
                 })}
+            </div>
         </>
     )
 }
