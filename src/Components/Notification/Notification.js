@@ -80,7 +80,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Accepted Offer' &&
-                                <Link style={{ textDecoration: 'none' }} to={`/infopbterjual/${offerLists.product.publicId}`}>
+                                <Link style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}>
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>

@@ -1,5 +1,6 @@
 import React from 'react'
 import FormAddProduct from './FormAddProduct'
+import FormAdd from './FormAdd'
 import { IoMdArrowBack } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import style from './AddProduct.module.css'
@@ -15,7 +16,8 @@ const AddProduct = () => {
                     <Link to='/profile/semua'>
                       <IoMdArrowBack className={`${style.backlogo} mt-2 text-decoration-none`} size={20} />
                     </Link>
-                    <FormAddProduct />
+                    {/* <FormAddProduct /> */}
+                    <FormAdd />
                 </div>
             </div>
         </div>    

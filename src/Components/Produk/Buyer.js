@@ -121,7 +121,17 @@ const Buyer = (props) => {
         {/* CONDITIONAL */}
         
         {
-          (localStorage.getItem('jwtToken') && (isTawar === true)) &&
+          (localStorage.getItem('jwtToken') && (props.products.status.sold === true)) &&
+            <button type="submit" 
+              disabled
+              onClick={() => modalTawarShow(true)} 
+              className={`${style.buttonterbeli} w-100 text-white mb-3 mt-3`}
+            >
+              Barang telah terjual
+            </button>
+        }
+        {
+          (localStorage.getItem('jwtToken') && (isTawar === true) && (props.products.status.sold === false)) &&
             <button type="submit" 
               disabled
               onClick={() => modalTawarShow(true)} 
@@ -131,7 +141,7 @@ const Buyer = (props) => {
             </button>
         }
         {
-          (localStorage.getItem('jwtToken') && (isTawar === false)) &&
+          (localStorage.getItem('jwtToken') && (isTawar === false) && (props.products.status.sold === false)) &&
             <button type="submit" 
               onClick={() => modalTawarShow(true)} 
               className={`${style.buttonsimpan} w-100 text-white mb-3 mt-3`}
