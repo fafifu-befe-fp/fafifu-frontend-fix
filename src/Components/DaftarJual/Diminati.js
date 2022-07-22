@@ -41,7 +41,7 @@ const Diminati = () => {
 
     return (
         <>
-            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center justify-content-lg-between`}></div>
+            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center`}>
                 {productsDiminati.map((productDiminati) => {
                     return(
                         <>
@@ -55,6 +55,7 @@ const Diminati = () => {
                         </>
                     )
                 })}
+            </div>
         </>
     )
 }

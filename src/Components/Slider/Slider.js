@@ -20,10 +20,7 @@ const Slider = () => {
         spaceBetween={-70}
         grabCursor={true}
         loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        autoplay={true}
         pagination={{
           clickable: true,
         }}

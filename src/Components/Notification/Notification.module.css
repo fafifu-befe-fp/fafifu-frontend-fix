@@ -44,10 +44,8 @@
 }
 
 .backlogo{
-    position: relative;
-    top: 0%;
-    left: 20%;
-    transform: translateY(200%);
+    margin-bottom: 2px;
+    margin-right: 10px;
 }
 
 .textSecondary{
@@ -67,6 +65,7 @@
 
 .produkText{
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .textNama{
@@ -120,4 +119,41 @@
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
+}
+
+.notificationContainer:hover{
+    background-color: #f5f5f5;
+}
+
+/* Box Notifikasi */
+
+.textDitawar{
+    margin-right: 5px;
+}
+
+.hargaDitawar{
+    color: #04a777;
+}
+
+/* Filter Button */
+
+.btn {
+    background: #E2D4F0;
+    width: 20%;
+    border-radius: 12px;
+    font-size: 13px;
+    padding: 10px 10px;
+    margin: 0px 5px;
+    outline: none;
+    border: none;
+}
+
+.btn:hover {
+    background: #7126B5;
+    color: white;
+}
+
+.btn:focus {
+    background: #7126B5;
+    color: white;
 }
