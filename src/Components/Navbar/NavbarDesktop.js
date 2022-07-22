@@ -21,9 +21,6 @@ const NavbarDesktop = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex" role="search">
-            <input className={`${style.searchBar} form-control me-2`} type="search" placeholder="Cari di sini ..." aria-label="Search" />
-          </form>
           <div className={`icon_wrapper ms-auto`}>
             {/* Public */}
             { user === null && <button type="submit" className={`${style.buttonLogin}`}>
@@ -32,7 +29,7 @@ const NavbarDesktop = () => {
             </button> }
 
             {/* Protected */}
-            { user !== null && <Link to='/penawaran'>
+            { user !== null && <Link to='/'>
               <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>
             </Link> }
 

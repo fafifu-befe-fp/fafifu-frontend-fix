@@ -10,6 +10,7 @@ import { Modal, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 import { useForm } from 'react-hook-form'
+import NumberFormat from 'react-number-format';
 
 const Penawaran = (props) => {
     const [modalMatch, modalMatchShow] = useState(false);
@@ -18,7 +19,7 @@ const Penawaran = (props) => {
     const [notification, notificationShow] = React.useState(false);
 
     const param = useParams()
-    const [offers, setOffers] = useState(null)
+    const [ offers, setOffers ] = useState(null)
     const [ status, setStatus ] = useState()
     const [ buttonStatus, setButtonStatus ] = useState()
 
@@ -35,6 +36,13 @@ const Penawaran = (props) => {
                 setOffers(res.data.data);
                 setStatus(res.data.data.offer.status)
                 console.log('ini offers: ', offers)
+                // axios
+                //     .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${param.id}/read`, {},
+                //     {
+                //         headers: {
+                //             Authorization: localStorage.getItem("jwtToken"),
+                //         }
+                //     })
             });
     }, []);
 
@@ -113,13 +121,13 @@ const Penawaran = (props) => {
             { offers !== null &&
                 <div className='container'>
                     <div className={'container-fluid'}>
-                        <Link to="/notification"><IoMdArrowBack className={`${style.backlogo} mt-2`} size={20} /></Link>
-                        <div className={'row mt-3 d-flex justify-content-center'}>
-                            <div className={'col-sm-6 col-md-12 col-lg-6 forminfo'}>
+                        <div className={'row mt-4 d-flex justify-content-center'}>
+                            <div className={'col-sm-6 col-md-12 col-lg-8 forminfo'}>
+                                <Link to="/notification" className={`text-decoration-none`}><IoMdArrowBack size={20} className={`${style.backlogo}`}/>Kembali</Link>
                                 <div className={`${style.produkText}`}>
                                     Data Pembeli
                                 </div>
-                                <div className={"row d-flex flex-row shadow py-3 px-1 mb-3 rounded"}>
+                                <div className={`row d-flex flex-row shadow py-3 px-1 mb-3 rounded ${style.containerInfo}`}>
                                     <div className={"col-auto px-2 d-flex justify-content-center align-items-center"}>
                                         <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offers.buyer.imageUrl} alt=''/>
                                     </div>
@@ -135,7 +143,7 @@ const Penawaran = (props) => {
                                 <div className={`${style.produkText}`}>
                                     Daftar Produkmu Yang Ditawar
                                 </div>
-                                <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
+                                <div className={`row d-flex flex-row shadow py-3 px-1 mt-3 rounded ${style.containerInfo}`}>
                                     <div className={"d-flex flex-row"}>
                                         <div className={"col-auto"}>
                                             <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offers.product.imageUrl} alt=''/>
@@ -146,17 +154,28 @@ const Penawaran = (props) => {
                                                     Penawaran Produk
                                                 </div>
                                                 <div className={`${style.textSecondary} ml-auto`}>
-                                                    {offers.offer.createdAt}
+                                                    {(offers.offer.createdAt).substring(0, 10)}
                                                 </div>
                                             </div>
                                             <div>
                                                 {offers.product.name}
                                             </div>
-                                            <div>
-                                                Rp. {offers.product.price}
+                                            
+                                            <div className={`mt-2 ${style.cardPrice}`}>
+                                                <div>
+                                                    Harga Penjualan
+                                                </div>
+                                                <div className={`${style.cardPriceOriginal}`}>
+                                                    <NumberFormat value={offers.product.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+                                                </div>
                                             </div>
-                                            <div>
-                                                Ditawar Rp. {offers.offer.price}
+                                            <div className={`mt-2 ${style.cardPrice}`}>
+                                                <div>
+                                                    Harga Penawaran
+                                                </div>
+                                                <div className={`${style.cardPriceOffer}`}>
+                                                    <NumberFormat value={offers.offer.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

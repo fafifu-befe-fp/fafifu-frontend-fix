@@ -57,10 +57,7 @@
 }
 
 .backlogo{
-    position: relative;
-    top: 0%;
-    left: 20%;
-    transform: translateY(200%);
+    margin-right: 10px;
 }
 
 .textSecondary{
@@ -70,6 +67,7 @@
 
 .produkText{
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .textNama{
@@ -81,6 +79,28 @@
     color: #818181;
     display: flex;
     align-items: center;
+}
+
+/* Style Harga */
+
+.cardPrice{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+}
+
+.cardPriceOriginal{
+    color: #ef233c;
+    text-decoration: line-through;
+}
+
+.cardPriceOffer{
+    color: #04a777;
+}
+
+.containerInfo:hover{
+    background-color: #f5f5f5;
 }
 
 /* Modals Terima */

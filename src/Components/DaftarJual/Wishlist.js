@@ -41,7 +41,7 @@ const Wishlist = () => {
 
     return (
         <>
-            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center justify-content-lg-between`}>   
+            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center`}>
                 {productsWishlist.map((productWishlist) => {
                     return(
                         <>

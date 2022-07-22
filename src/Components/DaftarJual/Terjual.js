@@ -28,26 +28,25 @@ const Terjual = () => {
 
     if (statusCode === 404) {
         return (
-          <>
-            <div className='container d-flex justify-content-center'>
-                <div className='row d-flex flex-column '>
-                    <img src='/img/diminati.png' className={`${style.wishlistImage}`}/>
-                    <div className={`${style.wishlistText} text-center`}>Barang mu terjual nih D:</div>
+            <>
+                <div className='container d-flex justify-content-center'>
+                    <div className='row d-flex flex-column '>
+                        <img src='/img/diminati.png' className={`${style.wishlistImage}`}/>
+                        <div className={`${style.wishlistText} text-center`}>Barang mu terjual nih D:</div>
+                    </div>
                 </div>
-            </div>
-
-          </>
+            </>
         );
-      }
+    }
 
     return (
         <>
-            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center justify-content-lg-between`}></div>
+            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center`}>
                 {productsTerjual.map((productTerjual) => {
                     return(
                         <>
-                            <div className='d-flex'>
-                                <div className={`box h-auto d-flex flex-row flex-wrap`}>
+                            <div className='d-flex justify-content-start'>
+                                <div className={`box h-100 d-flex flex-row flex-wrap`}>
                                     <Link to={`/infop/${productTerjual.publicId}`} className={`text-decoration-none`}>
                                         <Card productTerjual={productTerjual}/>
                                     </Link>
@@ -56,6 +55,7 @@ const Terjual = () => {
                         </>
                     )
                 })}
+            </div>
         </>
     )
 }
