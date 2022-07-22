@@ -175,11 +175,11 @@ const Buyer = (props) => {
                           Masukkan Harga Tawarmu
                       </p>
                       <p className={"px-2 mb-2"}>
-                          Harga tawaranmu akan diketahui penual, jika penjual cocok kamu akan segera dihubungi penjual.
+                          Harga tawaranmu akan diketahui penjual, jika penjual cocok kamu akan segera dihubungi penjual.
                       </p>
                       <div className={"row data-container d-flex flex-row py-2 px-1 mx-0 mb-3 rounded justify-content-center align-items-center w-100 p-3"}>
                           <div className={"text-center"}/>
-                          <div className={`d-flex flex-row py-2 px-1 ${styleTawar.photoDetailContainer}`}>
+                          <div className={`d-flex flex-row py-2 px-1 overflow-auto ${styleTawar.photoDetailContainer}`}>
                               <div className={"col-auto px-2"}>
                                   <img className={"col-auto p-0 m-0 h-auto w-100"} src='/img/Produk.svg' alt=''/>
                               </div>

@@ -20,6 +20,7 @@ const Penawaran = (props) => {
     const param = useParams()
     const [offers, setOffers] = useState(null)
     const [ status, setStatus ] = useState()
+    const [ buttonStatus, setButtonStatus ] = useState()
 
     useEffect(() => {
         axios
@@ -39,7 +40,7 @@ const Penawaran = (props) => {
 
     const { register, handleSubmit, formState } = useForm()
   
-    const formTerimaHandler = (data) => {
+    const formTerimaHandler = () => {
       const postData = {
         statusOfferId: 1
       }
@@ -61,7 +62,7 @@ const Penawaran = (props) => {
       )
     }
   
-    const formTolakHandler = (data) => {
+    const formTolakHandler = () => {
       const postData = {
         statusOfferId: 2
       }
@@ -81,6 +82,29 @@ const Penawaran = (props) => {
       .catch ( err =>
         console.log('GAGAL MENOLAK.')
       )
+    }
+  
+    const formStatusHandler = () => {
+      const postData = {
+        statusOfferId: buttonStatus
+      }
+      console.log('ini postdata', postData)
+  
+      console.log('ini header ', localStorage.getItem('jwtToken'))
+        axios.put(`https://fafifu-backend-api.herokuapp.com/v1/offer/${param.id}`, postData, {
+        headers: {
+          Authorization: localStorage.getItem('jwtToken')
+        },
+      })
+      .then ( res => 
+        console.log(res),
+        console.log('BERHASIL MENJUAL BARANG'),
+        setStatus(buttonStatus)
+      )
+      .catch ( err =>
+        console.log('GAGAL MENJUAL BARANG.')
+      )
+      console.log('status yg dipilih:', status)
     }
 
     return (
@@ -238,7 +262,7 @@ const Penawaran = (props) => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className={`d-flex flex-row py-2 px-1 ${style.dataContainer}`}>
+                                                    <div className={`d-flex flex-row py-2 px-1 ${style.dataContainer} overflow-auto `}>
                                                         <div className={"col-auto p-0 me-2"}>
                                                             <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
                                                         </div>
@@ -255,9 +279,11 @@ const Penawaran = (props) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="button" className={`col-12 btn ${style.buttonMatchTerima}`}>
-                                                    Hubungi via WhattsApp <BsWhatsapp className={"mb-1 mx-1"}/>
-                                                </button>
+                                                <a href={`https://wa.me/${offers.buyer.handphone}`} target="_blank" rel="noreferrer">
+                                                    <button type="button" className={`col-12 btn ${style.buttonMatchTerima}`}>
+                                                        Hubungi via WhattsApp <BsWhatsapp className={"mb-1 mx-1"}/>
+                                                    </button>
+                                                </a>
                                             </div>
                                         </Modal.Body>
                                     </Modal>
@@ -271,52 +297,61 @@ const Penawaran = (props) => {
                                         aria-labelledby="contained-modal-title-vcenter"
                                         centered
                                     >
-                                    <Modal.Header closeButton/>
-                                    <Modal.Body>
-                                        <div className={`d-flex flex-column justify-content-center align-items-center my-2`}>
-                                            <div className={"d-flex flex-column justify-content-center align-items-center my-2"}>
-                                                <p className={`px-2 mb-4 ${style.modalStatusTitle}`}>
-                                                    Perbarui status penjualan produkmu
-                                                </p>
-                                                <div className={"d-flex flex-row px-2"}>
-                                                    <div className={"form-check"}>
-                                                        <input className={"form-check-input"} type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                                                        <label className={"form-check-label px-2"} for="flexRadioDefault1"/>
-                                                    </div>
-                                                    <div className="">
+                                        <Modal.Header closeButton/>
+                                        <Modal.Body>
+                                            <div className={`d-flex flex-column justify-content-center align-items-center my-2`}>
+                                                <form onSubmit={ handleSubmit(formStatusHandler) } className={"d-flex flex-column justify-content-center align-items-center my-2"}>
+                                                    <p className={`px-2 mb-4 ${style.modalStatusTitle}`}>
+                                                        Perbarui status penjualan produkmu
+                                                    </p>
+                                                    <div className={"d-flex flex-row px-2"}>
+                                                        <div className={"form-check"}>
+                                                            <input 
+                                                                className={"form-check-input"} 
+                                                                type="radio" 
+                                                                name="flexRadioDefault" 
+                                                                id="flexRadioDefault1"
+                                                                value={3}
+                                                                onChange={(e) => setButtonStatus(e.target.value)} 
+                                                            />
+                                                            <label className={"form-check-label px-2"} for="flexRadioDefault1"/>
+                                                        </div>
                                                         <div className="">
-                                                            Berhasil Terjual
-                                                        </div>
-                                                        <div className={"pt-2 mb-4"}>
-                                                            Kamu telah sepakat menjual produk ini kepada pembeli
+                                                            <div className="">
+                                                                Berhasil Terjual
+                                                            </div>
+                                                            <div className={"pt-2 mb-4"}>
+                                                                Kamu telah sepakat menjual produk ini kepada pembeli
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className={"d-flex flex-row px-2"}>
-                                                    <div className={"form-check"}>
-                                                        <input className={"form-check-input"} type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                                                        <label className={"form-check-label px-2"} for="flexRadioDefault1"/>
-                                                    </div>
-                                                    <div className="">
+                                                    <div className={"d-flex flex-row px-2"}>
+                                                        <div className={"form-check"}>
+                                                            <input 
+                                                                className={"form-check-input"} 
+                                                                type="radio" 
+                                                                name="flexRadioDefault" 
+                                                                id="flexRadioDefault1"
+                                                                value={2}
+                                                                onChange={(e) => setButtonStatus(e.target.value)} 
+                                                            />
+                                                            <label className={"form-check-label px-2"} for="flexRadioDefault1"/>
+                                                        </div>
                                                         <div className="">
-                                                            Batalkan transaksi
-                                                        </div>
-                                                        <div className={"pt-2 mb-4"}>
-                                                            Kamu membatalkan transaksi produk ini dengan pembeli
+                                                            <div className="">
+                                                                Batalkan transaksi
+                                                            </div>
+                                                            <div className={"pt-2 mb-4"}>
+                                                                Kamu membatalkan transaksi produk ini dengan pembeli
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <button type="button" className={`col-4 btn ${style.buttonKirim} w-100`}>
-                                                {/* <button type="button" onClick={() => messageShowModal(true)} className={`col-4 btn ${style.buttonKirim} w-100`}> */}
-                                                    Kirim
-                                                </button>
-                                                {/* <Message
-                                                    show={message}
-                                                    onHide={() => messageShowModal(false)}
-                                                /> */}
+                                                    <button type="submit" className={`col-4 btn ${style.buttonKirim} w-100`}>
+                                                        Kirim
+                                                    </button>
+                                                </form>
                                             </div>
-                                        </div>
-                                    </Modal.Body>
+                                        </Modal.Body>
                                     </Modal>
                                 </div>
                             </div>
