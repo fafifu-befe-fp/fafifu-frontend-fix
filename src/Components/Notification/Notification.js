@@ -47,11 +47,26 @@ const Notification = () => {
                         <>
                             {
                                 offerLists.statusNotification === 'Incoming Offer' &&
-                                <Link style={{ textDecoration: 'none' }} to={`/penawaran/${offerLists.offer.publicId}`}>
+                                <Link 
+                                    style={{ textDecoration: 'none' }} 
+                                    to={`/penawaran/${offerLists.offer.publicId}`}
+                                    onClick={
+
+                                        ( () => {
+                                            axios
+                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                {
+                                                    headers: {
+                                                        Authorization: localStorage.getItem("jwtToken"),
+                                                    }
+                                                })
+                                        })
+                                    }
+                                >
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
-                                                <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
+                                                <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offerLists.product.image} alt=''/>
                                             </div>
                                             <div className={"col-10 mx-3"}>
                                                 <div className={"d-flex justify-content-between w-100"}>
@@ -60,11 +75,21 @@ const Notification = () => {
                                                     </div>
                                                     <div className={`${style.textSecondary} ml-auto d-flex`}>
                                                         <div className={`${style.textSecondary} mx-2`}>
-                                                            {offerLists.createdAt}
+                                                            {(offerLists.createdAt).substring(0, 10)}
                                                         </div>
-                                                        <div className={`${style.iconSecondary}`}>
-                                                            <GoPrimitiveDot/>
-                                                        </div>
+                                                        {/* CONDITIONAL */}
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
+                                                                <div className={`${style.iconUnread}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === true)) &&
+                                                                <div className={`${style.iconRead}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div>
@@ -84,7 +109,7 @@ const Notification = () => {
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
-                                                <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
+                                                <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offerLists.product.image} alt=''/>
                                             </div>
                                             <div className={"col-10 mx-3"}>
                                                 <div className={"d-flex justify-content-between w-100"}>
@@ -95,9 +120,19 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {offerLists.createdAt}
                                                         </div>
-                                                        <div className={`${style.iconSecondary}`}>
-                                                            <GoPrimitiveDot/>
-                                                        </div>
+                                                        {/* CONDITIONAL */}
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
+                                                                <div className={`${style.iconUnread}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === true)) &&
+                                                                <div className={`${style.iconRead}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div>
@@ -117,7 +152,7 @@ const Notification = () => {
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
-                                                <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
+                                                <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offerLists.product.image} alt=''/>
                                             </div>
                                             <div className={"col-10 mx-3"}>
                                                 <div className={"d-flex justify-content-between w-100"}>
@@ -128,9 +163,19 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {offerLists.createdAt}
                                                         </div>
-                                                        <div className={`${style.iconSecondary}`}>
-                                                            <GoPrimitiveDot/>
-                                                        </div>
+                                                        {/* CONDITIONAL */}
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
+                                                                <div className={`${style.iconUnread}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === true)) &&
+                                                                <div className={`${style.iconRead}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div>
@@ -150,7 +195,7 @@ const Notification = () => {
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
-                                                <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
+                                                <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offerLists.product.image} alt=''/>
                                             </div>
                                             <div className={"col-10 mx-3"}>
                                                 <div className={"d-flex justify-content-between w-100"}>
@@ -161,9 +206,19 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {offerLists.createdAt}
                                                         </div>
-                                                        <div className={`${style.iconSecondary}`}>
-                                                            <GoPrimitiveDot/>
-                                                        </div>
+                                                        {/* CONDITIONAL */}
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
+                                                                <div className={`${style.iconUnread}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
+                                                        {
+                                                            (localStorage.getItem('jwtToken') && (offerLists.isRead === true)) &&
+                                                                <div className={`${style.iconRead}`}>
+                                                                    <GoPrimitiveDot/>
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div>

@@ -1,3 +1,8 @@
+.profilePhoto{
+    max-width: 50px;
+    min-height: 50px;
+    border-radius: 10px;
+}
 .buttonPenawaranTerima {
     background-color: #7126B5;
     height: 40px;
@@ -50,9 +55,14 @@
     color: #818181;
 }
 
-.iconSecondary{
+.iconUnread{
     font-size: 12px;
     color: red;
+}
+
+.iconRead{
+    display: none;
+    font-size: 12px;
 }
 
 .produkText{
