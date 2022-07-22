@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 
 
-const InfoProdukBuyer = (props) => {
+const InfoProdukBuyer = () => {
 
   const param = useParams()
   const [products, setProducts] = useState(null)

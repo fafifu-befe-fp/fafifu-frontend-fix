@@ -1,5 +1,6 @@
 .buttonPenawaranTerima {
     background-color: #7126B5;
+    width: 150px;
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
@@ -25,6 +26,7 @@
 
 .buttonPenawaranTolak {
     background-color: white;
+    width: 150px;
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
@@ -34,6 +36,22 @@
     background-color: rgb(240, 240, 240);
     height: 40px;
     font-weight: 600;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+.buttonTertolak {
+    background-color: white;
+    width: 250px;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+.buttonSudahTerjual {
+    background-color: white;
+    width: 250px;
+    height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
 }
@@ -81,6 +99,7 @@
 
 .dataContainer{
     background-color: #EEEEEE;
+    overflow-wrap: break-word;
 }
 
 /* Modals Status */
@@ -105,4 +124,10 @@
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
+}
+
+.profilePhoto{
+    max-width: 50px;
+    min-height: 50px;
+    border-radius: 10px;
 }

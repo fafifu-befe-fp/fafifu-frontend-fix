@@ -47,7 +47,7 @@ const Notification = () => {
                         <>
                             {
                                 offerLists.statusNotification === 'Incoming Offer' &&
-                                <Link style={{ textDecoration: 'none' }} to='/listpenawar'>
+                                <Link style={{ textDecoration: 'none' }} to={`/penawaran/${offerLists.offer.publicId}`}>
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>

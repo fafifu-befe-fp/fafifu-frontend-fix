@@ -32,7 +32,7 @@ const NavbarDesktop = () => {
             </button> }
 
             {/* Protected */}
-            { user !== null && <Link to='/listpenawar'>
+            { user !== null && <Link to='/penawaran'>
               <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>
             </Link> }
 
