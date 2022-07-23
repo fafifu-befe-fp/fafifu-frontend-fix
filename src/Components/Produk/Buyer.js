@@ -193,13 +193,19 @@ const Buyer = (props) => {
                               </div>
                           </div>
                       </div>
-                      <form onSubmit={ handleSubmit(formTawarHandler) }>
+                      <form 
+                        onSubmit={ handleSubmit(formTawarHandler) }
+                        onHide={() => modalTawarShow(true)}
+                      >
                           <div class={"form-group"}>
                               <label className={`mb-2 ${styleTawar.hargaTawarText}`}>Harga Tawar</label>
                               <input type="text" {...register('price', {required: true})} className={"form-control mb-4"} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter price"/>
                               {/* jangan lupa ganti number */}
                           </div>
-                          <button type="submit" className={`col-4 btn ${styleTawar.buttonKirim} w-100`}>
+                          <button 
+                            type="submit" 
+                            className={`col-4 btn ${styleTawar.buttonKirim} w-100`}
+                          >
                               Kirim
                           </button>
                       </form>

@@ -15,7 +15,6 @@ import {FiSearch} from 'react-icons/fi';
 const Notification = () => {
     const [offerList, setOfferList] = useState([])
     const [statusCode, setStatusCode] = useState()
-    const [filterNotify, setFilterNotify] = useState()
       
     useEffect(() => {
         axios
@@ -37,11 +36,11 @@ const Notification = () => {
     
     const ref = useRef(null);
   
-    const getAll = () => {
+    const filterNotification = (event) => {
       if (localStorage.getItem("jwtToken")) {
         axios
           .get(
-            `https://fafifu-backend-api.herokuapp.com/v1/notification/all`,
+            `https://fafifu-backend-api.herokuapp.com/v1/notification/all?status=${event.currentTarget.id}`,
             {
               headers: {
                 Authorization: localStorage.getItem("jwtToken"),
@@ -51,7 +50,6 @@ const Notification = () => {
           .then((res) => {
             console.log('ini ress', res)
             setOfferList(res.data.data);
-            setFilterNotify(null)
           })
           .catch((err) => {
             // 
@@ -59,11 +57,10 @@ const Notification = () => {
       } else {
         axios
           .get(
-            `https://fafifu-backend-api.herokuapp.com/v1/notification/all`,
+            `https://fafifu-backend-api.herokuapp.com/v1/notification/all?status=${event.currentTarget.id}`,
           )
           .then((res) => {
             setOfferList(res.data.data);
-            setFilterNotify(null)
           })
           .catch((err) => {
             // 
@@ -77,20 +74,17 @@ const Notification = () => {
                 <div className={'col-sm-6 col-md-12 col-lg-8 forminfo'}>
                 <Link to="/" className={`text-decoration-none`}><IoMdArrowBack size={20} className={`${style.backlogo}`}/>Kembali</Link>
                 
+                {/* Button Kategori Notifikasi */}
                 <div className={`d-flex flex-row my-3 overflow-auto`}>
-                    <button type='button' ref={ref} value="Get All" onClick={() => setFilterNotify(null)} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Semua</button>
-                    {/* <button type='button' ref={ref} value="Get All" onClick={getAll} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Semua</button> */}
-                    <button type='button' ref={ref} value="Incoming Offer" onClick={() => setFilterNotify('Incoming Offer')} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Incoming Offer</button>
-                    <button type='button' ref={ref} value="Published Product" onClick={() => setFilterNotify('Published Product')} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Published Product</button>
-                    <button type='button' ref={ref} value="Published Offer" onClick={() => setFilterNotify('Published Offer')} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Published Offer</button>
-                    <button type='button' ref={ref} value="Accepted Offer" onClick={() => setFilterNotify('Accepted Offer')} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Accepted Offer</button>
+                    <button type='button' ref={ref} onClick={filterNotification} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Semua</button>
+                    <button type='button' ref={ref} id="1" onClick={filterNotification} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Incoming Offer</button>
+                    <button type='button' ref={ref} id="2" onClick={filterNotification} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Accepted Offer</button>
+                    <button type='button' ref={ref} id="3" onClick={filterNotification} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Published Product</button>
+                    <button type='button' ref={ref} id="4" onClick={filterNotification} className={`${style.btn}`}><FiSearch className={'fi m-1'}/>Published Offer</button>
                 </div>
 
                 {/* Div Notifikasi */}
-                {console.log('ini filterNotify: ', filterNotify)}
-
-                {offerList
-                    .map((offerLists) => {
+                {offerList.map((offerLists) => {
                     return(
                         <>
                             {
@@ -100,8 +94,7 @@ const Notification = () => {
                                     to={`/penawaran/${offerLists.offer.publicId}`}
                                     className={`text-black`}
                                     onClick={
-
-                                        ( () => {
+                                        (() => {
                                             axios
                                                 .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
                                                 {
@@ -126,7 +119,6 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {(offerLists.createdAt).substring(0, 10)}
                                                         </div>
-                                                        {/* CONDITIONAL */}
                                                         {
                                                             (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
                                                                 <div className={`${style.iconUnread}`}>
@@ -149,7 +141,7 @@ const Notification = () => {
                                                         Ditawar
                                                     </div>
                                                     <div>
-                                                        <NumberFormat className={`d-flex flex-row ${style.hargaDitawar}`} value={offerLists.product.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
+                                                        <NumberFormat className={`d-flex flex-row ${style.hargaDitawar}`} value={offerLists.offer.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,7 +151,18 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Accepted Offer' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}>
+                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
+                                    onClick={
+                                        (() => {
+                                            axios
+                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                {
+                                                    headers: {
+                                                        Authorization: localStorage.getItem("jwtToken"),
+                                                    }
+                                                })
+                                        })
+                                    }>
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
@@ -174,7 +177,6 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {(offerLists.createdAt).substring(0, 10)}
                                                         </div>
-                                                        {/* CONDITIONAL */}
                                                         {
                                                             (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
                                                                 <div className={`${style.iconUnread}`}>
@@ -202,7 +204,18 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Published Product' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infop/${offerLists.product.publicId}`}>
+                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infop/${offerLists.product.publicId}`}
+                                    onClick={
+                                        (() => {
+                                            axios
+                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                {
+                                                    headers: {
+                                                        Authorization: localStorage.getItem("jwtToken"),
+                                                    }
+                                                })
+                                        })
+                                    }>
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
@@ -217,7 +230,6 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {(offerLists.createdAt).substring(0, 10)}
                                                         </div>
-                                                        {/* CONDITIONAL */}
                                                         {
                                                             (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
                                                                 <div className={`${style.iconUnread}`}>
@@ -245,7 +257,18 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Published Offer' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}>
+                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
+                                    onClick={
+                                        (() => {
+                                            axios
+                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                {
+                                                    headers: {
+                                                        Authorization: localStorage.getItem("jwtToken"),
+                                                    }
+                                                })
+                                        })
+                                    }>
                                     <div className={"row d-flex flex-row shadow py-3 px-1 mt-3 rounded"}>
                                         <div className={"d-flex flex-row"}>
                                             <div className={"col-auto"}>
@@ -260,7 +283,6 @@ const Notification = () => {
                                                         <div className={`${style.textSecondary} mx-2`}>
                                                             {(offerLists.createdAt).substring(0, 10)}
                                                         </div>
-                                                        {/* CONDITIONAL */}
                                                         {
                                                             (localStorage.getItem('jwtToken') && (offerLists.isRead === false)) &&
                                                                 <div className={`${style.iconUnread}`}>
