@@ -48,7 +48,7 @@ const Diminati = () => {
                         <>
                             <div className='d-flex'>
                                 <div className={`box h-100 d-flex flex-row flex-wrap`}>
-                                    <Link to={`/infop/${productDiminati.publicId}`} className={`text-decoration-none`}>
+                                    <Link to={`/infop/${productDiminati.productPublicId}`} className={`text-decoration-none`}>
                                         <Card productDiminati={productDiminati}/>
                                     </Link>
                                 </div>
