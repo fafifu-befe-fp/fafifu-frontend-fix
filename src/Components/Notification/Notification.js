@@ -92,7 +92,7 @@ const Notification = () => {
                                 <Link 
                                     style={{ textDecoration: 'none'}} 
                                     to={`/penawaran/${offerLists.offer.publicId}`}
-                                    className={`text-black`}
+                                    className={`text-dark text-decoration-none`}
                                     onClick={
                                         (() => {
                                             axios
@@ -151,7 +151,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Accepted Offer' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
+                                <Link className={`text-dark text-decoration-none`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
                                     onClick={
                                         (() => {
                                             axios
@@ -204,7 +204,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Published Product' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infop/${offerLists.product.publicId}`}
+                                <Link className={`text-dark text-decoration-none`} style={{ textDecoration: 'none' }} to={`/infop/${offerLists.product.publicId}`}
                                     onClick={
                                         (() => {
                                             axios
@@ -257,7 +257,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Published Offer' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
+                                <Link className={`text-dark text-decoration-none`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
                                     onClick={
                                         (() => {
                                             axios
