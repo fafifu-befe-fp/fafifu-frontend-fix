@@ -8,10 +8,10 @@ const Buyer = (props) => {
     <div className={`card w-100 ${style.cardProductBuyer} mb-4`}>
       <div className='card-body mx-2'>
         <h5 className={`${style.namaBarang}`}>{props.productsProfile.name}</h5>
-        <p className={`${style.jenisBarang}`}>
+        <p className={`${style.jenisBarang} d-flex flex-row flex-wrap` }>
           {props.productsProfile.category.map((productCategory) => {
             return(
-              <div>
+              <div className={`${style.commaText}`}>
                 {productCategory.name}
               </div>
             )

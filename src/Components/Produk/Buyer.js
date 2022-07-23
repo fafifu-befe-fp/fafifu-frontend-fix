@@ -105,10 +105,10 @@ const Buyer = (props) => {
             }
           </div>
         </div>
-        <p className={`${style.jenisBarang}`}>
+        <p className={`${style.jenisBarang} d-flex flex-row flex-wrap`}>
           {props.products.category.map((productCategory) => {
             return(
-              <div>
+              <div className={` ${style.commaText}`}>
                 {productCategory.name}
               </div>
             )
