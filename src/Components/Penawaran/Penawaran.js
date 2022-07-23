@@ -106,6 +106,7 @@ const Penawaran = (props) => {
         console.log('GAGAL MENJUAL BARANG.')
       )
       console.log('status yg dipilih:', status)
+      modalStatusShow(false)
     }
 
     return (
@@ -312,7 +313,10 @@ const Penawaran = (props) => {
                                         <Modal.Header closeButton/>
                                         <Modal.Body>
                                             <div className={`d-flex flex-column justify-content-center align-items-center my-2`}>
-                                                <form onSubmit={ handleSubmit(formStatusHandler) } className={"d-flex flex-column justify-content-center align-items-center my-2"}>
+                                                <form 
+                                                    onSubmit={ handleSubmit(formStatusHandler)} 
+                                                    className={"d-flex flex-column justify-content-center align-items-center my-2"}
+                                                >
                                                     <p className={`px-2 mb-4 ${style.modalStatusTitle}`}>
                                                         Perbarui status penjualan produkmu
                                                     </p>
