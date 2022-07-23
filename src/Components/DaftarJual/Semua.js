@@ -23,7 +23,8 @@ const Semua = () => {
             .catch((err) => {
                 setStatusCode(err.response.status);
                 setProductsProfile(err.response.data.message);
-            });           
+            });
+            console.log('list semua: ', productsProfile)
     }, []);
 
     if (statusCode === 404) {

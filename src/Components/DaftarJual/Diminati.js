@@ -8,21 +8,23 @@ const Diminati = () => {
     const [productsDiminati, setProductsDiminati] = useState([])
     const [statusCode, setStatusCode] = useState();
         
-        useEffect(() => {
-            axios
-                .get(`https://fafifu-backend-api.herokuapp.com/v1/product/offer`, {
-                    headers: {
-                        Authorization: localStorage.getItem('jwtToken'),
-                    },
-                })
-                .then((res) => {
-                    setStatusCode(res.status);
-                    setProductsDiminati(res.data.data);
-                })
-                .catch((err) => {
-                    setStatusCode(err.response.status);
-                    setProductsDiminati(err.response.data.message);
-                });
+    useEffect(() => {
+        axios
+            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/offer`, {
+                headers: {
+                    Authorization: localStorage.getItem('jwtToken'),
+                },
+            })
+            .then((res) => {
+                setStatusCode(res.status);
+                setProductsDiminati(res.data.data);
+                console.log('list diminati awal: ', productsDiminati)
+            })
+            .catch((err) => {
+                setStatusCode(err.response.status);
+                setProductsDiminati(err.response.data.message);
+            });
+            console.log('list diminati akhir: ', productsDiminati)
     }, []);
 
     if (statusCode === 404) {
@@ -34,7 +36,6 @@ const Diminati = () => {
                     <div className={`${style.wishlistText} text-center`}>Barang mu belum menarik nih D:</div>
                 </div>
             </div>
-
           </>
         );
       }

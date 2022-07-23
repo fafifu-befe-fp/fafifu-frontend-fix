@@ -36,13 +36,6 @@ const Penawaran = (props) => {
                 setOffers(res.data.data);
                 setStatus(res.data.data.offer.status)
                 console.log('ini offers: ', offers)
-                // axios
-                //     .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${param.id}/read`, {},
-                //     {
-                //         headers: {
-                //             Authorization: localStorage.getItem("jwtToken"),
-                //         }
-                //     })
             });
     }, []);
 
