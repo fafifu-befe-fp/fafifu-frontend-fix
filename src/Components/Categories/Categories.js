@@ -140,7 +140,7 @@ const Category = () => {
               aria-label="Search"
               {...register('value')}
             />
-            <button className={`${style.btnSearch}`} type="submit" >
+            <button className={`${style.btnSearch}`} type="submit" id='searchBar'>
               Cari
             </button>
           </form>

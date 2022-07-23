@@ -56,7 +56,7 @@ const DaftarJual = () => {
                     </div>
                     {/* <Hubungi/> */}
                     <div className={`row py-3 mb-3 d-flex justify-content-center ${style.containerProfile}`}>
-                        <div className={`col-lg-3 col-11 col-sm-8 px-4 shadow rounded h-50 ${style.cardContainer}`}>
+                        <div className={`col-xl-3 col-lg-4 col-11 col-sm-8 px-4 shadow rounded h-50 ${style.cardContainer}`}>
                             <div className={`row my-3 ${style.titleCategory}`}>
                                 Kategori
                             </div>
@@ -116,7 +116,7 @@ const DaftarJual = () => {
                             </div>
                             </Link>
                         </div>
-                        <div className={`col-lg-9 py-0 d-flex flex-wrap justify-content-center justify-content-lg-start ${style.productContainer}`}>
+                        <div className={`col-xl-9 col-lg-8 py-0 d-flex flex-wrap justify-content-center justify-content-xl-start ${style.productContainer}`}>
                             <Outlet />
                         </div>
                     </div>

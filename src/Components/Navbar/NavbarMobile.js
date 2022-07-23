@@ -3,7 +3,7 @@ import style from './Navbar.module.css'
 import { Link } from 'react-router-dom'
 import { FiUser, FiLogIn } from 'react-icons/fi'
 import { MdNotificationsNone } from 'react-icons/md'
-import { AiOutlineUnorderedList } from 'react-icons/ai'
+import { AiOutlineUnorderedList, AiOutlineSearch } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 
 const NavbarMobile = () => {
@@ -28,7 +28,9 @@ const NavbarMobile = () => {
                     </button>
                 </li> }
                 {/* Protected */}
-
+                { user !== null && <li className='nav-item mb-3'>
+                    <Link to='/#searchBar' className={` ${style.linkText} text-decoration-none`}><AiOutlineSearch className={`${style.aiSearch} me-3`}/>Search</Link>
+                </li> }
                 { user !== null && <li className='nav-item mb-3 '>
                     <Link to='/profile/semua' className={` ${style.linkText} text-decoration-none`}><AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>Daftar Jual</Link>
                 </li> }
@@ -38,6 +40,8 @@ const NavbarMobile = () => {
                 { user !== null && <li className='nav-item mb-3'>
                     <Link to='/profile/semua' className={` ${style.linkText} text-decoration-none`}><FiUser className={`${style.fiUser} me-3`}/>Profil</Link>
                 </li> }
+                
+                
 
                 { user !== null && <li className='nav-item'>
                     <button type="submit" className={`${style.buttonLogout}`}>

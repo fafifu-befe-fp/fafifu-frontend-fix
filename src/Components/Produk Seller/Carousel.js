@@ -5,7 +5,7 @@ import style from './product.module.css'
 const CarouselCard = (props) => {
     return (
         <>
-            <Carousel className='mb-4'>
+            <Carousel className={`mb-4`}>
                 {props.productsProfile.imageUrl.map((productImages) => {
                     return(
                         <Carousel.Item>

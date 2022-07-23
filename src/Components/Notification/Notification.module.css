@@ -139,13 +139,12 @@
 
 .btn {
     background: #E2D4F0;
-    width: 20%;
     border-radius: 12px;
     font-size: 13px;
-    padding: 10px 10px;
-    margin: 0px 5px;
+    padding: 10px 15px;
     outline: none;
     border: none;
+    margin-left: 12px;
 }
 
 .btn:hover {
