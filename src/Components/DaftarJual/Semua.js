@@ -23,7 +23,8 @@ const Semua = () => {
             .catch((err) => {
                 setStatusCode(err.response.status);
                 setProductsProfile(err.response.data.message);
-            });           
+            });
+            console.log('list semua: ', productsProfile)
     }, []);
 
     if (statusCode === 404) {
@@ -40,23 +41,23 @@ const Semua = () => {
       }
 
     return (
-        <div>
-                <div className={`col-lg-12 py-0 d-flex flex-wrap`}>   
-                    {productsProfile.map((productProfile) => {
-                        return(
-                            <>
-                                <div className='d-flex'>
-                                    <div className={`box h-100 d-flex flex-row flex-wrap`}>
-                                        <Link to={`/infop/${productProfile.publicId}`} className={`text-decoration-none`}>
-                                            <Card productProfile={productProfile}/>
-                                        </Link>
-                                    </div>
-                                </div>      
-                            </>
-                        )
-                    })}
-                </div>
-        </div>
+        <>
+            <div className={`col-lg-12 py-0 d-flex flex-wrap justify-content-center`}>
+                {productsProfile.map((productProfile) => {
+                    return(
+                        <>
+                            <div className='d-flex'>
+                                <div className={`box h-100 d-flex flex-row flex-wrap`}>
+                                    <Link to={`/infop/${productProfile.publicId}`} className={`text-decoration-none`}>
+                                        <Card productProfile={productProfile}/>
+                                    </Link>
+                                </div>
+                            </div>      
+                        </>
+                    )
+                })}
+            </div>
+        </>
     )
 }
 

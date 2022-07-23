@@ -175,11 +175,11 @@ const Buyer = (props) => {
                           Masukkan Harga Tawarmu
                       </p>
                       <p className={"px-2 mb-2"}>
-                          Harga tawaranmu akan diketahui penual, jika penjual cocok kamu akan segera dihubungi penjual.
+                          Harga tawaranmu akan diketahui penjual, jika penjual cocok kamu akan segera dihubungi penjual.
                       </p>
                       <div className={"row data-container d-flex flex-row py-2 px-1 mx-0 mb-3 rounded justify-content-center align-items-center w-100 p-3"}>
                           <div className={"text-center"}/>
-                          <div className={`d-flex flex-row py-2 px-1 ${styleTawar.photoDetailContainer}`}>
+                          <div className={`d-flex flex-row py-2 px-1 overflow-auto ${styleTawar.photoDetailContainer}`}>
                               <div className={"col-auto px-2"}>
                                   <img className={"col-auto p-0 m-0 h-auto w-100"} src='/img/Produk.svg' alt=''/>
                               </div>
@@ -193,13 +193,19 @@ const Buyer = (props) => {
                               </div>
                           </div>
                       </div>
-                      <form onSubmit={ handleSubmit(formTawarHandler) }>
+                      <form 
+                        onSubmit={ handleSubmit(formTawarHandler) }
+                        onHide={() => modalTawarShow(true)}
+                      >
                           <div class={"form-group"}>
                               <label className={`mb-2 ${styleTawar.hargaTawarText}`}>Harga Tawar</label>
                               <input type="text" {...register('price', {required: true})} className={"form-control mb-4"} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter price"/>
                               {/* jangan lupa ganti number */}
                           </div>
-                          <button type="submit" className={`col-4 btn ${styleTawar.buttonKirim} w-100`}>
+                          <button 
+                            type="submit" 
+                            className={`col-4 btn ${styleTawar.buttonKirim} w-100`}
+                          >
                               Kirim
                           </button>
                       </form>

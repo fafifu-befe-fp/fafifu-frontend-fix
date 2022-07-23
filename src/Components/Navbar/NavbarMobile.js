@@ -30,7 +30,7 @@ const NavbarMobile = () => {
                 {/* Protected */}
 
                 { user !== null && <li className='nav-item mb-3 '>
-                    <Link to='/profil/semua' className={` ${style.linkText} text-decoration-none`}><AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>Daftar Jual</Link>
+                    <Link to='/profile/semua' className={` ${style.linkText} text-decoration-none`}><AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>Daftar Jual</Link>
                 </li> }
                 { user !== null && <li className='nav-item mb-3'>
                     <Link to='/notification' className={` ${style.linkText} text-decoration-none`}><MdNotificationsNone className={`${style.mdNotif} me-3`}/>Notifikasi</Link>
@@ -46,9 +46,6 @@ const NavbarMobile = () => {
                 </button></li> }
                 
             </ul>
-            <form className="d-flex float-end pb-3 me-2" role="search">
-                <input className={`${style.searchBar} form-control`} type="search" placeholder="Cari di sini ..." aria-label="Search" />
-            </form>
         </div>
     </div>
   )

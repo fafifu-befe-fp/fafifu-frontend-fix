@@ -1,5 +1,6 @@
 .buttonPenawaranTerima {
     background-color: #7126B5;
+    width: 150px;
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
@@ -25,6 +26,7 @@
 
 .buttonPenawaranTolak {
     background-color: white;
+    width: 150px;
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
@@ -38,11 +40,24 @@
     border-radius: 15px;
 }
 
+.buttonTertolak {
+    background-color: white;
+    width: 250px;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
+.buttonSudahTerjual {
+    background-color: white;
+    width: 250px;
+    height: 40px;
+    border: 1px solid #7126B5;
+    border-radius: 15px;
+}
+
 .backlogo{
-    position: relative;
-    top: 0%;
-    left: 20%;
-    transform: translateY(200%);
+    margin-right: 10px;
 }
 
 .textSecondary{
@@ -52,6 +67,7 @@
 
 .produkText{
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .textNama{
@@ -63,6 +79,28 @@
     color: #818181;
     display: flex;
     align-items: center;
+}
+
+/* Style Harga */
+
+.cardPrice{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+}
+
+.cardPriceOriginal{
+    color: #ef233c;
+    text-decoration: line-through;
+}
+
+.cardPriceOffer{
+    color: #04a777;
+}
+
+.containerInfo:hover{
+    background-color: #f5f5f5;
 }
 
 /* Modals Terima */
@@ -81,6 +119,7 @@
 
 .dataContainer{
     background-color: #EEEEEE;
+    overflow-wrap: break-word;
 }
 
 /* Modals Status */
@@ -105,4 +144,10 @@
     height: 40px;
     border: 1px solid #7126B5;
     border-radius: 15px;
+}
+
+.profilePhoto{
+    max-width: 50px;
+    min-height: 50px;
+    border-radius: 10px;
 }
