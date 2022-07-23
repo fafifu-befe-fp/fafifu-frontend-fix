@@ -97,7 +97,11 @@ const Buyer = (props) => {
           <h5 className={`${style.namaBarang}`}>{props.products.name}</h5>
           <div>
             {
-              localStorage.getItem('jwtToken') &&
+              (localStorage.getItem('jwtToken') && (props.products.status.sold === true)) &&
+                <></>
+            }
+            {
+              (localStorage.getItem('jwtToken') && (props.products.status.sold === false)) &&
                 <AiFillStar 
                   onClick={isWishlist ? formDeleteHandler : formSubmitHandler}
                   className={isWishlist ? `${style.wishlistOn}`: `${style.wishlistOff}`}
@@ -193,10 +197,7 @@ const Buyer = (props) => {
                               </div>
                           </div>
                       </div>
-                      <form 
-                        onSubmit={ handleSubmit(formTawarHandler) }
-                        onHide={() => modalTawarShow(true)}
-                      >
+                      <form onSubmit={ handleSubmit(formTawarHandler) }>
                           <div class={"form-group"}>
                               <label className={`mb-2 ${styleTawar.hargaTawarText}`}>Harga Tawar</label>
                               <input type="text" {...register('price', {required: true})} className={"form-control mb-4"} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter price"/>

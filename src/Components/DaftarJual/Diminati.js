@@ -18,13 +18,14 @@ const Diminati = () => {
             .then((res) => {
                 setStatusCode(res.status);
                 setProductsDiminati(res.data.data);
-                console.log('list diminati awal: ', productsDiminati)
+                console.log('list product/OFFER awal: ', productsDiminati)
             })
             .catch((err) => {
                 setStatusCode(err.response.status);
                 setProductsDiminati(err.response.data.message);
-            });
-            console.log('list diminati akhir: ', productsDiminati)
+            }); 
+            console.log('list product/OFFER akir: ', productsDiminati)
+
     }, []);
 
     if (statusCode === 404) {
@@ -48,7 +49,11 @@ const Diminati = () => {
                         <>
                             <div className='d-flex'>
                                 <div className={`box h-100 d-flex flex-row flex-wrap`}>
-                                    <Link to={`/infop/${productDiminati.publicId}`} className={`text-decoration-none`}>
+                                    {/* <Link to={`/infop/${productDiminati.productPublicId}`} className={`text-decoration-none`}>
+                                        <Card productDiminati={productDiminati}/>
+                                    </Link> */}
+                                    <Link to={`/penawaran/${productDiminati.offerPublicId}`} className={`text-decoration-none`}>
+                                        {/* 3518bc37-2593-492f-9170-a4d70a5a8064 */}
                                         <Card productDiminati={productDiminati}/>
                                     </Link>
                                 </div>
