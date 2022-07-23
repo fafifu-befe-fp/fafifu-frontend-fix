@@ -47,7 +47,7 @@ const Terjual = () => {
                         <>
                             <div className='d-flex justify-content-start'>
                                 <div className={`box h-100 d-flex flex-row flex-wrap`}>
-                                    <Link to={`/infop/${productTerjual.publicId}`} className={`text-decoration-none`}>
+                                    <Link to={`/infopb/${productTerjual.productPublicId}`} className={`text-decoration-none`}>
                                         <Card productTerjual={productTerjual}/>
                                     </Link>
                                 </div>

@@ -97,7 +97,11 @@ const Buyer = (props) => {
           <h5 className={`${style.namaBarang}`}>{props.products.name}</h5>
           <div>
             {
-              localStorage.getItem('jwtToken') &&
+              (localStorage.getItem('jwtToken') && (props.products.status.sold === true)) &&
+                <></>
+            }
+            {
+              (localStorage.getItem('jwtToken') && (props.products.status.sold === false)) &&
                 <AiFillStar 
                   onClick={isWishlist ? formDeleteHandler : formSubmitHandler}
                   className={isWishlist ? `${style.wishlistOn}`: `${style.wishlistOff}`}
