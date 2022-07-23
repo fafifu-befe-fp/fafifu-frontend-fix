@@ -72,7 +72,7 @@ const Notification = () => {
         <div className={'container-fluid'}>
             <div className={'row mt-4 d-flex justify-content-center'}>
                 <div className={'col-sm-6 col-md-12 col-lg-8 forminfo'}>
-                <Link to="/" className={`text-decoration-none`}><IoMdArrowBack size={20} className={`${style.backlogo}`}/>Kembali</Link>
+                <Link to="/" className={`text-decoration-none text-dark`}><IoMdArrowBack size={20} className={`${style.backlogo}`}/>Kembali</Link>
                 
                 {/* Button Kategori Notifikasi */}
                 <div className={`d-flex flex-row my-3 overflow-auto`}>
@@ -92,7 +92,7 @@ const Notification = () => {
                                 <Link 
                                     style={{ textDecoration: 'none'}} 
                                     to={`/penawaran/${offerLists.offer.publicId}`}
-                                    className={`text-black`}
+                                    className={`text-dark text-decoration-none`}
                                     onClick={
                                         (() => {
                                             axios
@@ -151,7 +151,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Accepted Offer' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
+                                <Link className={`text-dark text-decoration-none`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
                                     onClick={
                                         (() => {
                                             axios
@@ -204,7 +204,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Published Product' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infop/${offerLists.product.publicId}`}
+                                <Link className={`text-dark text-decoration-none`} style={{ textDecoration: 'none' }} to={`/infop/${offerLists.product.publicId}`}
                                     onClick={
                                         (() => {
                                             axios
@@ -257,7 +257,7 @@ const Notification = () => {
                             }
                             {
                                 offerLists.statusNotification === 'Published Offer' &&
-                                <Link className={`text-black`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
+                                <Link className={`text-dark text-decoration-none`} style={{ textDecoration: 'none' }} to={`/infopb/${offerLists.product.publicId}`}
                                     onClick={
                                         (() => {
                                             axios

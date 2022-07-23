@@ -59,7 +59,7 @@ nav {
   color: #8A8A8A;
 }
 
-.fiUser, .mdNotif, .aiOutline{
+.fiUser, .mdNotif, .aiOutline, .aiSearch{
   width: 24px;
   height: 24px;
   color: var(--hovercolor);
