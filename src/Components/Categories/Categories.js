@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import style from './Categories.module.css';
-import Card from '../Card/Card';
 import {FiSearch} from 'react-icons/fi';
+import {RiArrowDownSLine} from 'react-icons/ri';
 import axios from "axios";
 import {useRef} from 'react';
 import { Link } from 'react-router-dom'
 import NumberFormat from 'react-number-format';
 import { useForm } from 'react-hook-form'
-
-// const API_URL = process.env.REACT_APP_API_URL
 
 const Category = () => {
 
@@ -19,28 +17,23 @@ const Category = () => {
   useEffect(() => {
     if (localStorage.getItem('jwtToken')) {
       axios
-        // .get(API_URL + '/v1/product/', {
-        .get(`https://fafifu-backend-api.herokuapp.com/v1/product/`, {
+        .get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/`, {
           headers: {
             Authorization: localStorage.getItem('jwtToken'),
           },
         })
         .then((res) => {
-          console.log(res.data.data);
           setProducts(res.data.data);
           setStatusCode(res.status);
-          console.log('ini statusCode: ', statusCode)
         })
         .catch((err) => {
           setStatusCode(err.response.status);
         });
     }else{
-      axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/`)
+      axios.get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/`)
         .then((res) => {
           setProducts(res.data.data)
           setStatusCode(res.status);
-          console.log(res.data.data);
-          console.log('ini statusCode: ', statusCode)
         })
         .catch((err) => {
           setStatusCode(err.response.status);
@@ -54,7 +47,7 @@ const Category = () => {
     if (localStorage.getItem("jwtToken")) {
       axios
         .get(
-          `https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`,
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`,
           {
             headers: {
               Authorization: localStorage.getItem("jwtToken"),
@@ -65,8 +58,6 @@ const Category = () => {
           setSearch(event);
           setProducts(res.data.data);
           setStatusCode(res.status);
-          console.log('ini statusCode: ', statusCode)
-          console.log('ini search: ', search)
         })
         .catch((err) => {
           setStatusCode(err.response.status);
@@ -74,14 +65,12 @@ const Category = () => {
     } else {
       axios
         .get(
-          `https://fafifu-backend-api.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product?categoryId=${event.currentTarget.id}`
         )
         .then((res) => {
           setSearch(event);
           setProducts(res.data.data);
           setStatusCode(res.status);
-          console.log('ini statusCode: ', statusCode)
-          console.log('ini search: ', search)
         })
         .catch((err) => {
           setStatusCode(err.response.status);
@@ -95,7 +84,7 @@ const Category = () => {
     if (localStorage.getItem("jwtToken")) {
       axios
         .get(
-          `https://fafifu-backend-api.herokuapp.com/v1/product/search?search=${data.value}`,
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product/search?search=${data.value}`,
           {
             headers: {
               Authorization: localStorage.getItem("jwtToken"),
@@ -106,7 +95,6 @@ const Category = () => {
           setSearch(data.value);
           setProducts(res.data.data);
           setStatusCode(res.status);
-          console.log('ini statusCode: ', statusCode)
         })
         .catch((err) => {
           setStatusCode(err.response.status);
@@ -114,13 +102,12 @@ const Category = () => {
     } else {
       axios
         .get(
-          `https://fafifu-backend-api.herokuapp.com/v1/product/search?search=${data.value}`,
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product/search?search=${data.value}`,
         )
         .then((res) => {
           setProducts(res.data.data);
           setStatusCode(res.status);
           setSearch(data.value);
-          console.log('ini statusCode: ', statusCode)
         })
         .catch((err) => {
           setStatusCode(err.response.status);
@@ -143,8 +130,17 @@ const Category = () => {
             <button className={`${style.btnSearch}`} type="submit" id='searchBar'>
               Cari
             </button>
+            
           </form>
           <div className={`d-flex flex-row m-3 overflow-auto`}>
+            <select name="sort" id="homepageSort" className={`${style.homepageSort} m-2`}><RiArrowDownSLine className={'text-dark'}/>
+              <option selected disabled>Sort</option>
+              <option value="default">Default</option>
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="expensive">Expensive</option>
+              <option value="cheap">Cheap</option>
+            </select>
             <button type='button' ref={ref} onClick={filterCategory} className={`${style.btn} ${style.btnActive} m-2`}><FiSearch className={'fi m-1'}/>Semua</button>
             <button type='button' ref={ref} onClick={filterCategory} id="1" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Hobi</button>
             <button type='button' ref={ref} onClick={filterCategory} id="2" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Kendaraan</button>
@@ -154,12 +150,10 @@ const Category = () => {
           </div>
         </div>
 
-
         {/* CARD FIX */}
         <section className={`d-flex h-100 ${style.gede}`}>
           <div className='container'>
             <div className={`row gy-4 ${style.productContainer}`}> 
-              
             {
               (statusCode === 404) &&
                   <>

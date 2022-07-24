@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { IoMdArrowBack } from 'react-icons/io'
 import { BsWhatsapp } from 'react-icons/bs'
-import { useDropzone } from 'react-dropzone';
-import { IoMdClose } from 'react-icons/io'
 import style from './Penawaran.module.css'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -16,7 +14,6 @@ const Penawaran = (props) => {
     const [modalMatch, modalMatchShow] = useState(false);
     const [modalStatus, modalStatusShow] = useState(false);
     const [modalTawar, modalTawarShow] = useState(false);
-    const [notification, notificationShow] = React.useState(false);
 
     const param = useParams()
     const [ offers, setOffers ] = useState(null)
@@ -25,7 +22,7 @@ const Penawaran = (props) => {
 
     useEffect(() => {
         axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/offer/${param.id}`,
+            .get(`https://api-fafifu-secondhand.herokuapp.com/v1/offer/${param.id}`,
             {
                 headers: {
                     Authorization: localStorage.getItem("jwtToken"),
@@ -35,7 +32,6 @@ const Penawaran = (props) => {
             .then((res) => {
                 setOffers(res.data.data);
                 setStatus(res.data.data.offer.status)
-                console.log('ini offers: ', offers)
             });
     }, []);
 
@@ -45,21 +41,16 @@ const Penawaran = (props) => {
       const postData = {
         statusOfferId: 1
       }
-      console.log('ini postdata', postData)
-  
-      console.log('ini header ', localStorage.getItem('jwtToken'))
-        axios.put(`https://fafifu-backend-api.herokuapp.com/v1/offer/${param.id}`, postData, {
+        axios.put(`https://api-fafifu-secondhand.herokuapp.com/v1/offer/${param.id}`, postData, {
         headers: {
           Authorization: localStorage.getItem('jwtToken')
         },
       })
       .then ( res => 
-        console.log(res),
-        console.log('BERHASIL MENERIMA'),
         setStatus(1)
       )
       .catch ( err =>
-        console.log('GAGAL MENERIMA.')
+        console.log(err)
       )
     }
   
@@ -67,21 +58,16 @@ const Penawaran = (props) => {
       const postData = {
         statusOfferId: 2
       }
-      console.log('ini postdata', postData)
-  
-      console.log('ini header ', localStorage.getItem('jwtToken'))
-        axios.put(`https://fafifu-backend-api.herokuapp.com/v1/offer/${param.id}`, postData, {
+        axios.put(`https://api-fafifu-secondhand.herokuapp.com/v1/offer/${param.id}`, postData, {
         headers: {
           Authorization: localStorage.getItem('jwtToken')
         },
       })
       .then ( res => 
-        console.log(res),
-        console.log('BERHASIL MENOLAK'),
         setStatus(2)
       )
       .catch ( err =>
-        console.log('GAGAL MENOLAK.')
+        console.log(err)
       )
     }
   
@@ -89,23 +75,17 @@ const Penawaran = (props) => {
       const postData = {
         statusOfferId: buttonStatus
       }
-      console.log('ini postdata', postData)
-  
-      console.log('ini header ', localStorage.getItem('jwtToken'))
-        axios.put(`https://fafifu-backend-api.herokuapp.com/v1/offer/${param.id}`, postData, {
+        axios.put(`https://api-fafifu-secondhand.herokuapp.com/v1/offer/${param.id}`, postData, {
         headers: {
           Authorization: localStorage.getItem('jwtToken')
         },
       })
       .then ( res => 
-        console.log(res),
-        console.log('BERHASIL MENJUAL BARANG'),
         setStatus(buttonStatus)
       )
       .catch ( err =>
-        console.log('GAGAL MENJUAL BARANG.')
+        console.log(err)
       )
-      console.log('status yg dipilih:', status)
       modalStatusShow(false)
     }
 

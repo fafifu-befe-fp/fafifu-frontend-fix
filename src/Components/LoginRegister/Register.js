@@ -23,7 +23,7 @@ const Register = () => {
     };
     axios
       .post(
-        "https://fafifu-backend-api.herokuapp.com/v1/auth/register",
+        "https://api-fafifu-secondhand.herokuapp.com/v1/auth/register",
         postData
       )
       .then((res) => {
@@ -47,7 +47,6 @@ const Register = () => {
               success: false,
               message: pesanError,
             },
-            console.log(pesanError)
           );
         } else {
           setRegStatus({

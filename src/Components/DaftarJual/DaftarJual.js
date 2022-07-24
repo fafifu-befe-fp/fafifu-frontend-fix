@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AiOutlineHeart, AiOutlineStar } from 'react-icons/ai'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { BsBox } from 'react-icons/bs'
 import { FiDollarSign } from 'react-icons/fi'
-import { useDropzone } from 'react-dropzone';
-import axios from "axios";
-import Card from './DaftarJualCard';
 import style from './DaftarJual.module.css'
 import Navbar from '../Navbar/Navbar';
-import Semua from './Semua'
 import { Link, Outlet } from 'react-router-dom'
 
 const DaftarJual = () => {

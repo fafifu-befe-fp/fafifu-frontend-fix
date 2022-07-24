@@ -56,7 +56,7 @@ const FormAddProduct = () => {
     
     return (
         <>
-        <form onSubmit={ handleSubmit(formSubmitHandler)} className={`mb-8`}>
+        <form onSubmit={ handleSubmit(formSubmitHandler) }>
             <div className="col-sm-12 mb-3 col-md-12">
                 <label className="form-label">Nama Produk</label>
                 <input type="text" className="form-control" id="Nama Produk" placeholder='Nama Produk' {...register('name', {required: true})} autoComplete="true"/>
@@ -87,10 +87,10 @@ const FormAddProduct = () => {
             {/* <div className="col-sm-12 mb-3 col-md-12 d-none">
                 <input {...register('image', {required: true})} type="file" />
             </div> */}
-            <div className='button__wrap d-flex justify-content-center'>
+            <button type="submit" className={`${style.buttonTerbitkan} col-6 mt-3`}>Terbitkan</button>
+            {/* <div className='button__wrap d-flex justify-content-center'>
                 <button className={`${style.buttonPreview} col-6 mt-3 me-2`}>Preview</button>
-                <button type="submit" className={`${style.buttonTerbitkan} col-6 mt-3`}>Terbitkan</button>
-            </div>
+            </div> */}
             
         </form>
 

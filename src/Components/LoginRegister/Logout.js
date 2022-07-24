@@ -14,6 +14,7 @@ const Logout = () => {
   localStorage.removeItem('sessionImage')
   localStorage.removeItem('sessionAddress')
   localStorage.removeItem('sessionPhone')
+  
   // Mengupdate user store jadi NULL
   dispatch( userSlice.actions.removeUser() )
 

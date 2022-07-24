@@ -1,5 +1,4 @@
 import React from 'react'
-import { BsWhatsapp } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 import './Styles/Match.css'
 

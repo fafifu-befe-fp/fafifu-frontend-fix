@@ -16,9 +16,8 @@ const InfoProduk = () => {
   const [productsProfile, setProductsProfile] = useState(null)
 
   useEffect(() => {
-    axios.get(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`)
+    axios.get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}`)
     .then((res) => {
-      console.log('ini res:', res.data.data)
       setProductsProfile(res.data.data)
     })
   },[])

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { IoMdArrowBack } from 'react-icons/io'
-import { BsWhatsapp } from 'react-icons/bs'
 import { GoPrimitiveDot } from 'react-icons/go'
-import { useDropzone } from 'react-dropzone';
-import { IoMdClose } from 'react-icons/io'
 import style from './Notification.module.css'
-import { Modal, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import axios from "axios";
 import NumberFormat from 'react-number-format';
@@ -18,7 +14,7 @@ const Notification = () => {
       
     useEffect(() => {
         axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/notification/all`, {
+            .get(`https://api-fafifu-secondhand.herokuapp.com/v1/notification/all`, {
                 headers: {
                     Authorization: localStorage.getItem('jwtToken'),
                 },
@@ -32,7 +28,6 @@ const Notification = () => {
             });           
 
     }, []);
-    console.log('ini offer list: ', offerList)
     
     const ref = useRef(null);
   
@@ -40,7 +35,7 @@ const Notification = () => {
       if (localStorage.getItem("jwtToken")) {
         axios
           .get(
-            `https://fafifu-backend-api.herokuapp.com/v1/notification/all?status=${event.currentTarget.id}`,
+            `https://api-fafifu-secondhand.herokuapp.com/v1/notification/all?status=${event.currentTarget.id}`,
             {
               headers: {
                 Authorization: localStorage.getItem("jwtToken"),
@@ -48,7 +43,6 @@ const Notification = () => {
             }
           )
           .then((res) => {
-            console.log('ini ress', res)
             setOfferList(res.data.data);
           })
           .catch((err) => {
@@ -57,7 +51,7 @@ const Notification = () => {
       } else {
         axios
           .get(
-            `https://fafifu-backend-api.herokuapp.com/v1/notification/all?status=${event.currentTarget.id}`,
+            `https://api-fafifu-secondhand.herokuapp.com/v1/notification/all?status=${event.currentTarget.id}`,
           )
           .then((res) => {
             setOfferList(res.data.data);
@@ -96,7 +90,7 @@ const Notification = () => {
                                     onClick={
                                         (() => {
                                             axios
-                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                .post(`https://api-fafifu-secondhand.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
                                                 {
                                                     headers: {
                                                         Authorization: localStorage.getItem("jwtToken"),
@@ -155,7 +149,7 @@ const Notification = () => {
                                     onClick={
                                         (() => {
                                             axios
-                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                .post(`https://api-fafifu-secondhand.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
                                                 {
                                                     headers: {
                                                         Authorization: localStorage.getItem("jwtToken"),
@@ -208,7 +202,7 @@ const Notification = () => {
                                     onClick={
                                         (() => {
                                             axios
-                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                .post(`https://api-fafifu-secondhand.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
                                                 {
                                                     headers: {
                                                         Authorization: localStorage.getItem("jwtToken"),
@@ -261,7 +255,7 @@ const Notification = () => {
                                     onClick={
                                         (() => {
                                             axios
-                                                .post(`https://fafifu-backend-api.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
+                                                .post(`https://api-fafifu-secondhand.herokuapp.com/v1/notification/${offerLists.publicId}/read`, {},
                                                 {
                                                     headers: {
                                                         Authorization: localStorage.getItem("jwtToken"),

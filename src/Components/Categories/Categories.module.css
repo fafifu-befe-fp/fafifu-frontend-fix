@@ -109,6 +109,26 @@
     min-height: 60vh;
 }
 
+/* button Sort */
+
+.homepageSort{
+    background: #E2D4F0;
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    cursor: pointer;
+}
+
+.homepageSort::-ms-expand {
+    display: none;
+}
+
 /* commaText */
 
 .commaText ~ .commaText:not(:empty):before {
