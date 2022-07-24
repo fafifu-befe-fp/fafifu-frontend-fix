@@ -7,6 +7,7 @@ import {useRef} from 'react';
 import { Link } from 'react-router-dom'
 import NumberFormat from 'react-number-format';
 import { useForm } from 'react-hook-form'
+import { RiArrowDownSLine } from 'react-icons/ri'
 
 // const API_URL = process.env.REACT_APP_API_URL
 
@@ -145,6 +146,14 @@ const Category = () => {
             </button>
           </form>
           <div className={`d-flex flex-row m-3 overflow-auto`}>
+            <select name="sort" id="homepageSort" className={`${style.homepageSort} m-2`}><RiArrowDownSLine className={'text-dark'}/>
+              <option selected disabled>Sort</option>
+              <option value="default">Default</option>
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="expensive">Expensive</option>
+              <option value="cheap">Cheap</option>
+            </select>
             <button type='button' ref={ref} onClick={filterCategory} className={`${style.btn} ${style.btnActive} m-2`}><FiSearch className={'fi m-1'}/>Semua</button>
             <button type='button' ref={ref} onClick={filterCategory} id="1" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Hobi</button>
             <button type='button' ref={ref} onClick={filterCategory} id="2" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Kendaraan</button>
