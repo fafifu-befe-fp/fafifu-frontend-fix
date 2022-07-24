@@ -114,7 +114,7 @@ const FormAdd = (props) => {
     if (action === "publish") {
       try {
         await
-          axios.post("https://fafifu-backend-api.herokuapp.com/v1/product/", formData, {
+          axios.post("https://api-fafifu-secondhand.herokuapp.com/v1/product/", formData, {
             headers: {
               "content-type": "multipart/form-data",
             },

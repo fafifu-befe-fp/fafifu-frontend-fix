@@ -17,7 +17,6 @@ const BuyerTerjual = (props) => {
 
   const [ isWishlist, setIsWishlist ] = useState(props.products.status.wishlist)
   let [ isTawar, setIsTawar ] = useState(props.products.status.offer)
-  console.log('status tawar=', isTawar)
 
   const [ wishlistStatus, setWishlistStatus ] = useState({
       success: false,
@@ -26,15 +25,13 @@ const BuyerTerjual = (props) => {
 
   const formDeleteHandler = () => {
     setIsWishlist(!isWishlist);
-    console.log('ini header ', localStorage.getItem('jwtToken'))
-    axios.delete(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {
+    axios.delete(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}/wishlist`, {
       headers: {
         Authorization: localStorage.getItem('jwtToken')
       },
     })
     .then ( res => 
-      console.log(res),
-      console.log('BERHASIL MENGHAPUS')
+      console.log(res)
     )
     .catch ( err =>
       setWishlistStatus({
@@ -46,15 +43,13 @@ const BuyerTerjual = (props) => {
 
   const formSubmitHandler = () => {
     setIsWishlist(!isWishlist);
-    console.log('ini header ', localStorage.getItem('jwtToken'))
-    axios.post(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
+    axios.post(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
       headers: {
         Authorization: localStorage.getItem('jwtToken')
       },
     })
     .then ( res => 
-      console.log(res),
-      console.log('BERHASIL MENAMBAH')
+      console.log(res)
     )
     .catch ( err =>
       setWishlistStatus({

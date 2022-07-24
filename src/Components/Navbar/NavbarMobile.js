@@ -41,8 +41,6 @@ const NavbarMobile = () => {
                     <Link to='/profile/semua' className={` ${style.linkText} text-decoration-none`}><FiUser className={`${style.fiUser} me-3`}/>Profil</Link>
                 </li> }
                 
-                
-
                 { user !== null && <li className='nav-item'>
                     <button type="submit" className={`${style.buttonLogout}`}>
                     <FiLogIn className='me-1'/>

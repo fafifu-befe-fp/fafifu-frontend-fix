@@ -10,7 +10,7 @@ const Wishlist = () => {
         
         useEffect(() => {
             axios
-                .get(`https://fafifu-backend-api.herokuapp.com/v1/product/wishlist`, {
+                .get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/wishlist`, {
                     headers: {
                         Authorization: localStorage.getItem('jwtToken'),
                     },

@@ -10,7 +10,7 @@ const Form = () => {
     const [settingProfile, setSettingProfile] = useState()
     useEffect(() => {
         axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/user`, {
+            .get(`https://api-fafifu-secondhand.herokuapp.com/v1/user`, {
                 headers: {
                     Authorization: localStorage.getItem('jwtToken'),
                 },
@@ -47,7 +47,7 @@ const Form = () => {
     //     password: data.password
     //     }
 
-    //     axios.post('https://fafifu-backend-api.herokuapp.com/v1/auth/login', postData )
+    //     axios.post('https://api-fafifu-secondhand.herokuapp.com/v1/auth/login', postData )
     //     .then( res => {
     //     if ( typeof res.data.data.token != 'undefined' ) {
     //         localStorage.setItem('jwtToken', res.data.data.token)
@@ -71,7 +71,7 @@ const Form = () => {
 
   return (
     // <form onSubmit={ handleSubmit(formSubmitHandler) }>
-    <form>
+    <form className={`mb-8`}>
         <section className="container d-block">
             <div {...getRootProps({className: 'dropzone disabled'})} className={`d-flex justify-content-center rounded ${style.xGatau}`}>
                 <input {...getInputProps()} />

@@ -10,7 +10,7 @@ const Diminati = () => {
         
     useEffect(() => {
         axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/offer`, {
+            .get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/offer`, {
                 headers: {
                     Authorization: localStorage.getItem('jwtToken'),
                 },
@@ -18,13 +18,11 @@ const Diminati = () => {
             .then((res) => {
                 setStatusCode(res.status);
                 setProductsDiminati(res.data.data);
-                console.log('list product/OFFER awal: ', productsDiminati)
             })
             .catch((err) => {
                 setStatusCode(err.response.status);
                 setProductsDiminati(err.response.data.message);
-            }); 
-            console.log('list product/OFFER akir: ', productsDiminati)
+            });
 
     }, []);
 
