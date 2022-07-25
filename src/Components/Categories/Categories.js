@@ -286,8 +286,7 @@ const Category = () => {
           </form>
           <div className={`d-flex flex-row m-3 overflow-auto`}>
             <select onChange={filterSort} className={`${style.homepageSort} m-2`}>
-              <RiArrowDownSLine className={'text-dark'}/>
-              <option disabled  selected ref={ref} value="">Sort</option>
+              <option disabled  selected ref={ref} value=""><RiArrowDownSLine className={'text-dark'}/>Sort</option>
               <option ref={ref} value="1" id="1">Latest</option>
               <option ref={ref} value="2" id="2">Oldest</option>
               <option ref={ref} value="3" id="3">Cheap</option>

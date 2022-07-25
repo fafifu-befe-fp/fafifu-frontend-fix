@@ -66,7 +66,7 @@ const Notification = () => {
     return (
         <div className={'container-fluid'}>
             <div className={'row mt-4 d-flex justify-content-center'}>
-                <div className={'col-sm-6 col-md-12 col-lg-8 forminfo'}>
+                <div className={'col-12 col-md-12 col-lg-8 forminfo'}>
                 <Link to="/" className={`text-decoration-none text-dark`}><IoMdArrowBack size={20} className={`${style.backlogo}`}/>Kembali</Link>
                 
                 {/* Button Kategori Notifikasi */}
