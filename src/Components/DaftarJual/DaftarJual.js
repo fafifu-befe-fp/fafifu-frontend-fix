@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineHeart, AiOutlineStar } from 'react-icons/ai'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { BsBox } from 'react-icons/bs'
+import axios from 'axios'
 import { FiDollarSign } from 'react-icons/fi'
 import style from './DaftarJual.module.css'
 import Navbar from '../Navbar/Navbar';
@@ -10,10 +11,28 @@ import { Link, Outlet } from 'react-router-dom'
 const DaftarJual = () => {
 
     const [ isActive, setIsActive ] = useState(false)
+    
+    const [name, setName] = useState()
+    const [city, setCity] = useState()
+    const [image, setImage] = useState()
 
     const handleStyle = () => {
         setIsActive( current => !current )
     }
+
+    useEffect(() => {
+        axios
+            .get(`https://api-fafifu-secondhand.herokuapp.com/v1/user`, {
+                headers: {
+                    Authorization: localStorage.getItem('jwtToken'),
+                },
+            })
+            .then((res) => {
+                setName(res.data.data.name);
+                setCity(res.data.data.city);
+                setImage(res.data.data.imageUrl);
+            })         
+    }, []);
     
   return (
     <>
@@ -28,16 +47,16 @@ const DaftarJual = () => {
                     <div className={"row d-flex flex-row shadow rounded p-3"}>
                         <img 
                             className={`col-auto p-0 m-0 d-flex justify-content-center align-items-center h-auto me-3 shadow ${style.profilePhoto}`} 
-                            src={localStorage.getItem('sessionImage')}
+                            src={image ? image : '/img/imagena.png'}
                             alt='Penjual'
                         />
                         <div className={"col d-flex flex-row justify-content-between align-items-center p-0 m-0"}>
                             <div className={"col-auto"}>
                                 <div>
-                                    {localStorage.getItem('sessionName')}
+                                    {name}
                                 </div>
                                 <div className={`${style.kota}`}>
-                                    {localStorage.getItem('sessionCity')}
+                                    {city}
                                 </div>
                             </div>
                             <div className={"col-auto"}>

@@ -26,6 +26,7 @@ const InfoProdukBuyer = () => {
         )
         .then((res) => {
           setProducts(res.data.data);
+          console.log('ini productss: ', res.data.data)
         });
     } else {
       axios

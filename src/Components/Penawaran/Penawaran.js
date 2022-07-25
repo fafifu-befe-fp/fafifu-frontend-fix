@@ -120,7 +120,11 @@ const Penawaran = (props) => {
                                 <div className={`row d-flex flex-row shadow py-3 px-1 mt-3 rounded ${style.containerInfo}`}>
                                     <div className={"d-flex flex-row"}>
                                         <div className={"col-auto"}>
-                                            <img className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} src={offers.product.imageUrl} alt=''/>
+                                            <img 
+                                                className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} 
+                                                src={offers.product.imageUrl ? offers.product.imageUrl : '/img/imagena.png'} 
+                                                alt=''
+                                            />
                                         </div>
                                         <div className={"col-10 mx-3"}>
                                             <div className={"d-flex justify-content-between w-100"}>
@@ -244,7 +248,11 @@ const Penawaran = (props) => {
                                                     </div>
                                                     <div className={"d-flex flex-row py-2 px-1"}>
                                                         <div className={"col-auto p-0 me-2"}>
-                                                            <img className={"col-auto p-0 m-0 h-auto"} src='img/Picture.svg' alt=''/>
+                                                            <img 
+                                                                className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} 
+                                                                src={offers.buyer.imageUrl} 
+                                                                alt=''
+                                                            />
                                                         </div>
                                                         <div className={`${style.text}`}>
                                                             <div>
@@ -257,7 +265,11 @@ const Penawaran = (props) => {
                                                     </div>
                                                     <div className={`d-flex flex-row py-2 px-1 ${style.dataContainer} overflow-auto `}>
                                                         <div className={"col-auto p-0 me-2"}>
-                                                            <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
+                                                            <img 
+                                                                className={`col-auto p-0 m-0 h-auto ${style.profilePhoto}`} 
+                                                                src={offers.product.imageUrl ? offers.product.imageUrl : '/img/imagena.png'} 
+                                                                alt=''
+                                                            />
                                                         </div>
                                                         <div className={`col-auto ${style.text}`}>
                                                             <div className={``}>
@@ -356,56 +368,6 @@ const Penawaran = (props) => {
                 </div>
             }
         </>
-    )
-}
-
-function Tawar(props) {
-    return (
-        <Modal
-            {...props}
-            size="sm"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-        <Modal.Header closeButton/>
-        <Modal.Body>
-            <div className={"d-flex flex-column justify-content-center align-items-center my-2"}>
-                <div className={"d-flex flex-column my-2"}>
-                    <p className={"px-2 mb-2 font-weight-bold"}>
-                        Masukkan Harga Tawarmu
-                    </p>
-                    <p className={"px-2 mb-2"}>
-                        Harga tawaranmu akan diketahui penual, jika penjual cocok kamu akan segera dihubungi penjual.
-                    </p>
-                    <div className={"row data-container d-flex flex-row py-2 px-1 mx-0 mb-3 rounded justify-content-center align-items-center w-100 p-3"}>
-                        <div className={"text-center"}/>
-                        <div className={`d-flex flex-row py-2 px-1 ${style.photoDetailContainer}`}>
-                            <div className={"col-auto px-2"}>
-                                <img className={"col-auto p-0 m-0 h-auto"} src='img/Produk.svg' alt=''/>
-                            </div>
-                            <div className={`col-auto ${style.photoDetailText}`}>
-                                <div>
-                                    Jam Tangan Casio
-                                </div>
-                                <div>
-                                    Rp. 250.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <form>
-                        <div class={"form-group"}>
-                            <label className={`mb-2 ${style.hargaTawarText}`}for="exampleInputEmail1">Harga Tawar</label>
-                            <input type="email" className={"form-control mb-4"} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                        </div>
-                        <button type="submit" className={`col-4 btn ${style.buttonKirim} w-100`}>
-                            Kirim
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </Modal.Body>
-        </Modal>
     )
 }
 

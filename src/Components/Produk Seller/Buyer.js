@@ -1,8 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import style from './product.module.css'
 import NumberFormat from 'react-number-format';
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Buyer = (props) => {
+  const param = useParams()
+  const [ isPublished, setIsPublished ] = useState(props.productsProfile.status.published)
+
+  const handlePublish = () => {
+    axios.put(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}/publish`, {}, {
+      headers: {
+        Authorization: localStorage.getItem('jwtToken')
+      },
+    })
+    .then ( (res) => {
+      setIsPublished(true);
+      console.log(res)
+    })
+    .catch ( err =>
+      console.log(err)
+    )
+  }
 
   return (
     <div className={`card w-100 ${style.cardProductBuyer} mb-4`}>
@@ -20,7 +39,16 @@ const Buyer = (props) => {
         <h5 className={`${style.hargaBarang}`}>
           <NumberFormat value={props.productsProfile.price} displayType={'text'} thousandSeparator={"."} decimalSeparator={","} prefix={'Rp '} />
         </h5>
-        <button type="submit" class={`${style.buttonsimpan} w-100 text-white mb-3 mt-3`}>Terbitkan</button>
+        {
+          (localStorage.getItem('jwtToken') && (isPublished === false)) &&
+            <button 
+              type="submit" 
+              class={`${style.buttonsimpan} w-100 text-white mb-3 mt-3`}
+              onClick={handlePublish}
+            >
+              Terbitkan
+            </button>
+        }
         <button type="submit" class={`${style.buttonedit} w-100 mb-3 `}>Edit</button>
       </div>
     </div>
