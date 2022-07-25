@@ -114,6 +114,41 @@ const Category = () => {
         });
     }
   };
+  
+  const filterSort = (event) => {
+    if (localStorage.getItem("jwtToken")) {
+      axios
+        .get(
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product?sort=${event.currentTarget.value}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("jwtToken"),
+            },
+          }
+        )
+        .then((res) => {
+          setSearch(event);
+          setProducts(res.data.data);
+          setStatusCode(res.status);
+        })
+        .catch((err) => {
+          setStatusCode(err.response.status);
+        });
+    } else {
+      axios
+        .get(
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product?sort=${event.currentTarget.value}`
+        )
+        .then((res) => {
+          setSearch(event);
+          setProducts(res.data.data);
+          setStatusCode(res.status);
+        })
+        .catch((err) => {
+          setStatusCode(err.response.status);
+        });
+    }
+  };
 
   return (
     <div className={`container ${style.categoryContainer}`}>
@@ -133,13 +168,13 @@ const Category = () => {
             
           </form>
           <div className={`d-flex flex-row m-3 overflow-auto`}>
-            <select name="sort" id="homepageSort" className={`${style.homepageSort} m-2`}><RiArrowDownSLine className={'text-dark'}/>
-              <option selected disabled>Sort</option>
-              <option value="default">Default</option>
-              <option value="latest">Latest</option>
-              <option value="oldest">Oldest</option>
-              <option value="expensive">Expensive</option>
-              <option value="cheap">Cheap</option>
+            <select onChange={filterSort} className={`${style.homepageSort} m-2`}>
+              <RiArrowDownSLine className={'text-dark'}/>
+              <option disabled  selected ref={ref} value="">Sort</option>
+              <option ref={ref} value="1" id="1">Latest</option>
+              <option ref={ref} value="2" id="2">Oldest</option>
+              <option ref={ref} value="3" id="3">Cheap</option>
+              <option ref={ref} value="4" id="4">Expensive</option>
             </select>
             <button type='button' ref={ref} onClick={filterCategory} className={`${style.btn} ${style.btnActive} m-2`}><FiSearch className={'fi m-1'}/>Semua</button>
             <button type='button' ref={ref} onClick={filterCategory} id="1" className={`${style.btn} m-2`}><FiSearch className={'fi m-1'}/>Hobi</button>

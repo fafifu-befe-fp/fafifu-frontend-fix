@@ -3,7 +3,7 @@ import style from './product.module.css'
 
 const Seller = (props) => {
   return (
-    <div className={`card w-100 ${style.cardSeller}`}>
+    <div className={`card h-auto w-100 ${style.cardSeller}`}>
         <div className='card-body'>
             <div className='row mt-1'>
                 <div className={`col-3 border rounded`}>
