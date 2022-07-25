@@ -43,8 +43,7 @@ const DaftarJual = () => {
                     <h4 className={`${style.daftarJualSaya} my-3 font-weight-bold`}>
                         Daftar Jual Saya
                     </h4>
-                    {/* <IoMdArrowBack className={'backlogo mt-2'} size={20} /> */}
-                    <div className={"row d-flex flex-row shadow rounded p-3"}>
+                    <div className={"row d-flex flex-column flex-sm-row shadow rounded p-3"}>
                         <img 
                             className={`col-auto p-0 m-0 d-flex justify-content-center align-items-center h-auto me-3 shadow ${style.profilePhoto}`} 
                             src={image ? image : '/img/imagena.png'}
@@ -59,10 +58,15 @@ const DaftarJual = () => {
                                     {city}
                                 </div>
                             </div>
-                            <div className={"col-auto"}>
+                            <div className={"col-auto d-flex flex-column flex-md-row"}>
+                                <Link to="/add" className='text-decoration-none'>
+                                    <button type="button" className={`btn ${style.addProductButton} d-flex justify-content-center align-items-center`}>
+                                        Tambah Produk
+                                    </button>
+                                </Link>
                                 <Link to="/info" className='text-decoration-none'>
                                     <button type="button" className={`btn ${style.editButton} d-flex justify-content-center align-items-center`}>
-                                        Edit
+                                        Edit Profile
                                     </button>
                                 </Link>
                             </div>

@@ -8,8 +8,29 @@
     font-size: 20px;
     line-height: 30px;
 }
+
+.addProductButton{
+    width: 130px;
+    height: 30px;
+    border: 1px solid #7126B5;
+    background-color: white;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.addProductButton:hover{
+    border: 1px solid #7126B5;
+    background-color: var(--hovercolor);
+    color: white;
+}
+
 .editButton{
-    width: 50px;
+    width: 100px;
     height: 30px;
     border: 1px solid #7126B5;
     background-color: white;
