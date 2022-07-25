@@ -8,7 +8,6 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 
-
 const InfoProdukBuyer = () => {
 
   const param = useParams()
@@ -18,7 +17,7 @@ const InfoProdukBuyer = () => {
     if (localStorage.getItem("jwtToken")) {
       axios
         .get(
-          `https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`,
+          `https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}`,
           {
             headers: {
               Authorization: localStorage.getItem("jwtToken"),
@@ -27,16 +26,16 @@ const InfoProdukBuyer = () => {
         )
         .then((res) => {
           setProducts(res.data.data);
+          console.log('ini productss: ', res.data.data)
         });
     } else {
       axios
-        .get(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}`)
+        .get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}`)
         .then((res) => {
           setProducts(res.data.data);
         });
     }
   }, []);
-  console.log('ini product buyers: ', products)
 
   return (
     <>

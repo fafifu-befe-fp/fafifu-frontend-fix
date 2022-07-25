@@ -42,22 +42,6 @@ function App() {
   } catch {
     
   }
-  
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  
-  // if ( (localStorage.getItem('jwtToken')) 
-  //   && (localStorage.getItem('sessionImage')) 
-  //   && (localStorage.getItem('sessionCity')) 
-  //   ) {
-  //     // lancar
-  // } else {
-  //   <Navigate to='/info' />
-  // }
-
-  // console.log('token: ', localStorage.getItem('jwtToken'))
-  // console.log('Image: ', localStorage.getItem('sessionImage'))
-  // console.log('City: ', localStorage.getItem('sessionCity'))
 
   return (
     <BrowserRouter>
@@ -72,7 +56,6 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="/logout" element={<Logout/>}/>
-        
        
         {/* Protected */}
         <Route path="/" element={<Protected />}>
@@ -99,7 +82,6 @@ function App() {
           <Route path="/add" element={<AddProduct />} />
         </Route>
       </Routes>
-      {/* <Route path="/floatbutton" element={<FloatButton />} /> */}
     </BrowserRouter>
     
   );

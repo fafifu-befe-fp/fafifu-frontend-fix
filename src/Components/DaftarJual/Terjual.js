@@ -10,7 +10,7 @@ const Terjual = () => {
         
         useEffect(() => {
             axios
-                .get(`https://fafifu-backend-api.herokuapp.com/v1/product/user/sold`, {
+                .get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/user/sold`, {
                     headers: {
                         Authorization: localStorage.getItem('jwtToken'),
                     },
@@ -23,7 +23,6 @@ const Terjual = () => {
                     setStatusCode(err.response.status);
                     setProductsTerjual(err.response.data.message);
                 });
-                console.log('iniprodukterjual', productsTerjual)
     }, []);
 
     if (statusCode === 404) {

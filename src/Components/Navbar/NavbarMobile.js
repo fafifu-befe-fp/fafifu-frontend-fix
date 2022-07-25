@@ -38,11 +38,9 @@ const NavbarMobile = () => {
                     <Link to='/notification' className={` ${style.linkText} text-decoration-none`}><MdNotificationsNone className={`${style.mdNotif} me-3`}/>Notifikasi</Link>
                 </li> }
                 { user !== null && <li className='nav-item mb-3'>
-                    <Link to='/profile/semua' className={` ${style.linkText} text-decoration-none`}><FiUser className={`${style.fiUser} me-3`}/>Profil</Link>
+                    <Link to='/info' className={` ${style.linkText} text-decoration-none`}><FiUser className={`${style.fiUser} me-3`}/>Profil</Link>
                 </li> }
                 
-                
-
                 { user !== null && <li className='nav-item'>
                     <button type="submit" className={`${style.buttonLogout}`}>
                     <FiLogIn className='me-1'/>

@@ -5,19 +5,34 @@ import style from './product.module.css'
 const CarouselCard = (props) => {
     return (
         <>
-            <Carousel className={`mb-4`}>
-                {props.productsProfile.imageUrl.map((productImages) => {
-                    return(
+            {
+                (props.productsProfile.imageUrl.length > 0) &&
+                    <Carousel className='mb-4'>
+                        {props.productsProfile.imageUrl.map((productImages) => {
+                            return(
+                                <Carousel.Item>
+                                    <img
+                                        className={`d-block ${style.imgCarousel}`}
+                                        src={productImages}
+                                        alt="First slide"
+                                    />
+                                </Carousel.Item>
+                            )
+                        })}
+                    </Carousel>
+            }
+            {
+                (props.productsProfile.imageUrl.length == 0) &&
+                    <Carousel className='mb-4'>
                         <Carousel.Item>
                             <img
                                 className={`d-block ${style.imgCarousel}`}
-                                src={productImages}
+                                src='/img/imagena.png'
                                 alt="First slide"
                             />
                         </Carousel.Item>
-                    )
-                })}
-            </Carousel>
+                    </Carousel>
+            }
         </>
     )
 }

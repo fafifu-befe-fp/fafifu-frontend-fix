@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import style from './product.module.css'
 import styleTawar from './modalTawar.module.css'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { AiFillStar } from 'react-icons/ai';
 import { useParams } from 'react-router-dom'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import NumberFormat from 'react-number-format';
 
@@ -17,7 +17,6 @@ const Buyer = (props) => {
 
   const [ isWishlist, setIsWishlist ] = useState(props.products.status.wishlist)
   let [ isTawar, setIsTawar ] = useState(props.products.status.offer)
-  console.log('status tawar=', isTawar)
 
   const [ wishlistStatus, setWishlistStatus ] = useState({
       success: false,
@@ -26,15 +25,13 @@ const Buyer = (props) => {
 
   const formDeleteHandler = () => {
     setIsWishlist(!isWishlist);
-    console.log('ini header ', localStorage.getItem('jwtToken'))
-    axios.delete(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {
+    axios.delete(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}/wishlist`, {
       headers: {
         Authorization: localStorage.getItem('jwtToken')
       },
     })
     .then ( res => 
-      console.log(res),
-      console.log('BERHASIL MENGHAPUS')
+      console.log(res)
     )
     .catch ( err =>
       setWishlistStatus({
@@ -46,15 +43,13 @@ const Buyer = (props) => {
 
   const formSubmitHandler = () => {
     setIsWishlist(!isWishlist);
-    console.log('ini header ', localStorage.getItem('jwtToken'))
-    axios.post(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
+    axios.post(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}/wishlist`, {}, {
       headers: {
         Authorization: localStorage.getItem('jwtToken')
       },
     })
     .then ( res => 
-      console.log(res),
-      console.log('BERHASIL MENAMBAH')
+      console.log(res)
     )
     .catch ( err =>
       setWishlistStatus({
@@ -72,20 +67,17 @@ const Buyer = (props) => {
     const postData = {
       price: data.price
     }
-
-    console.log('ini header ', localStorage.getItem('jwtToken'))
-      axios.post(`https://fafifu-backend-api.herokuapp.com/v1/product/${param.id}/offer`, postData, {
+      axios.post(`https://api-fafifu-secondhand.herokuapp.com/v1/product/${param.id}/offer`, postData, {
       headers: {
         Authorization: localStorage.getItem('jwtToken')
       },
     })
     .then ( res => 
       console.log(res),
-      console.log('BERHASIL MENAWAR'),
       setIsTawar(true)
     )
     .catch ( err =>
-      console.log('GAGAL MENAWAR.')
+      console.log(err)
     )
     modalTawarShow(false)
   }
@@ -123,7 +115,6 @@ const Buyer = (props) => {
         </h5>
 
         {/* CONDITIONAL */}
-        
         {
           (localStorage.getItem('jwtToken') && (props.products.status.sold === true)) &&
             <button type="submit" 

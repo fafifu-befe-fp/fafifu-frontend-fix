@@ -9,9 +9,6 @@ import { useSelector } from 'react-redux'
 const NavbarDesktop = () => {
 
   const user = useSelector( store => store.user.data )
-
-  console.log('USER', user)
-
   return (
     <div className='container d-lg-flex align-items-center justify-content-center d-none'>
         <Link className={`${style.logoKotak} navbar-brand`} to='/'>
@@ -29,7 +26,7 @@ const NavbarDesktop = () => {
             </button> }
 
             {/* Protected */}
-            { user !== null && <Link to='/'>
+            { user !== null && <Link to='/profile/semua'>
               <AiOutlineUnorderedList className={`${style.aiOutline} me-3`}/>
             </Link> }
 
@@ -37,7 +34,7 @@ const NavbarDesktop = () => {
               <MdNotificationsNone className={`${style.mdNotif} me-3`}/>
             </Link> }
 
-            { user !== null &&  <Link to='/profile/semua'>
+            { user !== null &&  <Link to='/info'>
               <FiUser className={`${style.fiUser} me-3`}/>      
             </Link> }    
             

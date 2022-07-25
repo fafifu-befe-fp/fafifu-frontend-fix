@@ -11,7 +11,7 @@ const Semua = () => {
       
     useEffect(() => {
         axios
-            .get(`https://fafifu-backend-api.herokuapp.com/v1/product/user/${localStorage.getItem('sessionId')}`, {
+            .get(`https://api-fafifu-secondhand.herokuapp.com/v1/product/user/${localStorage.getItem('sessionId')}`, {
                 headers: {
                     Authorization: localStorage.getItem('jwtToken'),
                 },
@@ -24,7 +24,6 @@ const Semua = () => {
                 setStatusCode(err.response.status);
                 setProductsProfile(err.response.data.message);
             });
-            console.log('list semua: ', productsProfile)
     }, []);
 
     if (statusCode === 404) {
