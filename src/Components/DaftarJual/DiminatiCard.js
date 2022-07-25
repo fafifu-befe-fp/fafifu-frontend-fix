@@ -5,7 +5,11 @@ import NumberFormat from 'react-number-format';
 const DiminatiCard = (props) => {
   return (
     <div className={`col-3 p-2 mx-2 mb-3 ${style.cardProductDiminati}`}>
-        <img className={`${style.imgProduct}`} src={props.productDiminati.imageUrl} alt="Card image" />
+        <img 
+            className={`${style.imgProduct}`}
+            src={props.productDiminati.imageUrl ? props.productDiminati.imageUrl : '/img/imagena.png'}
+            alt="Card image"
+        />
         <h5 className={`card-title mt-2 ${style.cardTitle}`}>{props.productDiminati.name}</h5>
         <div className={`card-text ${style.cardCategory} d-flex flex-row flex-wrap`}>
             {props.productDiminati.category.map((productCategory) => {
